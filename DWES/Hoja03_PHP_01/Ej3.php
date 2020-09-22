@@ -7,13 +7,13 @@
 </head>
 <body>
     <?php
-        $numero = 343;
+        $numero = 343343;
         $inverso = 0;
         $aux = $numero;
-        while ($aux != 0) { // BUCLE INFINITO
-            $resto = $numero % 10;
+        while ($aux != 0) {
+            $resto = $aux % 10;
             $inverso = $inverso * 10 + $resto;
-            $aux = (int) ($numero / 10);
+            $aux = (int) ($aux / 10);
         }
 
         if ($numero == $inverso) {
@@ -22,7 +22,7 @@
             print "El numero no es capicua";
         }
 
-
+        // Empece a hacer substrings pero me quede a medias porque no sabia usar la funcion
         // $longitud = strlen($numero);
         // $i = 0;
         // $j = $longitud;
