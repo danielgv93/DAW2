@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 1</title>
+    <title>Ejercicio 2</title>
 </head>
 <body>
     <?php
-        print (date("d-m-Y"));
+        $nDias = 3;
+        $fecha = date("d-m-Y", strtotime("-$nDias day"));
+        print $fecha;
     ?>
 </body>
 </html>
