@@ -9,10 +9,13 @@
 
 <body>
     <?php
-    $numero = 4;
-    $factorialTotal = 0;
+    $numero = 6;
+    $factorialTotal = $numero;
     for ($i = $numero; $i > 0; $i--) {
-        $factorialTotal = $i * ($i - 1);
+        if ($i == 1) {
+            break;
+        }
+        $factorialTotal *= ($i - 1);
     }
     print $factorialTotal;
     ?>
