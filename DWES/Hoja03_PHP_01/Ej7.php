@@ -9,7 +9,12 @@
 
 <body>
     <?php
+    $numerador = 1;
+    $denominador = 2;
 
+    for ($i = 0; $i < 10; $i++) {
+        # code...
+    }
     ?>
 </body>
 
