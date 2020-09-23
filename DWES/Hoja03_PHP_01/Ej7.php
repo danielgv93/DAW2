@@ -13,7 +13,9 @@
     $denominador = 2;
 
     for ($i = 0; $i < 10; $i++) {
-        # code...
+        print $numerador / $denominador . "<br>";
+        $numerador++;
+        $denominador *= 2;
     }
     ?>
 </body>
