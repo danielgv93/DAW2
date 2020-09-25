@@ -9,7 +9,12 @@
 
 <body>
     <?php
-
+        include_once "funcion.php";
+        $number = 324225;
+        print "Numero inicial: $number <br>";
+        print "NºDigitos ".contarDigitos($number)."<br>";
+        print capicua($number)."<br>";
+        print redondear($number);
     ?>
 </body>
 
