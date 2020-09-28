@@ -9,30 +9,15 @@
     <?php
     $totalEuros = 7.38;
     $restoEuros = $totalEuros;
-    $arrayMonedas = array();
-    $arrayMonedas["2E"] = (int)($totalEuros / 2);
-    $restoEuros -= $arrayMonedas["2E"] * 2;
 
-    $arrayMonedas["1E"] = (int)($restoEuros);
-    $restoEuros -= $arrayMonedas["1E"];
+    $plantillaMonedas = array("2E" => 2, "1E" => 1, 
+    "50c" => 0.5, "20c" => 0.2, "10c" => 0.1,  "5c" => 0.05, "2c" => 0.02, 
+    "1c" => 0.01);
 
-    $arrayMonedas["50c"] = (int)($restoEuros / 0.5);
-    $restoEuros -= $arrayMonedas["50c"] * 0.5;
-
-    $arrayMonedas["20c"] = (int)($restoEuros / 0.2);
-    $restoEuros -= $arrayMonedas["20c"] * 0.2;
-
-    $arrayMonedas["10c"] = (int)($restoEuros / 0.1);
-    $restoEuros -= $arrayMonedas["10c"] * 0.1;
-
-    $arrayMonedas["5c"] = (int)($restoEuros / 0.05);
-    $restoEuros -= $arrayMonedas["5c"] * 0.05;
-
-    $arrayMonedas["2c"] = (int)($restoEuros / 0.02);
-    $restoEuros -= $arrayMonedas["2c"] * 0.02;
-
-    $arrayMonedas["1c"] = (int)($restoEuros / 0.01);
-    $restoEuros -= $arrayMonedas["1c"] * 0.01;
+    foreach ($plantillaMonedas as $key => $value) {
+        $arrayMonedas[$key] = (int)($restoEuros / $value);
+        $restoEuros -= $arrayMonedas[$key] * $value;
+    }
 
     echo "EUROS TOTALES: $totalEuros<br><br>";
     echo $arrayMonedas["2E"] . " -> 2€<br>" . $arrayMonedas["1E"] . " -> 1€<br>" .
