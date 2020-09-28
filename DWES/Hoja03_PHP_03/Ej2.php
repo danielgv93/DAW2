@@ -19,8 +19,8 @@
         $restoEuros -= $arrayMonedas[$key] * $value;
     }
 
-    echo "EUROS TOTALES: $totalEuros<br><br>";
-    echo $arrayMonedas["2E"] . " -> 2€<br>" . $arrayMonedas["1E"] . " -> 1€<br>" .
+    echo "EUROS TOTALES: $totalEuros<br><br>" .
+    $arrayMonedas["2E"] . " -> 2€<br>" . $arrayMonedas["1E"] . " -> 1€<br>" .
     $arrayMonedas["50c"] . " -> 50cts<br>" . $arrayMonedas["20c"] . " -> 20cts<br>" .
     $arrayMonedas["10c"] . " -> 10cts<br>" . $arrayMonedas["5c"] . " -> 5cts<br>" .
     $arrayMonedas["2c"] . " -> 2cts<br>" . $arrayMonedas["1c"] . " -> 1cts<br>";
