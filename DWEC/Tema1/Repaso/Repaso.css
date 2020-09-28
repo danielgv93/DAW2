@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.secciones {
+    display: flex;
+    padding: 2% 0%;
+    flex-wrap: wrap;
+}
+
+
+
+header {
+    display: block;
+    background-color: yellow;
+    border: 1px solid black;
+}
+
+article {
+    border: 1px solid black;
+}
+
+section {
+    background-color: aqua;
+    padding: 1.5%;
+    border: 1px solid black;
+    width: 30%;
+}
+
+.break {
+    width: 100%;
+}
+
+nav {
+    background-color: green;
+    border: 1px solid black;
+}
+
+img {
+    width: 20%;
+}
+
+nav > ul > a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav > ul > a :hover {
+    color: red;
+}
+
+section > footer {
+    margin-top: 30px;
+}
+
+footer {
+    background-color: pink;
+    border: 1px solid black;
+}
