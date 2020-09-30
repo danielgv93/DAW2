@@ -1,0 +1,10 @@
+.formulario-block {
+    background-color: burlywood;
+    width: 800px;
+    height: 500px;
+}
+
+.datosPersonales {
+    display: flex;
+    flex-flow: row nowrap;
+}
