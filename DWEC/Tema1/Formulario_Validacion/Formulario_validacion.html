@@ -16,19 +16,72 @@
             <p>Si desea información, rellene los datos por favor</p>
         </header>
         <form action="" method="post">
+            <p>Datos Personales:</p>
             <div class="datosPersonales">
                 <div class="dP-elemento">
                     <label for="nombre">Nombre: </label>
-                    <input type="text" name="nombre" id="nombre">
+                    <input type="text" name="nombre" id="nombre" required placeholder="Introduzca su nombre"
+                        maxlength="40">
                 </div>
                 <div class="dP-elemento">
-                    <label for="nombre">Nombre: </label>
-                    <input type="text" name="nombre" id="nombre">
+                    <label for="telefono">Telefono: </label>
+                    <input type="tel" name="telefono" id="telefono" maxlength="12" pattern="[0-9]{3}-[0-9]{6}"
+                        placeholder="ej. 999-999999">
                 </div>
                 <div class="dP-elemento">
-                    <label for="apellidos">Apellidos: </label>
-                    <input type="text" name="apellidos" id="apellidos">
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" required maxlength="30"
+                        placeholder="Introduzca su direccion de correo">
                 </div>
+                <div class="dP-elemento">
+                    <label for="fecha">Fecha: </label>
+                    <input type="date" name="fecha" id="fecha">
+                </div>
+
+            </div>
+            <div class="razas">
+                <p>Elige una raza:</p>
+                <label for="razas">Razas: </label>
+                <input type="text" list="lista_razas" name="razas" id="razas">
+
+                <datalist id="lista_razas">
+                    <option value="Golden Retriever">Golden Retriever</option>
+                    <option value="Border Collie">Border Collie</option>
+                    <option value="Corgi">Corgi</option>
+                    <option value="Teckel">Teckel</option>
+                    <option value="Pastor Aleman">Pastor Aleman</option>
+                </datalist>
+            </div>
+
+            <div class="votacion">
+                <p>Vota las razas:</p>
+
+                <div class="razas-votos">
+                    <div class="razas-votos-elementos">
+                        <p>Golden Retriever</p>
+                        <input type="number" name="golden-voto" id="golden-voto" min="1" max="10">
+                    </div>
+                    <div class="razas-votos-elementos">
+                        <p>Border Collie</p>
+                        <input type="number" name="collie-voto" id="collie-voto" min="1" max="10">
+                    </div>
+                    <div class="razas-votos-elementos">
+                        <p>Corgi</p>
+                        <input type="number" name="corgi-voto" id="corgi-voto" min="1" max="10">
+                    </div>
+                    <div class="razas-votos-elementos">
+                        <p>Teckel</p>
+                        <input type="number" name="teckel-voto" id="teckel-voto" min="1" max="10">
+                    </div>
+                    <div class="razas-votos-elementos">
+                        <p>Pastor Aleman</p>
+                        <input type="number" name="pastor-voto" id="pastor-voto" min="1" max="10">
+                    </div>
+                </div>
+            </div>
+
+            <div class="subir-fichero">
+                <input type="file" name="fichero" id="fichero">
             </div>
         </form>
     </div>

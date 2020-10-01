@@ -1,10 +1,37 @@
 .formulario-block {
     background-color: burlywood;
-    width: 800px;
-    height: 500px;
+    padding: 30px;
+    width: 900px;
+    height: 1000px;
+}
+
+.dP-elemento {
+    margin: 0 10px;
 }
 
 .datosPersonales {
     display: flex;
     flex-flow: row nowrap;
+    margin: 40px 0px;
+}
+
+.razas {
+    margin: 40px 0px;
+}
+
+.razas-votos {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.razas-votos-elementos {
+    margin: 0 10px;
+}
+
+.subir-fichero {
+    margin: 50px 0px;
+}
+
+input:valid {
+    background-color: green;
 }
