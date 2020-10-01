@@ -13,76 +13,80 @@
     <div class="formulario-block">
         <header>
             <h1>WEBPET</h1>
-            <p>Si desea información, rellene los datos por favor</p>
+            <picture class="imagen">
+                <img src="foto.jpg" alt="Logo del formulario">
+            </picture>
         </header>
+            
+        
         <form action="" method="post">
-            <p>Datos Personales:</p>
+            <p>Si desea información, rellene los datos por favor</p>
             <div class="datosPersonales">
                 <div class="dP-elemento">
                     <label for="nombre">Nombre: </label>
-                    <input type="text" name="nombre" id="nombre" required placeholder="Introduzca su nombre"
-                        maxlength="40">
+                    <input type="text" name="nombre" id="nombre" autofocus required placeholder="Introduzca su nombre">
                 </div>
                 <div class="dP-elemento">
-                    <label for="telefono">Telefono: </label>
-                    <input type="tel" name="telefono" id="telefono" maxlength="12" pattern="[0-9]{3}-[0-9]{6}"
-                        placeholder="ej. 999-999999">
+                    <label for="nombre">Telefono: </label>
+                    <input type="tel" name="telefono" id="telefono" required pattern="[0-9]{3}-[0-9]{6}"
+                        placeholder="Ej: 999-999999">
                 </div>
                 <div class="dP-elemento">
-                    <label for="email">Email: </label>
-                    <input type="email" name="email" id="email" required maxlength="30"
-                        placeholder="Introduzca su direccion de correo">
+                    <label for="apellidos">Email: </label>
+                    <input type="email" name="email" id="email" maxlength="30">
                 </div>
                 <div class="dP-elemento">
-                    <label for="fecha">Fecha: </label>
+                    <label for="apellidos">Fecha: </label>
                     <input type="date" name="fecha" id="fecha">
                 </div>
-
             </div>
-            <div class="razas">
-                <p>Elige una raza:</p>
-                <label for="razas">Razas: </label>
-                <input type="text" list="lista_razas" name="razas" id="razas">
 
-                <datalist id="lista_razas">
-                    <option value="Golden Retriever">Golden Retriever</option>
-                    <option value="Border Collie">Border Collie</option>
-                    <option value="Corgi">Corgi</option>
+            <div class="razas">
+                <p>Razas favoritas</p>
+                <input type="text" list="raza-list" name="razas" id="razas">
+                <datalist id="raza-list">
                     <option value="Teckel">Teckel</option>
                     <option value="Pastor Aleman">Pastor Aleman</option>
+                    <option value="Border Collie">Border Collie</option>
+                    <option value="Golden Retriever">Golden Retriever</option>
+                    <option value="Beagle">Beagle</option>
                 </datalist>
             </div>
 
-            <div class="votacion">
-                <p>Vota las razas:</p>
+            <div class="votaciones">
 
-                <div class="razas-votos">
-                    <div class="razas-votos-elementos">
-                        <p>Golden Retriever</p>
-                        <input type="number" name="golden-voto" id="golden-voto" min="1" max="10">
-                    </div>
-                    <div class="razas-votos-elementos">
-                        <p>Border Collie</p>
-                        <input type="number" name="collie-voto" id="collie-voto" min="1" max="10">
-                    </div>
-                    <div class="razas-votos-elementos">
-                        <p>Corgi</p>
-                        <input type="number" name="corgi-voto" id="corgi-voto" min="1" max="10">
-                    </div>
-                    <div class="razas-votos-elementos">
+                <p>Votación general de razas</p>
+                <div class="votacion-raza">
+                    <div class="votacion-raza-elemento">
                         <p>Teckel</p>
-                        <input type="number" name="teckel-voto" id="teckel-voto" min="1" max="10">
+                        <input type="number" name="teckel" id="teckel" min="1" max="10">
                     </div>
-                    <div class="razas-votos-elementos">
+                    <div class="votacion-raza-elemento">
                         <p>Pastor Aleman</p>
-                        <input type="number" name="pastor-voto" id="pastor-voto" min="1" max="10">
+                        <input type="number" name="pastorAleman" id="pastorAleman" min="1" max="10">
+                    </div>
+                    <div class="votacion-raza-elemento">
+                        <p>Border Collie</p>
+                        <input type="number" name="borderCollie" id="borderCollie" min="1" max="10">
+                    </div>
+                    <div class="votacion-raza-elemento">
+                        <p>Golden Retriever</p>
+                        <input type="number" name="goldenRetriever" id="goldenRetriever" min="1" max="10">
+                    </div>
+                    <div class="votacion-raza-elemento">
+                        <p>Beagle</p>
+                        <input type="number" name="beagle" id="beagle" min="1" max="10">
                     </div>
                 </div>
             </div>
 
-            <div class="subir-fichero">
-                <input type="file" name="fichero" id="fichero">
+            <div class="subir-archivo">
+                <p>Subir fichero</p>
+                <input type="file" name="archivo" id="archivo" multiple>
             </div>
+
+            <input class="boton" type="submit" value="Enviar Formulario">
+
         </form>
     </div>
 </body>
