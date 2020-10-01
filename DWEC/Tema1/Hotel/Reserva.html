@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reserva</title>
+</head>
+<body>
+    <header>
+        <h1>El Gran Hotel</h1>
+        <h2>Reserva ya tu estancia</h2>
+    </header>
+    <section>
+        <form action="datosPersonales.html" method="get" oninput="precio.value = noches.value + habitaciones.value * 30">
+            <input type="date" name="llegada" id="llegada">
+            <input type="number" name="noches" id="noches" min="2">
+            <input type="number" name="habitaciones" id="habitaciones">
+            <output name="precio" for="noches habitaciones">
+
+
+
+            <input type="submit" value="Reservar">
+        </form>
+    </section>
+    
+</body>
+</html>
