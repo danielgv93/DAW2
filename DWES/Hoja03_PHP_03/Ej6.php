@@ -11,23 +11,30 @@
     $conjIR = array("o", "es", "e", "imos", "is", "en");
     $conjAR = array("o", "as", "a", "amos", "ais", "an");
     $verbos = array("comer", "bailar", "vivir");
+
+    //Elegir un verbo al azar
     $verbo = $verbos[rand(0, count($verbos)-1)];
     $terminacion = substr($verbo, -2);
-    $raiz = substr($verbo, strlen($verbo) - 2);
-
+    $raiz = substr($verbo, 0, (strlen($verbo) - 2));
+    //Conjugar el verbo
+    $conjugacion = "";
     if ($terminacion == "ar") {
         foreach ($conjAR as $item) {
-            
+            $conjugacion .= $raiz . $item . " ";
         }
     } else if ($terminacion == "er") {
-        
+        foreach ($conjER as $item) {
+            $conjugacion .= $raiz . $item . " ";
+        }
     } else if ($terminacion == "ir") {
-
+        foreach ($conjIR as $item) {
+            $conjugacion .= $raiz . $item . " ";
+        }
     } else {
         print "Terminacion del verbo incorrecta";
     }
 
-
+    print $conjugacion;
     
 
     ?>
