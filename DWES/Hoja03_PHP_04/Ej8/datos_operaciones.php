@@ -1,5 +1,4 @@
 <?php
-print_r($_POST);
 $operacion = $_POST["operacion"];
 $n1 = $_POST["num1"];
 $n2 = $_POST["num2"];
