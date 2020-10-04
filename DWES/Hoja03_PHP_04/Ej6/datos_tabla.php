@@ -1,4 +1,11 @@
-<?php $numero = $_POST["numero"];?>
+<?php $numero = $_POST["numero"];
+function tablaMultiplicar($numero)
+{
+    for ($i = 1; $i <= 10; $i++) {
+        print "$i x $numero = " . $numero * $i . "<br>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang='es'>
 
@@ -17,11 +24,7 @@
                 <h2><?php print "Tabla de multiplicar del $numero:</h2>" ?></h2>
             </div>
             <div class="row pt-3 pb-3">
-                <?php
-                for ($i = 1; $i <= 10; $i++) {
-                    print "$i x $numero = " . $numero * $i . "<br>";
-                }
-                ?>
+                <?php tablaMultiplicar($numero); ?>
             </div>
             <div class="row">
                 <a href="tabla.html"><button class="btn btn-primary">VOLVER</button></a>
