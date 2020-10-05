@@ -4,7 +4,18 @@ if (isset($_GET["submit"])) {
     $cantidad = $_GET["cantidad"];
     $destino = $_GET["destino"];
     $origen = $_GET["origen"];
-    $resultado = 0;
+    
+    $tcEuro = array("euro" => 1, "dolar" => 1.09, "libra" => 0.89);
+    $tcDolar = array("euro" => 0.91, "dolar" => 1, "libra" => 0.81);
+    $tcLibra = array("euro" => 1.12, "dolar" => 1.23, "libra" => 1);
+
+    $tiposCambio = array("euro" => $tcEuro, "dolar" => $tcDolar, "libra" => $tcLibra);
+
+    $resultado = $cantidad * $tiposCambio[$origen][$destino];
+    $texto = "$cantidad $origen son $resultado $destino";
+
+    /* FORMA ORIGINAL CON UN BUCLE
+    
     $tiposCambio = array(
         "libraeuro" => 1.1, "eurolibra" => 0.9, "dolareuro" => 0.85,
         "eurodolar" => 1.17, "libradolar" => 1.29, "dolarlibra" => 0.77
@@ -20,7 +31,7 @@ if (isset($_GET["submit"])) {
             $texto = "$cantidad $origen son $resultado $destino";
             break;
         }
-    }
+    } */
 }
 ?>
 
@@ -75,7 +86,7 @@ if (isset($_GET["submit"])) {
         </div>
 
     </div>
-    </div>
+
 </body>
 <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>
