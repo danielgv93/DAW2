@@ -1,5 +1,24 @@
+<?php
+
+$listaPeliculas = array(
+    "yourname", "1917", "joker", "elhoyo", "scarface",
+    "jojo rabit", "fastandfurious", "elcamino", "gula", "psicosis"
+);
+
+if (isset($_REQUEST["pelicula"])) {
+    $busqueda = $_REQUEST["pelicula"];
+    foreach ($listaPeliculas as $nombrePelicula) {
+        if (strpos($nombrePelicula, $busqueda) === false) {
+            
+        } else{
+            $resultado[] = $nombrePelicula;
+        };
+    }
+    print_r($resultado);
+}
+?>
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='es'>
 
 <head>
     <meta charset='UTF-8'>
@@ -11,13 +30,15 @@
 
 <body>
     <div class="container border rounded">
-    <h2>Selector de peliculas</h2>
-    <select name="peliculas" id="peliculas">
-        <option value="yourName">Your Name</option>
-    </select>
-
-    
-
+        <h2>Buscador de peliculas</h2>
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="pelicula">Buscador</label>
+                <input  type="text" class="form-control" name="pelicula" id="pelicula" autofocus>
+            </div>
+            <button name="submit" type="submit" class=" btn btn-primary">Buscar</button>
+            <div class="border mt-5">
+        </form>
     </div>
 </body>
 <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
