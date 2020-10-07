@@ -6,3 +6,4 @@ let nacimiento = 1993;
 alert(nombre + " \'" + apellido + "\'");
 alert(nombre + "\n" + apellido);
 alert(edad + nacimiento);
+alert(nombre + apellido + edad + nacimiento);
