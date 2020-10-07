@@ -2,19 +2,22 @@
 
 $listaPeliculas = array(
     "yourname", "1917", "joker", "elhoyo", "scarface",
-    "jojo rabit", "fastandfurious", "elcamino", "gula", "psicosis"
+    "jojorabbit", "fastandfurious", "elcamino", "elhobbit", "psicosis"
 );
+$imagenesPeliculas = array("img/yourname.jpg'", "img/1917.jpg", "img/joker.png", "img/elhoyo.jpg",
+    "img/scarface.jpg", "img/jojorabbit.jpg", "img/fastandfurious.jpg", "img/elcamino.jpg",
+    "img/elhobbit.jpg", "img/psicosis.jpg");
 
 if (isset($_REQUEST["pelicula"])) {
     $busqueda = $_REQUEST["pelicula"];
+    //  Sustituir el foreach por for para controlar la posicion 
+    //  de las peliculas y enlazar las imagenes
     foreach ($listaPeliculas as $nombrePelicula) {
         if (strpos($nombrePelicula, $busqueda) === false) {
-            
-        } else{
+        } else {
             $resultado[] = $nombrePelicula;
         };
     }
-    print_r($resultado);
 }
 ?>
 <!DOCTYPE html>
@@ -34,12 +37,16 @@ if (isset($_REQUEST["pelicula"])) {
         <form action="" method="POST">
             <div class="form-group">
                 <label for="pelicula">Buscador</label>
-                <input  type="text" class="form-control" name="pelicula" id="pelicula" autofocus>
+                <input type="text" class="form-control" name="pelicula" id="pelicula" autofocus>
             </div>
             <button name="submit" type="submit" class=" btn btn-primary">Buscar</button>
             <div class="border mt-5">
         </form>
+        <div class="border">
+            
+        </div>
     </div>
+    
 </body>
 <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>
