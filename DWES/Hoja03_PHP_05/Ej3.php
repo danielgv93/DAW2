@@ -6,7 +6,7 @@ $listaPeliculas = array(
 );
 
 function busqueda($arrayPeliculas) {
-    $resultado = null;
+    $resultado = array();
     if (isset($_REQUEST["pelicula"])) {
     $busqueda = $_REQUEST["pelicula"];
     foreach ($arrayPeliculas as $nombrePelicula) {
