@@ -1,24 +1,43 @@
 <?php
 
 $listaPeliculas = array(
-    "yourname", "1917", "joker", "elhoyo", "scarface",
-    "jojorabbit", "fastandfurious", "elcamino", "elhobbit", "psicosis"
+    "your name", "1917", "joker", "el hoyo", "scarface",
+    "jojo rabit", "fast and furious", "el camino", "gula", "psicosis"
 );
-$imagenesPeliculas = array("img/yourname.jpg'", "img/1917.jpg", "img/joker.png", "img/elhoyo.jpg",
-    "img/scarface.jpg", "img/jojorabbit.jpg", "img/fastandfurious.jpg", "img/elcamino.jpg",
-    "img/elhobbit.jpg", "img/psicosis.jpg");
+$listaImagenes = array(
+    "img/yourname.jpg", "img/1917.jpg", "img/joker.png", "img/elhoyo.jpg",
+    "scarface.jpg", "img/jojorabit.jpg", "img/fastandfurious.jpg", "img/elcamino.jpg",
+    "img/gula.jpg", "img/psicosis.jpg"
+);
 
-if (isset($_REQUEST["pelicula"])) {
-    $busqueda = $_REQUEST["pelicula"];
-    //  Sustituir el foreach por for para controlar la posicion 
-    //  de las peliculas y enlazar las imagenes
-    foreach ($listaPeliculas as $nombrePelicula) {
-        if (strpos($nombrePelicula, $busqueda) === false) {
-        } else {
-            $resultado[] = $nombrePelicula;
-        };
+function posBusqueda($arrayPeliculas)
+{
+    $posBusqueda = array();
+    if (isset($_REQUEST["pelicula"])) {
+        $busqueda = $_REQUEST["pelicula"];
+
+        for ($i = 0; $i < count($arrayPeliculas); $i++) {
+            if (strpos($arrayPeliculas[$i], $busqueda) === false) {
+            } else {
+                $posBusqueda[] = $i;
+            };
+        }
+        return $posBusqueda;
     }
 }
+
+function peliculasResultado($arrayPosiciones, $arrayPeliculas, $arrayImagenes)
+{
+    $resultado = array();
+    for ($i = 0; $i < count($arrayPosiciones); $i++) {
+        $aux = array($arrayPeliculas[$arrayPosiciones[$i]] => $arrayImagenes[$arrayPosiciones[$i]]);
+        $resultado[] = $aux;
+    }
+    return $resultado;
+}
+
+$resultadoBusqueda = peliculasResultado(posBusqueda($listaPeliculas), $listaPeliculas, $listaImagenes);
+print ($resultadoBusqueda[0][0]);
 ?>
 <!DOCTYPE html>
 <html lang='es'>
@@ -40,13 +59,20 @@ if (isset($_REQUEST["pelicula"])) {
                 <input type="text" class="form-control" name="pelicula" id="pelicula" autofocus>
             </div>
             <button name="submit" type="submit" class=" btn btn-primary">Buscar</button>
-            <div class="border mt-5">
+            <table class="table">
+                <tbody>
+                    <?php
+                    /* for ($i=0; $i < count($resultadoBusqueda); $i++) { 
+                        print("<tr>");
+                            print("<td><img class='img-fluid' src='".$resultadoBusqueda[$i][0]."'></td>");
+                            print("<td>". $resultadoBusqueda[$i][1]."</td>");
+                        print("</tr>");
+                    } */
+                    ?>
+                </tbody>
+            </table>
         </form>
-        <div class="border">
-            
-        </div>
     </div>
-    
 </body>
 <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>
