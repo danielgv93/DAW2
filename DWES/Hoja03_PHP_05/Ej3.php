@@ -1,21 +1,25 @@
 <?php
 
 $listaPeliculas = array(
-    "yourname", "1917", "joker", "elhoyo", "scarface",
-    "jojo rabit", "fastandfurious", "elcamino", "gula", "psicosis"
+    "your name", "1917", "joker", "el hoyo", "scarface",
+    "jojo rabit", "fast and furious", "el camino", "gula", "psicosis"
 );
 
-if (isset($_REQUEST["pelicula"])) {
+function busqueda($arrayPeliculas) {
+    $resultado = array();
+    if (isset($_REQUEST["pelicula"])) {
     $busqueda = $_REQUEST["pelicula"];
-    foreach ($listaPeliculas as $nombrePelicula) {
+    foreach ($arrayPeliculas as $nombrePelicula) {
         if (strpos($nombrePelicula, $busqueda) === false) {
             
         } else{
             $resultado[] = $nombrePelicula;
         };
     }
-    print_r($resultado);
+    return $resultado;
 }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang='es'>
@@ -37,7 +41,9 @@ if (isset($_REQUEST["pelicula"])) {
                 <input  type="text" class="form-control" name="pelicula" id="pelicula" autofocus>
             </div>
             <button name="submit" type="submit" class=" btn btn-primary">Buscar</button>
-            <div class="border mt-5">
+            <div class="border mt-5 mb-3">
+                <?php print_r(busqueda($listaPeliculas))?>
+            </div>
         </form>
     </div>
 </body>
