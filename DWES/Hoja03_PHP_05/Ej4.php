@@ -1,23 +1,23 @@
 <?php
 
 $listadoPeliculas = array(
-    array("titulo" => "your name", "img" => "img/yourname.jpg"),
+    array("titulo" => "Your name", "img" => "img/yourname.jpg"),
     array("titulo" => "1917", "img" => "img/1917.jpg"),
-    array("titulo" => "joker", "img" => "img/joker.png"),
-    array("titulo" => "El hoyo", "img" => "img/elhoyo.jpg"),
-    array("titulo" => "scarface", "img" => "img/scarface.jpg"),
-    array("titulo" => "jojo rabit", "img" => "img/jojorabbit.jpg"),
-    array("titulo" => "fast and furious", "img" => "img/fastandfurious.jpg"),
-    array("titulo" => "el camino", "img" => "img/elcamino.jpg"),
-    array("titulo" => "el hobbit", "img" => "img/elhobbit.jpg"),
-    array("titulo" => "psicosis", "img" => "img/psicosis.jpg")
+    array("titulo" => "Joker", "img" => "img/joker.png"),
+    array("titulo" => "El Hoyo", "img" => "img/elhoyo.jpg"),
+    array("titulo" => "Scarface", "img" => "img/scarface.jpg"),
+    array("titulo" => "Jojo Rabit", "img" => "img/jojorabbit.jpg"),
+    array("titulo" => "Fast and Furious", "img" => "img/fastandfurious.jpg"),
+    array("titulo" => "El Camino", "img" => "img/elcamino.jpg"),
+    array("titulo" => "El Hobbit", "img" => "img/elhobbit.jpg"),
+    array("titulo" => "Psicosis", "img" => "img/psicosis.jpg")
 );
 $resultado = array();
 $busqueda = "";
 if (isset($_POST["pelicula"])) {
-    $busqueda = $_REQUEST["pelicula"];
+    $busqueda = strtolower($_REQUEST["pelicula"]);
     foreach ($listadoPeliculas as $pelicula) {
-        if (strpos($pelicula["titulo"], $busqueda) !== false) {
+        if (strpos(strtolower($pelicula["titulo"]), $busqueda) !== false) {
             $resultado[] = $pelicula;
         }
     }
