@@ -1,10 +1,10 @@
 <?php
 $texto = "";
-if (isset($_GET["submit"])) {
-    $cantidad = $_GET["cantidad"];
-    $destino = $_GET["destino"];
-    $origen = $_GET["origen"];
-    
+if (isset($_POST["submit"])) {
+    $cantidad = filtrado($_POST["cantidad"]);
+    $destino = filtrado($_POST["destino"]);
+    $origen = filtrado($_POST["origen"]);
+
     $tcEuro = array("euro" => 1, "dolar" => 1.09, "libra" => 0.89);
     $tcDolar = array("euro" => 0.91, "dolar" => 1, "libra" => 0.81);
     $tcLibra = array("euro" => 1.12, "dolar" => 1.23, "libra" => 1);
@@ -13,6 +13,15 @@ if (isset($_GET["submit"])) {
 
     $resultado = $cantidad * $tiposCambio[$origen][$destino];
     $texto = "$cantidad $origen son $resultado $destino";
+
+    // FUNCION IMPORTANTE DE FILTRADO. SEGURIDAD.
+    function filtrado($texto)
+    {
+        $texto = trim($texto);
+        $texto = stripslashes($texto);
+        $texto = htmlspecialchars($texto);
+        return $texto;
+    }
 
     /* FORMA ORIGINAL CON UN BUCLE
     
@@ -55,15 +64,20 @@ if (isset($_GET["submit"])) {
             <h2 class="col">Conversor de monedas</h2>
         </div>
         <div class="row justify-content-center">
-            <form class="col-4 " method="GET" action="">
+            <form class="col-4 " method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
                 <div class="form-group">
                     <label for="cantidad">Cantidad</label>
-                    <input type="number" name="cantidad" id="cantidad" class="form-control" step="any" min="0" required>
+                    <input type="number" <?php
+                                            if (isset($_POST["cantidad"])) {
+                                                echo "value = '$cantidad'";
+                                            }
+                                            ?> name="cantidad" id="cantidad" class="form-control" step="any" min="0" required>
                 </div>
                 <div class="form-group">
                     <label for="origen">Origen</label>
                     <select class="form-control" name="origen" id="origen">
                         <option disabled selected value> -- elige una opcion -- </option>
+
                         <option value="libra">Libras</option>
                         <option value="euro">Euros</option>
                         <option value="dolar">Dolares</option>
