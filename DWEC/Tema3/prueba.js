@@ -1,31 +1,15 @@
-function aplicarIva(precioBase, iva) {
-    let precioFinal = precioBase * (1+iva);
-    alert(`El precio final del producto es ${precioFinal}`);
-    return precioFinal;
-}
-aplicarIva(100, 0.18);
-
-function media(n1, n2) {
-    return (n1 + n2) / 2;
-}
-
-
-(function(quien) {
-    console.log("hola" + quien);
-})("Dani");
-
-function saludator(quien) {
-    return function(){
-        alert("hola " + quien);
+let k = 1;
+document.write("<table style='border: solid black 1px;'>")
+for (let i = 0; i < 10; i++) {
+    document.write("<tr>");
+    for (let j = i; j < 10; j++) {
+        document.write("<td style='border: solid black 1px;'>");
+        document.write(`${k} `);
+        document.write("</td>");
+        k++;
     }
+    
+    document.write("</tr>");
 }
 
-let saluda = saludator("dani");
-
-saluda();
-
-let cuadrado = numero => numero * numero;
-let saludo = (nombre, tratamiento) => alert('Hola ' + tratamiento + ' ' + nombre);
-
-document.write(cuadrado(3));
-document.write(saludo("dani", "Sr"));
+document.write("</table>");
