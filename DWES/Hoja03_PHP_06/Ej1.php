@@ -89,7 +89,7 @@ if (isset($_POST["submit"])) {
                                     endif ?>
                                 <?php endforeach; ?>
 
-                                <button name="update" type="submit" class="btn btn-primary mb-2">Actualizar</button>
+                                <input name="update" type="submit" class="btn btn-primary mb-2" value="Actualizar">
                             </form>
                         </div>
                     </div>
