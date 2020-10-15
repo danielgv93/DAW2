@@ -39,7 +39,7 @@ if (isset($_POST["submit"])) {
                         <label for="marca">Marca: </label>
                         <select class="form-control" name="marca" id="marca">
                             <?php foreach ($marcas as $key => $value) : ?>
-                                <option value='<?= $key ?>'> <?= $key ?> </option>";
+                                <option <?php echo $selectedProp = ($key == $busqueda) ? "selected" : "" ;?> value='<?= $key ?>'> <?= $key ?> </option>";
                             <?php endforeach; ?>
                         </select>
                     </div>
