@@ -4,6 +4,11 @@ $marcas = array(
     "Citroen" => array("C3", "C4", "C2", "Berlingo", "C1", "C5"),
     "Kia" => array("Sportage", "Picanto", "Rio", "Sorento", "Ceed", "Stonic")
 );
+/* Se crea el array solo si se actualizan los datos */
+
+if (isset($_POST["update"])) {
+    $auxMarcas = array();
+}
 /* Se crea la busqueda solo si se usa el boton de MOSTRAR */
 if (isset($_POST["submit"])) {
     $busqueda = $_POST["marca"];
