@@ -62,7 +62,7 @@ function getArrayJugadores($array)
                 <select class="form-control" name="equipo">
                     <?php
                     foreach ($arrayEquipos as $key => $value) : ?>
-                        <option value="<?= $key ?>"><?= $key ?></option>
+                        <option <?php echo $selectedProperty = ($key == $equipoSelected) ? "selected" : "" ; ?> value="<?= $key ?>"><?= $key ?></option>
                     <?php endforeach ?>
                     <option value="Todos">Todos</option>
                 </select>
