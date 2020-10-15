@@ -39,7 +39,7 @@ if (isset($_POST["submit"])) {
                         <label for="marca">Marca: </label>
                         <select class="form-control" name="marca" id="marca">
                             <?php foreach ($marcas as $key => $value) : ?>
-                                <option <?php echo $selectedProp = ($key == $busqueda) ? "selected" : "" ;?> value='<?= $key ?>'> <?= $key ?> </option>";
+                                <option value='<?= $key ?>'> <?= $key ?> </option>";
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -57,14 +57,24 @@ if (isset($_POST["submit"])) {
                         </div>
                         <div class="row justify-content-center">
                             <form class="form-check" action="<?php echo $_SERVER["PHP_SELF"] ?>" method="post">
-                                <?php
-                                /* CREAR LOS INPUTS DE LOS MODELOS DE COCHE A PARTIR DEL ARRAY INICIAL*/
-                                foreach ($marcas[$busqueda] as $item) : ?>  
-                                    <div class='form-group'>
-                                        <input type='text' name='<?= $item ?>' class='form-control' value='<?= $item ?>'>
-                                    </div>
-                                <?php endforeach; ?>
-                                <button name="update" type="submit" class="btn btn-primary mb-2">Actualizar</button>
+                                <?php if (!isset($_POST["update"])) : ?>
+                                    <?php
+                                    /* CREAR LOS INPUTS DE LOS MODELOS DE COCHE A PARTIR DEL ARRAY INICIAL*/
+                                    foreach ($marcas[$busqueda] as $item) : ?>
+                                        <div class='form-group'>
+                                            <input type='text' name='<?= $item ?>' class='form-control' value='<?= $item ?>'>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else : ?>
+                                    <?php
+                                    /* CREAR LOS INPUTS DE LOS MODELOS DE COCHE A PARTIR DEL ARRAY AUXILIAR*/
+                                    foreach ($auxMarcas[$busqueda] as $item) : ?>
+                                        <div class='form-group'>
+                                            <input type='text' name='<?= $item ?>' class='form-control' value='<?= $item ?>'>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php endif ?>
+                                <input name="update" type="submit" class="btn btn-primary mb-2" value="Actualizar">
                             </form>
                         </div>
                     </div>
@@ -81,16 +91,18 @@ if (isset($_POST["submit"])) {
                             <form class="form-check" action="<?php echo $_SERVER["PHP_SELF"] ?>" method="post">
                                 <?php 
                                 /* CREAR LOS INPUTS DE LOS MODELOS DE COCHE A PARTIR DEL $_POST  */
-                                $i = 0;
-                                foreach ($_POST as $item) : ?>
-                                    <?php if (!empty($item)) : ?>
-                                        
+                                $fila = 0;
+                                foreach ($_POST as $modelo) : ?>
+                                    <?php if ($modelo !== "Actualizar") : ?>
+                                        <!-- PARA NO INCLUIR LOS BOTONES VACIOS DE CONTENIDO -->
+
                                         <div class='form-group'>
-                                            <input type='text' name='<?= $item ?>' class='form-control' value='<?= $item ?>'>
+                                            <input type='text' name='<?= $modelo ?>' class='form-control' value='<?= $modelo ?>'>
                                         </div>
-                                    <?php 
-                                    $marcas["Seat"][$i] = $item; /* CON ESTO NO SE CAMBIAN LOS VALORES DEL ARRAY */
-                                    $i++;
+                                    <?php
+                                    
+                                        $auxMarcas[$busqueda][$fila] = $modelo; /* CON ESTO NO SE CAMBIAN LOS VALORES DEL ARRAY */
+                                        $fila++;
                                     endif ?>
                                 <?php endforeach; ?>
 
