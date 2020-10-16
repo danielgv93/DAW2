@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>practselector</title>
+    <style>
+        /*Selectores universales */
+        /* Todos los elementos tienen un tipo de letra Verdana */
+        * {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+        /*Selectores de elemento */
+        /*Todas las cabeceras h1 tienen el fondo rojo y la letra blanca h1 
+        /*Todos los párrafos tienen la letra azul */
+        h1 {
+            background-color: red;
+            color: white;
+        }
+        p {
+            color: blue;
+        }
+        /*Selectores de descendiente */
+        /* Todos los enlaces que estén dentro de un elemento li
+        tienen el fondo azul y la letra blanca */
+        li a {
+            background-color: blue;
+            color: white;
+        }
+        /*Selectores de hijo*/
+
+        /*Todos los elementos strong que estén dentro de un
+        elemento p son de color rojo (1párrafo ipsum, 2 párrafo
+        mus)*/
+        p > strong {
+            color: red;
+        }
+        /*Selectores de hermanos */
+        /* Todos los elementos li que estén junto a otro elemento
+        li tienen el cuerpo de letra de 2em */
+        li + li {
+            font-size: 2em;
+        }
+        /* Los elementos se pueden combinar...
+        Todos los elementos em que sean adyacentes a un elemento strong que
+        sea hijo directo de un elemento p tiene el cuerpo de la letra
+        mayor(1párrafo dolor) */
+        p > strong + em {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>T&iacute;tulo 1</h1>
+<p>Lorem <strong>ipsum</strong><em> dolor</em> sit amet, consectetuer adipiscing
+elit.
+<a href="www.colimbo.net">Aenean</a> commodo ligula eget dolor. </p>
+<ul>
+<li><a href="www.colimbo.net">Aenean massa</a>. Cum sociis</li>
+<li><a href="www.colimbo.net">natoque penatibus</a> </li>
+<li><a href="www.colimbo.net">et magnis dis parturient</a>, montes </li></ul>
+<p>nascetur ridiculus <em><strong>mus</strong></em>.</p>
+<div>Donec quam felis,ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+consequat massa quisenim. </div>
+</body>
+
+</html>
