@@ -1,12 +1,15 @@
 addEventListener('load', inicio, false);
-var cajaNombre, cajaApellido, botonMostrar, nombre;
+
 function inicio() {
-    cajaNombre = document.getElementById("nombre");
-    cajaApellido = document.getElementById("apellido");
-    botonMostrar = document.getElementById("mostrar");
-    nombre = cajaNombre.value;
-    let apellido = cajaApellido.value;
+    
+    let botonMostrar = document.getElementById("visualizar");
+    botonMostrar.addEventListener("click", mostrar, false);
 
 }
 
-alert(nombre);
+function mostrar() {
+    let cajaNombre = document.getElementById("nombre");
+    let cajaApellido = document.getElementById("apellido");
+    let resultado = document.getElementById("cajaResultado");
+    resultado.value = `${cajaNombre.value} ${cajaApellido.value}`;
+}
