@@ -61,18 +61,23 @@ function getArrayJugadores($array)
                 <label for="equipo">Equipo</label>
                 <select class="form-control" name="equipo">
                     <?php
-                    foreach ($arrayEquipos as $key => $value) : ?>
-                        <option <?php echo $selectedProperty = ($key == $equipoSelected) ? "selected" : "" ; ?> value="<?= $key ?>"><?= $key ?></option>
+                    /* CREAR LOS SELECT */
+                    foreach ($arrayEquipos as $equipo => $plantilla) : ?>
+                        <option <?php /* Condicion para dejar seleccionado el equipo */
+                                echo $selectedProp = (isset($equipoSelected) && $equipo == $equipoSelected) ? "selected" : ""; ?> value="<?= $equipo ?>"><?= $equipo ?>
+                        </option>
                     <?php endforeach ?>
                     <option value="Todos">Todos</option>
                 </select>
             </div>
             <div class="form-check form-check mb-2">
                 <label class="form-check-label mr-4">
-                    <input class="form-check-input" type="checkbox" name="puesto[]" value="Entrenador"> Entrenador
+                    <input class="form-check-input" type="checkbox" name="puesto[]" value="Entrenador" <?php echo $chechekProp = (isset($posSelected) && in_array("Entrenador", $posSelected)) ? "checked" : "" ?>>
+                    Entrenador
                 </label>
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="puesto[]" value="Jugadores"> Jugadores
+                    <input class="form-check-input" type="checkbox" name="puesto[]" value="Jugadores" <?php echo $chechekProp = (isset($posSelected) && in_array("Jugadores", $posSelected)) ? "checked" : "" ?>>
+                    Jugadores
                 </label>
             </div>
             <button type="submit" name="submit" class="btn btn-primary mb-2">Buscar</button>
