@@ -1,117 +1,118 @@
 <?php
-$arrayEquipos = array(
+$liga = array(
     "Real Madrid" => array(
-        "Entrenador" => array("Zidane" => "img/zidane.jpg"),
-        "Jugadores" => array("Courtois" => "img/courtois.jpg", "Ramos" => "img/ramos.jpg", "Hazard" => "img/hazard.jpg")
+        "Entrenador" => array(
+            "Zidane" => "img/zidane.jpg"
+        ),
+        "Jugadores" => array(
+            "Courtois" => "img/courtois.jpg", "Sergio Ramos" => "img/ramos.jpg", "Hazard" => "img/hazard.jpg"
+        )
     ),
     "Barcelona" => array(
-        "Entrenador" => array("Koeman" => "img/koeman.jpg"),
-        "Jugadores" => array("Ter Stegen" => "img/ter_stegen.jpg", "Pique" => "img/pique.jpg", "Griezmann" => "img/griezmann.jpg")
+        "Entrenador" => array(
+            "Koeman" => "img/koeman.jpg"
+        ),
+        "Jugadores" => array(
+            "Griezmann" => "img/griezmann.jpg", "Pique" => "img/pique.jpg", "Ter Stegen" => "img/ter_stegen.jpg"
+        )
     )
 );
+
 if (isset($_POST["submit"])) {
-    $equipoSelected = $_POST["equipo"];
-    $posSelected = $_POST["puesto"];
-    $arrayResultadoJugadores = (getArrayJugadores(getArrayJugadores_SinUnir($arrayEquipos, $equipoSelected, $posSelected)));
+    $equipoSeleccionado = $_POST["equipo"];
+    $posicionSeleccionada = $_POST["posicion"];
 }
 
-/* var_dump($arrayEquipos);
-var_dump($_POST); */
-
-function getArrayJugadores_SinUnir($arrayEquipos, $equipoInput, $puestoArrayInput)
+function mostrarEquipo($liga, $equipo, $puesto)
 {
-    $arrayEqSelected = $arrayEquipos[$equipoInput];
-    foreach ($arrayEqSelected as $puesto => $arrayPersonas) {
-        foreach ($puestoArrayInput as $puestoInput) {
-            if ($puesto == $puestoInput) {
-                $arrayResultado[] = $arrayPersonas;
-            }
-        }
+    $informacionBuscada = null;
+    foreach ($liga[$equipo][$puesto] as $jugador => $imagen) {
+        $informacionBuscada .= "<h4>$jugador</h4> <img class='img-fluid' src='$imagen' />";
     }
-    return $arrayResultado;
+    return $informacionBuscada;
 }
-
-function getArrayJugadores($array)
-{
-    $resultado = array();
-    foreach ($array as $item) {
-        $resultado = array_merge($resultado, $item);
-    }
-    return $resultado;
-}
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
-    <title>Ejercicio 2</title>
+
 </head>
 
-<body>
-    <div class="container border">
-        <h1>ELIGE UN EQUIPO</h1>
-        <form action="<?php $_SERVER["PHP_SELF"] ?>" method="POST" class="form-check">
-            <div class="form-group">
-                <label for="equipo">Equipo</label>
-                <select class="form-control" name="equipo">
-                    <?php
-                    foreach ($arrayEquipos as $key => $value) : ?>
-                        <option <?php echo $selectedProperty = ($key == $equipoSelected) ? "selected" : "" ; ?> value="<?= $key ?>"><?= $key ?></option>
-                    <?php endforeach ?>
-                    <option value="Todos">Todos</option>
-                </select>
+<body class="container">
+    <form class="form-control" action="<?php echo $_SERVER["PHP_SELF"] ?>" method="post">
+        <select class="form-group" name="equipo">
+            <option value="Todos">-- Todos --</option>
+            <?php foreach ($liga as $equipo => $plantilla) : ?>
+                <option value="<?= $equipo ?>" <?= $selectedProp = (isset($equipoSeleccionado) &&
+                                                    $equipoSeleccionado == $equipo) ? "selected" : ""; ?>><?= $equipo ?></option>
+            <?php endforeach ?>
+        </select>
+
+        <?php foreach ($liga["Real Madrid"] as $posicion => $arrayJugadores) : ?>
+            <div class="form-check">
+                <label class="form-check-label" for="<?= $posicion ?>">
+                    <input class="form-check-input" type="radio" id="<?= $posicion ?>" <?= $checkedProp = (isset($posicionSeleccionada) &&
+                                                                                            $posicionSeleccionada == $posicion) ? "checked" : ""; ?> name="posicion" value="<?= $posicion ?>">
+                    <?= $posicion ?></label>
             </div>
-            <div class="form-check form-check mb-2">
-                <label class="form-check-label mr-4">
-                    <input class="form-check-input" type="checkbox" name="puesto[]" value="Entrenador"> Entrenador
-                </label>
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="puesto[]" value="Jugadores"> Jugadores
-                </label>
-            </div>
-            <button type="submit" name="submit" class="btn btn-primary mb-2">Buscar</button>
-        </form>
-        <div class="row justify-content-center">
-            <div class="col-8">
-                <?php if (isset($_POST["submit"])) : ?>
-                    <table class="table border mt-3">
-                        <!-- HEADER DE TABLA -->
-                        <thead class="thead-dark">
+        <?php endforeach ?>
+
+        <input class="btn btn-primary" type="submit" name="submit" value="Mostrar">
+    </form>
+
+    <?php if (isset($_POST["submit"])) : ?>
+        <!-- CREAR TABLA -->
+        <div class="col-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <!-- CREAR HEADER -->
+                        <?php if ($equipoSeleccionado != "Todos") : ?>
+                            <th scope="col">
+                                <h2><?= $equipoSeleccionado ?></h2>
+                            </th><!--  -->
+                        <?php else : ?>
+                            <th scope="col">
+                                <h2>Real Madrid</h2>
+                            </th>
+                            <th scope="col">
+                                <h2>Barcelona</h2>
+                            </th>
+                        <?php endif ?>
+                    </tr>
+                </thead>
+                <!-- CREAR FILAS -->
+                <!-- Si es un solo equipo -->
+                <tbody>
+                    <?php if ($equipoSeleccionado != "Todos") : ?>
+                        <?php foreach ($liga[$equipoSeleccionado][$posicionSeleccionada] as $jugador => $url) : ?>
                             <tr>
-                            <!-- EN PROCESO -->
-                                <?php foreach ($arrayEquipos as $key => $value) : ?>
-                                    <?php if ($key == $_POST["equipo"]) : ?>
-                                        <th colspan="2" style="text-align: center;"><?= $key ?></th>
-                                    <?php elseif ($key == "Todos") : ?>
-                                        <?php foreach ($arrayEquipos as $equipos => $value) : ?>
-                                            <th style="text-align: center;"><?= $value ?></th>
-                                        <?php endforeach ?>
-                                    <?php endif ?>
-                                <?php endforeach ?>
-                            </tr>
-                        </thead>
-                        <!-- FILAS DE TABLA -->
-                        <?php foreach ($arrayResultadoJugadores as $jugador => $imagen) : ?>
-                            <tr>
-                                <td><?= $jugador ?></td>
-                                <td><img style="width: 400px;" src="<?= $imagen ?>"></td>
+                                <td>
+                                    <h4><?= $jugador ?></h4><img class="img-fluid" src="<?= $url ?>">
+                                </td>
                             </tr>
                         <?php endforeach ?>
-                    </table>
-                <?php endif ?>
-            </div>
-        </div>
+                    <?php else : ?>
+                        <tr>
+                            <!-- Si son todos los equipos -->
+                            <?php foreach ($liga as $cadaEquipo => $value) : ?>
 
-    </div>
+                                <td style='border: solid black 1px'>
+                                    <?= mostrarEquipo($liga, $cadaEquipo, $posicionSeleccionada); ?>
+                                </td>
+
+                            <?php endforeach ?>
+                        </tr>
+                    <?php endif ?>
+                </tbody>
+            </table>
+        </div>
+    <?php endif ?>
 </body>
-<script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>
-<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous'></script>
 
 </html>
