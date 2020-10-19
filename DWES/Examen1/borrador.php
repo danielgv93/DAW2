@@ -21,7 +21,7 @@ function filtrado($texto)
 <?php endforeach ?>
 
 <!-- CREAR UN RADIO CON MEMORIA -->
-<label class="form-check-label" for="<?= $posicion ?>">
-    <input class="form-check-input" type="radio" id="<?= $posicion ?>" <?= $checkedProp = (isset($posicionSeleccionada) &&
-                                                                            $posicionSeleccionada == $posicion) ? "checked" : ""; ?> name="posicion" value="<?= $posicion ?>">
+<label for="<?= $posicion ?>">
+    <input type="radio" id="<?= $posicion ?>" <?= $checkedProp = (isset($posicionSeleccionada) &&
+                                                    $posicionSeleccionada == $posicion) ? "checked" : ""; ?> name="posicion" value="<?= $posicion ?>">
     <?= $posicion ?></label>
