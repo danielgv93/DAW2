@@ -1,6 +1,6 @@
 <?php
 $texto = "";
-if (isset($_POST["submit"])) {
+if (isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === "POST") {
     $cantidad = filtrado($_POST["cantidad"]);
     $destino = filtrado($_POST["destino"]);
     $origen = filtrado($_POST["origen"]);
@@ -15,13 +15,7 @@ if (isset($_POST["submit"])) {
     $texto = "$cantidad $origen son $resultado $destino";
 
     // FUNCION IMPORTANTE DE FILTRADO. SEGURIDAD.
-    function filtrado($texto)
-    {
-        $texto = trim($texto);
-        $texto = stripslashes($texto);
-        $texto = htmlspecialchars($texto);
-        return $texto;
-    }
+    
 
     /* FORMA ORIGINAL CON UN BUCLE
     
@@ -42,6 +36,13 @@ if (isset($_POST["submit"])) {
         }
     } */
 }
+function filtrado($texto)
+    {
+        $texto = trim($texto);
+        $texto = stripslashes($texto);
+        $texto = htmlspecialchars($texto);
+        return $texto;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +65,7 @@ if (isset($_POST["submit"])) {
             <h2 class="col">Conversor de monedas</h2>
         </div>
         <div class="row justify-content-center">
-            <form class="col-4 " method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
+            <form class="col-4 " method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
                 <div class="form-group">
                     <label for="cantidad">Cantidad</label>
                     <input type="number" <?php
