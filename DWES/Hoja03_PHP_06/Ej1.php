@@ -1,18 +1,28 @@
 <?php
-$marcas = array(
+$concesionario = array(
     "Seat" => array("Ibiza", "León", "Alhambra", "Arona", "Ateca", "Tarraco"),
     "Citroen" => array("C3", "C4", "C2", "Berlingo", "C1", "C5"),
     "Kia" => array("Sportage", "Picanto", "Rio", "Sorento", "Ceed", "Stonic")
 );
-/* Se crea el array solo si se actualizan los datos */
 
-if (isset($_POST["update"])) {
-    $auxMarcas = array();
-}
-/* Se crea la busqueda solo si se usa el boton de MOSTRAR */
-if (isset($_POST["submit"])) {
+if (isset($_POST["mostrar"])) {
     $busqueda = $_POST["marca"];
 }
+
+if (isset($_POST["actualizar"])) {
+    $busqueda = $_POST["busqueda"];
+    $modelosActualizados = $_POST["modelosActualizados"];
+
+    /* Si se da al boton Actualizar, se comprueba si los nuevos inputs son iguales al array original,
+    y si no es asi se modifica */
+    for ($i = 0; $i < count($concesionario[$busqueda]); $i++) {
+        if ($concesionario[$busqueda][$i] != $modelosActualizados[$i]) {
+            echo "Se ha actualizado " . $concesionario[$busqueda][$i] . " por $modelosActualizados[$i]";
+            $concesionario[$busqueda][$i] = $modelosActualizados[$i];
+        }
+    }
+}
+
 ?>
 
 
@@ -30,88 +40,46 @@ if (isset($_POST["submit"])) {
 
 <body>
     <div class="container">
-        <div class="row border">
-            <div class="col">
+        <div class="row justify-content-center border">
+            <div class="col-8">
                 <h1>Busca tu coche</h1>
                 <!-- PRIMER FORMULARIO: MARCA - COCHE -->
                 <form class="form-check" action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
                     <div class="form-group">
                         <label for="marca">Marca: </label>
                         <select class="form-control" name="marca" id="marca">
-                            <?php foreach ($marcas as $key => $value) : ?>
+                            <?php foreach ($concesionario as $key => $value) : ?>
                                 <option value='<?= $key ?>'> <?= $key ?> </option>";
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="row justify-content-center">
-                        <input type="submit" name="submit" class="btn btn-primary mb-2" value="Mostrar">
+                        <input type="submit" name="mostrar" class="btn btn-primary mb-2" value="Mostrar">
                     </div>
                 </form>
 
                 <!-- SI EJECUTO MOSTRAR -->
                 <?php
-                if (isset($_POST["submit"])) : ?>
-                    <div class="container border">
-                        <div class="row justify-content-center">
-                            <h2>COCHE</h2>
-                        </div>
-                        <div class="row justify-content-center">
-                            <form class="form-check" action="<?php echo $_SERVER["PHP_SELF"] ?>" method="post">
-                                <?php if (!isset($_POST["update"])) : ?>
-                                    <?php
-                                    /* CREAR LOS INPUTS DE LOS MODELOS DE COCHE A PARTIR DEL ARRAY INICIAL*/
-                                    foreach ($marcas[$busqueda] as $item) : ?>
-                                        <div class='form-group'>
-                                            <input type='text' name='<?= $item ?>' class='form-control' value='<?= $item ?>'>
-                                        </div>
-                                    <?php endforeach; ?>
-                                <?php else : ?>
-                                    <?php
-                                    /* CREAR LOS INPUTS DE LOS MODELOS DE COCHE A PARTIR DEL ARRAY AUXILIAR*/
-                                    foreach ($auxMarcas[$busqueda] as $item) : ?>
-                                        <div class='form-group'>
-                                            <input type='text' name='<?= $item ?>' class='form-control' value='<?= $item ?>'>
-                                        </div>
-                                    <?php endforeach; ?>
-                                <?php endif ?>
-                                <input name="update" type="submit" class="btn btn-primary mb-2" value="Actualizar">
-                            </form>
-                        </div>
-                    </div>
-
-                <?php endif; ?>
-                <!-- SI ACTUALIZO LOS INPUTS -->
-                <?php
-                if (isset($_POST["update"])) : ?>
-                    <div class="container border">
-                        <div class="row justify-content-center">
-                            <h2>COCHE</h2>
-                        </div>
-                        <div class="row justify-content-center">
-                            <form class="form-check" action="<?php echo $_SERVER["PHP_SELF"] ?>" method="post">
-                                <?php 
-                                /* CREAR LOS INPUTS DE LOS MODELOS DE COCHE A PARTIR DEL $_POST  */
-                                $fila = 0;
-                                foreach ($_POST as $modelo) : ?>
-                                    <?php if ($modelo !== "Actualizar") : ?>
-                                        <!-- PARA NO INCLUIR LOS BOTONES VACIOS DE CONTENIDO -->
-
-                                        <div class='form-group'>
-                                            <input type='text' name='<?= $modelo ?>' class='form-control' value='<?= $modelo ?>'>
-                                        </div>
-                                    <?php
-                                    
-                                        $auxMarcas[$busqueda][$fila] = $modelo; /* CON ESTO NO SE CAMBIAN LOS VALORES DEL ARRAY */
-                                        $fila++;
-                                    endif ?>
+                if (isset($busqueda)) : ?>
+                    <div class="row justify-content-center">
+                        <div class="col-6">
+                            <form class="form-check" action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
+                                <?php foreach ($concesionario[$busqueda] as $modelo) : ?>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="modelosActualizados[]" value="<?= $modelo ?>">
+                                    </div>
                                 <?php endforeach; ?>
 
-                                <input name="update" type="submit" class="btn btn-primary mb-2" value="Actualizar">
+                                <div class="row justify-content-center mb-2">
+                                    <input class="btn btn-primary" type="submit" name="actualizar" value="Actualizar">
+                                </div>
+
+                                <input type="hidden" name="busqueda" value="<?= $busqueda ?>">
+
                             </form>
                         </div>
                     </div>
                 <?php endif; ?>
-
             </div>
         </div>
     </div>
