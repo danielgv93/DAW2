@@ -13,13 +13,15 @@ function inicio() {
 
     /* Elementos Avion */
     botonCosteAvion = document.getElementById("calcularAvionBoton");
+    inputMeter = document.getElementById("meter");
     avionBoolean = document.getElementById("elegirAvion");
     ciudadSelect = document.getElementById("ciudad");
     descuento = document.getElementById("ida_vuelta");
     inputTotalAvion = document.getElementById("totalAvion");
 
-    botonCosteAvion = addEventListener("click", actualizarPrecioAvion, false);
-    botonCosteAvion = addEventListener("click", actualizarTotal, false);
+    botonCosteAvion.addEventListener("click", actualizarPrecioAvion, false);
+    botonCosteAvion.addEventListener("click", actualizarTotal, false);
+    botonCosteAvion.addEventListener("click", actualizarMeter, false);
 
     /* Elementos coche */
     botonCosteAlquiler = document.getElementById("calcularCocheBoton");
@@ -58,6 +60,10 @@ function actualizarPrecioCoche() {
         inputTotalCoche.value = 0;
     }
 
+}
+
+function actualizarMeter() {
+    inputMeter.value = capacidadCiudad(ciudadSelect.value);
 }
 
 function actualizarTotal() {
@@ -123,4 +129,18 @@ function alquilerCoche(dias) {
 
 function calcularTotal(hotel, avion, coche) {
     return `${parseInt(hotel) + parseInt(avion) + parseInt(coche)}`;
+}
+
+function capacidadCiudad(ciudad) {
+    let valor = 0
+    if (ciudad == "madrid") {
+        valor = 4;
+    } else if (ciudad == "tokyo"){
+        valor = 9;
+    } else if (ciudad == "berlin"){
+        valor = 1;
+    } else if (ciudad == "belgica"){
+        valor = 6;
+    }
+    return valor;
 }
