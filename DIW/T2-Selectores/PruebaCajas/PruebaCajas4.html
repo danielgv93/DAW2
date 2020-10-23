@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .caja1 {
+        background-color: #f99;
+        font-size: 1.3em;
+        margin-bottom: 10px;
+        width: 200px;
+        height: 200px;
+        position: relative;
+        z-index: 0;
+    }
+    .caja2 {
+        background-color: #ffe900;
+        font-size: 1.3em;
+        margin-bottom: 10px;
+        width: 200px;
+        height: 200px;
+        top: 60px;
+        left: 90px;
+        position: absolute;
+        z-index: 1;
+    }
+    .caja3 {
+        background-color: #f99;
+        font-size: 1.3em;
+        margin-bottom: 10px;
+        width: 200px;
+        height: 200px;
+        position: relative;
+        z-index: 2;
+    }
+    div:hover {
+        background-color: green;
+    }
+    </style>
+</head>
+<body>
+    <div class="caja1">CAJA 1</div>
+    <div class="caja2">CAJA 2</div>
+    <div class="caja3">CAJA 3</div>
+</body>
+</html>
