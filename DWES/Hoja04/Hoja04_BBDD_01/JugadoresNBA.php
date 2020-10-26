@@ -1,12 +1,10 @@
 <?php
 require_once "queriesBD.php";
-if (isset($_POST["equipo"])) {
+if (isset($_POST["botonMostrar-Jugadores"]) || isset($_POST["botonMostrar-Traspaso"])) {
     $equipoSelected = $_POST["equipo"];
     $jugadoresEquipoSelected = getJugadoresDeEquipo($equipoSelected);
 }
-
 $nombreEquipos = getEquipos();
-
 
 
 ?>
@@ -17,36 +15,94 @@ $nombreEquipos = getEquipos();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
 </head>
 
-<body>
-    <h1>Jugadores de la NBA</h1>
+<body class="container">
+
+    <!-- FORMULARIO MOSTRAR JUGADORES -->
     <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
-        <label for="equipo">Equipo:
-            <select name="equipo">
-                <?php while ($registro = $nombreEquipos->fetch()) : ?>
-                    <option value="<?php echo $registro["nombre"] ?>"><?php echo $registro["nombre"] ?></option>
-                <?php endwhile ?>
-            </select>
-        </label>
-
-        <input type="submit" name="mostrar" value="Mostrar">
+        <h1>Jugadores de la NBA</h1>
+        <div class="form-group">
+            <label for="equipo">Equipo:
+                <select class="form-control" name="equipo">
+                    <?php foreach ($nombreEquipos as $equipo) : ?>
+                        <option value="<?= $equipo ?>" <?= $selectedProp = (isset($equipoSelected) && $equipoSelected == $equipo) ? "selected" : ""; ?>>
+                            <?= $equipo ?></option>
+                    <?php endforeach ?>
+                </select>
+            </label>
+        </div>
+        <input class=" btn btn-primary" type="submit" name="botonMostrar-Jugadores" value="Mostrar">
     </form>
-    <table>
-        <tr>
-            <th>Nombre</th>
-        </tr>
-        <?php if ($jugadoresEquipoSelected->execute()) : ?>
-
-            <?php while ($fila = $consulta->fetch()) : ?>
-                <tr>
-                    <td><?php ?></td>
+    <!-- Crear tabla jugadores -->
+    <?php if (isset($_POST["botonMostrar-Jugadores"])) : ?>
+        <table class="table border mt-3">
+            <tr>
+                <th>Nombre</th>
+                <th>Peso</th>
+            </tr>
+            <?php foreach ($jugadoresEquipoSelected as $jugador) : ?>
+                <tr scope='row'>
+                    <td><?= $jugador["nombre"] ?></td>
+                    <td><?= $jugador["peso"] ?></td>
                 </tr>
-                $datos[] = array("valor1" => $fila['valor1'], "valor2" => $fila['valor2']);
+            <?php endforeach ?>
+        </table>
+    <?php endif ?>
 
-            <?php endwhile ?>
-        <?php endif ?>
-    </table>
+    <!-- FORMULARIO TRASPASOS -->
+    <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
+        <h1>Traspasos de jugadores</h1>
+        <div class="form-group">
+            <label for="equipo">Equipo:
+                <select class="form-control" name="equipo">
+                    <?php foreach ($nombreEquipos as $equipo) : ?>
+                        <option value="<?php echo $equipo ?>" <?= $selectedProp = (isset($equipoSelected) && $equipoSelected == $equipo) ? "selected" : ""; ?>>
+                            <?php echo $equipo ?></option>
+                    <?php endforeach ?>
+                </select>
+            </label>
+        </div>
+        <input class="btn btn-primary" type="submit" name="botonMostrar-Traspaso" value="Mostrar">
+    </form>
+    <!-- FORMULARIO BAJA Y ALTA DE JUGADORES -->
+    <?php if (isset($_POST["botonMostrar-Traspaso"])) :
+        $equipoSelected = $_POST["equipo"];
+        $jugadoresEquipoSelected = getJugadoresDeEquipo($equipoSelected);
+    ?>
+        <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
+            <h2>Baja y alta de jugadores</h2>
+            <div class="form-group">
+                <label for="equipo">Baja de jugador:
+                    <select class="form-control" name="equipo">
+                        <?php foreach ($jugadoresEquipoSelected as $jugador) : ?>
+                            <option value="<?php echo $jugador["nombre"] ?>">
+                                <?= $jugador["nombre"] ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </label>
+            </div>
+            <h3>Datos del nuevo jugador</h3>
+            <div class="form-group">
+                <label for="nombreJugador">Nombre:</label>
+                <input type="text" class="form-control" name="nombreJugador">
+            </div>
+            <div class="form-group">
+                <label for="procedencia">Procedencia:</label>
+                <input type="text" class="form-control" name="procedencia">
+            </div>
+            <div class="form-group">
+                <label for="altura">Altura:</label>
+                <input type="number" class="form-control" name="altura" min="1">
+            </div>
+            <div class="form-group">
+                <label for="peso">Peso:</label>
+                <input type="number" class="form-control" name="peso" min="1">
+            </div>
+            <input class=" btn btn-primary" type="submit" name="botonTraspaso" value="Realizar traspaso">
+        </form>
+    <?php endif ?>
 </body>
 
 </html>
