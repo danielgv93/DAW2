@@ -24,7 +24,7 @@ function getJugadoresDeEquipo($equipo) {
     return $datos;
 }
 
-function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso) {
+function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso, $equipo) {
     $conexionNBA = getConexion("nba");
     $todoOk = true;
     $conexionNBA->beginTransaction();
@@ -33,17 +33,19 @@ function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso) {
     if ($borrado->execute() != true) {
         $todoOk = false;
     }
-    $update = $conexionNBA->prepare("INSERT INTO jugadores (nombre, procedencia, altura, peso) VALUES (?,?,?,?)");
+    $update = $conexionNBA->prepare("INSERT INTO jugadores (codigo, nombre, procedencia, altura, peso, nombre_equipo) VALUES ((SELECT (t.codigo + 1) from jugadores AS t ORDER BY t.codigo DESC LIMIT 1),?,?,?,?,?)");
     $update->bindParam(1, $nombre);
     $update->bindParam(2, $procedencia);
     $update->bindParam(3, $altura);
     $update->bindParam(4, $peso);
+    $update->bindParam(5, $equipo);
     if ($update->execute() != true) {
         $todoOk = false;
     }
     if ($todoOk){
         $conexionNBA->commit();
     } else {
+        echo "<p>Error al realizar alguna query</p>";
         $conexionNBA->rollBack();
     }
 }
