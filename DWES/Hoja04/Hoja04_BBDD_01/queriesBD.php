@@ -11,6 +11,16 @@ function getEquipos() {
     return $datos;
 }   
 
+function getPosicion() {
+    $conexionNBA = getConexion("nba");
+    $resultado = $conexionNBA->query("SELECT DISTINCT posicion FROM jugadores");
+    while ($registro = $resultado->fetch()) {
+        $datos[] = $registro["posicion"];
+    }
+    unset($conexionNBA);
+    return $datos;
+}
+
 function getJugadoresDeEquipo($equipo) {
     $conexionNBA = getConexion("nba");
     $consulta = $conexionNBA->prepare("SELECT nombre, peso FROM jugadores WHERE nombre_equipo=?");
@@ -24,7 +34,7 @@ function getJugadoresDeEquipo($equipo) {
     return $datos;
 }
 
-function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso, $equipo) {
+function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso, $posicion, $equipo) {
     $conexionNBA = getConexion("nba");
     $todoOk = true;
     $conexionNBA->beginTransaction();
@@ -33,12 +43,13 @@ function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso, $equip
     if ($borrado->execute() != true) {
         $todoOk = false;
     }
-    $update = $conexionNBA->prepare("INSERT INTO jugadores (codigo, nombre, procedencia, altura, peso, nombre_equipo) VALUES ((SELECT (t.codigo + 1) from jugadores AS t ORDER BY t.codigo DESC LIMIT 1),?,?,?,?,?)");
+    $update = $conexionNBA->prepare("INSERT INTO jugadores (codigo, nombre, procedencia, altura, peso, posicion, nombre_equipo) VALUES ((SELECT (t.codigo + 1) from jugadores AS t ORDER BY t.codigo DESC LIMIT 1),?,?,?,?,?,?)");
     $update->bindParam(1, $nombre);
     $update->bindParam(2, $procedencia);
     $update->bindParam(3, $altura);
     $update->bindParam(4, $peso);
-    $update->bindParam(5, $equipo);
+    $update->bindParam(5, $posicion);
+    $update->bindParam(6, $equipo);
     if ($update->execute() != true) {
         $todoOk = false;
     }

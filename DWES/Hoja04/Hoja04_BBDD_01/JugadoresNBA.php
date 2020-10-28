@@ -70,12 +70,13 @@ $nombreEquipos = getEquipos();
     <?php if (isset($_POST["botonMostrar-Traspaso"])) :
         $equipoSelected = $_POST["equipo"];
         $jugadoresEquipoSelected = getJugadoresDeEquipo($equipoSelected);
+        $posicionesArray = getPosicion();
     ?>
         <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
             <h2>Baja y alta de jugadores</h2>
             <input type="hidden" name="equipoSeleccionado" value="<?= $equipoSelected ?>">
             <div class="form-group">
-                <label for="equipo">Baja de jugador:
+                <label for="jugadorBaja">Baja de jugador:
                     <select class="form-control" name="jugadorBaja">
                         <?php foreach ($jugadoresEquipoSelected as $jugador) : ?>
                             <option value="<?php echo $jugador["nombre"] ?>">
@@ -87,32 +88,44 @@ $nombreEquipos = getEquipos();
             <h3>Datos del nuevo jugador</h3>
             <div class="form-group">
                 <label for="nombreJugador">Nombre:</label>
-                <input type="text" class="form-control" name="nombreJugador">
+                <input type="text" class="form-control" name="nombreJugador" required>
             </div>
             <div class="form-group">
                 <label for="procedencia">Procedencia:</label>
-                <input type="text" class="form-control" name="procedencia">
+                <input type="text" class="form-control" name="procedencia" required>
             </div>
             <div class="form-group">
                 <label for="altura">Altura:</label>
-                <input type="number" class="form-control" name="altura" min="1" step="any">
+                <input type="number" class="form-control" name="altura" min="1" step="any" required>
             </div>
             <div class="form-group">
                 <label for="peso">Peso:</label>
-                <input type="number" class="form-control" name="peso" min="1" step="any">
+                <input type="number" class="form-control" name="peso" min="1" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="posicion">Posicion:
+                    <select class="form-control" name="posicion">
+                        <?php foreach ($posicionesArray as $posicion) : ?>
+                            <option value="<?= $posicion ?>">
+                                <?= $posicion ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </label>
             </div>
             <input class=" btn btn-primary" type="submit" name="botonTraspaso" value="Realizar traspaso">
         </form>
     <?php endif ?>
     <?php
     if (isset($_POST["botonTraspaso"])) {
+        
         $equipoSelected = $_POST["equipoSeleccionado"];
         $jugadorBaja = $_POST["jugadorBaja"];
         $jugadorAlta = $_POST["nombreJugador"];
         $procedencia = $_POST["procedencia"];
         $altura = $_POST["altura"];
         $peso = $_POST["peso"];
-        setTraspaso($jugadorBaja, $jugadorAlta, $procedencia, $altura, $peso, $equipoSelected);
+        $posicion = $_POST["posicion"];
+        setTraspaso($jugadorBaja, $jugadorAlta, $procedencia, $altura, $peso, $posicion, $equipoSelected);
     }
     ?>
 </body>
