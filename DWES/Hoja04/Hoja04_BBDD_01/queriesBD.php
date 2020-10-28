@@ -54,9 +54,10 @@ function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso, $posic
         $todoOk = false;
     }
     if ($todoOk){
+        echo "<p class='font-weight-bold p-3 mb-2 bg-success'>Traspaso realizado con exito</p>";
         $conexionNBA->commit();
     } else {
-        echo "<p>Error al realizar alguna query</p>";
+        echo "<p class='font-weight-bold p-3 mb-2 bg-danger'>Error al realizar el traspaso</p>";
         $conexionNBA->rollBack();
     }
 }
