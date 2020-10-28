@@ -7,7 +7,7 @@ function inicio() {
     botonCalcular = document.getElementById("calcularBoton");
     botonCalcular.addEventListener("click", function(){
         let suma, media, mayor, menor;
-        [suma, media, mayor, menor] = calculos(arrayNumeros);
+        [suma, media, mayor, menor] = calculos(cargarArray());
         inputSuma.value = suma;
         inputMedia.value = media;
         inputMayor.value = mayor;
@@ -18,8 +18,6 @@ function inicio() {
     inputMayor = document.getElementById("mayorInput");
     inputMenor = document.getElementById("menorInput");
 
-    let arrayNumeros = cargarArray();
-
 }
 
 
@@ -28,11 +26,12 @@ function cargarArray() {
     return inputNumeros.value.split(",");
 }
 function calculos(arrayNumeros) {
-    arrayNumeros.sort();
+    
     let arrayAux = Array();
     arrayNumeros.forEach((element, key) => {
         arrayAux[key] = parseInt(element);
     });
+    arrayAux.sort(function(a, b){return b-a});
     let suma = 0;
     let media = 0;
     let mayor = 0;
@@ -42,6 +41,6 @@ function calculos(arrayNumeros) {
     });
     media = suma / arrayAux.length;
     mayor = arrayAux[0];
-    menor = arrayAux[arrayAux.length];
+    menor = arrayAux[arrayNumeros.length-1];
     return [suma, media, mayor, menor];
 }
