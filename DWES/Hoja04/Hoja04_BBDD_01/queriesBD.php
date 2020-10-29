@@ -62,4 +62,19 @@ function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso, $posic
     }
 }
 
+function updatePeso($nombre, $peso) {
+    $conexionNBA = getConexion("nba");
+    $todoOk = true;
+    $update = $conexionNBA->prepare("UPDATE jugadores SET peso = ? WHERE nombre = ?");
+    $update->bindParam(1, $peso);
+    $update->bindParam(2, $nombre);
+    if ($update->execute() != true) {
+        $todoOk = false;
+    }
+    /* return $retVal = ($todoOk) ? true : false ; */
+    if (!$todoOk) {
+        echo "<p class='font-weight-bold p-3 mb-2 bg-danger'>Error al actualizar el peso</p>";
+    }
+}
+
 ?>

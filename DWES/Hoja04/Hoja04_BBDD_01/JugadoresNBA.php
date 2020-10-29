@@ -1,11 +1,36 @@
 <?php
 require_once "queriesBD.php";
-if (isset($_POST["botonMostrar-Jugadores"]) || isset($_POST["botonMostrar-Traspaso"])) {
+if (isset($_POST["botonMostrar-Jugadores"]) || isset($_POST["botonMostrar-Traspaso"]) || isset($_POST["actualizarPeso"])) {
     $equipoSelected = $_POST["equipo"];
     $jugadoresEquipoSelected = getJugadoresDeEquipo($equipoSelected);
 }
 $nombreEquipos = getEquipos();
 
+
+
+if (isset($_POST["actualizarPeso"])) {
+    $peso = $_POST["peso"];
+    foreach ($jugadoresEquipoSelected as $fila => $jugador) {
+        updatePeso($jugador["nombre"], $peso[$fila]);
+    }
+}
+
+function crearSelectEquipos($listaEquipos, $equipoSelected)
+{
+    foreach ($listaEquipos as $equipo) {
+        $selectedProp = (isset($equipoSelected) && $equipoSelected == $equipo) ? "selected" : "";
+        echo '<option value="' . $equipo . '"' . $selectedProp . '>' . $equipo . '</option>';
+    }
+}
+
+function crearTablaJugadores($arrayJugadores) {
+    foreach ($arrayJugadores as $jugador) {
+        echo "<tr scope='row'>";
+        echo '<td>'.$jugador["nombre"].'</td>';
+        echo '<td><input type="number" name="peso[]" value="'.$jugador["peso"].'"></td>';
+        echo '</tr>';
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -26,10 +51,7 @@ $nombreEquipos = getEquipos();
         <div class="form-group">
             <label for="equipo">Equipo:
                 <select class="form-control" name="equipo">
-                    <?php foreach ($nombreEquipos as $equipo) : ?>
-                        <option value="<?= $equipo ?>" <?= $selectedProp = (isset($equipoSelected) && $equipoSelected == $equipo) ? "selected" : ""; ?>>
-                            <?= $equipo ?></option>
-                    <?php endforeach ?>
+                    <?php crearSelectEquipos($nombreEquipos, $equipoSelected) ?>
                 </select>
             </label>
         </div>
@@ -37,18 +59,17 @@ $nombreEquipos = getEquipos();
     </form>
     <!-- Crear tabla jugadores -->
     <?php if (isset($_POST["botonMostrar-Jugadores"])) : ?>
-        <table class="table border mt-3">
-            <tr>
-                <th>Nombre</th>
-                <th>Peso</th>
-            </tr>
-            <?php foreach ($jugadoresEquipoSelected as $jugador) : ?>
-                <tr scope='row'>
-                    <td><?= $jugador["nombre"] ?></td>
-                    <td><?= $jugador["peso"] ?></td>
+        <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
+            <input type="hidden" name="equipo" value="<?= $equipoSelected ?>">
+            <table class="table border mt-3">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Peso</th>
                 </tr>
-            <?php endforeach ?>
-        </table>
+                <?php crearTablaJugadores($jugadoresEquipoSelected) ?>
+            </table>
+            <input class="btn btn-primary" type="submit" name="actualizarPeso" value="Actualizar">
+        </form>
     <?php endif ?>
 
     <!-- FORMULARIO TRASPASOS -->
@@ -57,10 +78,7 @@ $nombreEquipos = getEquipos();
         <div class="form-group">
             <label for="equipo">Equipo:
                 <select class="form-control" name="equipo">
-                    <?php foreach ($nombreEquipos as $equipo) : ?>
-                        <option value="<?php echo $equipo ?>" <?= $selectedProp = (isset($equipoSelected) && $equipoSelected == $equipo) ? "selected" : ""; ?>>
-                            <?php echo $equipo ?></option>
-                    <?php endforeach ?>
+                    <?php crearSelectEquipos($nombreEquipos, $equipoSelected) ?>
                 </select>
             </label>
         </div>
@@ -117,7 +135,7 @@ $nombreEquipos = getEquipos();
     <?php endif ?>
     <?php
     if (isset($_POST["botonTraspaso"])) {
-        
+
         $equipoSelected = $_POST["equipoSeleccionado"];
         $jugadorBaja = $_POST["jugadorBaja"];
         $jugadorAlta = $_POST["nombreJugador"];
