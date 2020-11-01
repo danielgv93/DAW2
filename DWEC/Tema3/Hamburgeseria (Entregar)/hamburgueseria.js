@@ -40,7 +40,7 @@ function inicio() {
     let precioCarneArray = Array(3,2,2.5,4,3.5);
     let precioPanArray = Array(2,4.5,2.5,3);
     let arrayPan = Array("trigo", "centeno", "integral", "crujiente");
-    let arrayCarne = Array("ternera", "cerdo", "pollo", "caca", "mixto");
+    let arrayCarne = Array("ternera", "cerdo", "pollo", "vaca", "mixto");
 
     
 }
