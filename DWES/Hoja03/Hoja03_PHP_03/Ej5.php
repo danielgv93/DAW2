@@ -10,7 +10,7 @@
 <body>
     <?php
 
-    /* NO HACE FALTA INICIALIZAR CADA VARIABLE, INTRODUCIR TODO EN EL ARRAY
+    /* NO HACE FALTA INICIALIZAR CADA VARIABLE, INTRODUCIR EL ARRAY COMPLETO
     $articulo1 = array("Codigo" => 1, "Descripcion" => "Arroz",
         "Existencias" => 9);
     $articulo2 = array("Codigo" => 5, "Descripcion" => "Detergente",
