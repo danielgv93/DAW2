@@ -1,8 +1,8 @@
 <?php
-require_once "../ConexionBD.php";
+require_once "../ConexionPDO.php";
 
 function getEquipos() {
-    $conexionNBA = getConexion("nba");
+    $conexionNBA = getConexion();
     $resultado = $conexionNBA->query("SELECT nombre FROM equipos");
     while ($registro = $resultado->fetch()) {
         $datos[] = $registro["nombre"];
@@ -12,7 +12,7 @@ function getEquipos() {
 }   
 
 function getPosicion() {
-    $conexionNBA = getConexion("nba");
+    $conexionNBA = getConexion();
     $resultado = $conexionNBA->query("SELECT DISTINCT posicion FROM jugadores");
     while ($registro = $resultado->fetch()) {
         $datos[] = $registro["posicion"];
@@ -22,7 +22,7 @@ function getPosicion() {
 }
 
 function getJugadoresDeEquipo($equipo) {
-    $conexionNBA = getConexion("nba");
+    $conexionNBA = getConexion();
     $consulta = $conexionNBA->prepare("SELECT nombre, peso FROM jugadores WHERE nombre_equipo=?");
     $consulta->bindParam(1, $equipo);
     if($consulta->execute()) {
@@ -35,7 +35,7 @@ function getJugadoresDeEquipo($equipo) {
 }
 
 function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso, $posicion, $equipo) {
-    $conexionNBA = getConexion("nba");
+    $conexionNBA = getConexion();
     $todoOk = true;
     $conexionNBA->beginTransaction();
     $borrado = $conexionNBA->prepare("DELETE FROM jugadores WHERE nombre=?");
@@ -63,7 +63,7 @@ function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso, $posic
 }
 
 function updatePeso($nombre, $peso) {
-    $conexionNBA = getConexion("nba");
+    $conexionNBA = getConexion();
     $todoOk = true;
     $update = $conexionNBA->prepare("UPDATE jugadores SET peso = ? WHERE nombre = ?");
     $update->bindParam(1, $peso);

@@ -1,4 +1,4 @@
-<?php require_once "DWES/Hoja04/ConexionBD.php";
+<?php require_once "DWES/Hoja04/ConexionPDO.php";
 
 function crearBaseDatosYTabla ()
 {

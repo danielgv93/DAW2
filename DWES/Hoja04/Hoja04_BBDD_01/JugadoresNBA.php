@@ -1,5 +1,5 @@
 <?php
-require_once "queriesBD.php";
+require_once "queriesPDO.php";
 if (isset($_POST["botonMostrar-Jugadores"]) || isset($_POST["botonMostrar-Traspaso"]) || isset($_POST["actualizarPeso"])) {
     $equipoSelected = $_POST["equipo"];
     $jugadoresEquipoSelected = getJugadoresDeEquipo($equipoSelected);
