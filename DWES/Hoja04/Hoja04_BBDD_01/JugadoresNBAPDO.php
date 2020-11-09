@@ -33,7 +33,7 @@ function crearTablaJugadores($arrayJugadores) {
         echo '<td>'.$jugador["nombre"].'</td>';
         echo '<td><input type="number" name="peso[]" value="'.$jugador["peso"].'"></td>';
         echo '</tr>';
-    }aa
+    }
 }
 
 ?>
