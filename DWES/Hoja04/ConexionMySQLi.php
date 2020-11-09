@@ -3,7 +3,7 @@ define("HOST", "localhost");
 define("USERNAME", "root");
 define("PASSWORD", "");
 define("DATABASE", "nba");
-function getConexion() {
+function getConexionSQLi() {
     $conexion = new mysqli(HOST, USERNAME, PASSWORD, DATABASE, 3306);
     $conexion->set_charset("utf8");
     $error = $conexion->connect_errno;

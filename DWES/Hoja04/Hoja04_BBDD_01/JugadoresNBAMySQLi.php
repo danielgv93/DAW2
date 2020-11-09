@@ -1,5 +1,5 @@
 <?php
-require_once "queriesPDO.php";
+require_once "queriesMySQLi.php";
 if (isset($_POST["botonMostrar-Jugadores"]) || isset($_POST["botonMostrar-Traspaso"]) || isset($_POST["actualizarPeso"])) {
     $equipoSelected = $_POST["equipo"];
     $jugadoresEquipoSelected = getJugadoresDeEquipo($equipoSelected);
@@ -143,7 +143,11 @@ function crearTablaJugadores($arrayJugadores) {
         $altura = $_POST["altura"];
         $peso = $_POST["peso"];
         $posicion = $_POST["posicion"];
-        setTraspaso($jugadorBaja, $jugadorAlta, $procedencia, $altura, $peso, $posicion, $equipoSelected);
+        if (setTraspaso($jugadorBaja, $jugadorAlta, $procedencia, $altura, $peso, $posicion, $equipoSelected)) {
+            echo "<p class='font-weight-bold p-3 mb-2 bg-success'>Traspaso realizado con exito</p>";
+        } else {
+            echo "<p class='font-weight-bold p-3 mb-2 bg-danger'>Error al realizar el traspaso</p>";
+        }
     }
     ?>
 </body>

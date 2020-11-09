@@ -2,7 +2,7 @@
 
 function crearBaseDatosYTabla ()
 {
-    $conexion = getConexionBD();
+    $conexion = getConexionPDOBD();
     $conexion->exec("CREATE DATABASE IF NOT EXISTS dwes_02_libros");
     $conexion->exec("USE dwes_02_libros");
     $crearTabla = "CREATE TABLE IF NOT EXISTS libros (
