@@ -2,7 +2,7 @@
 require_once "../ConexionPDO.php";
 
 function getEquipos() {
-    $conexionNBA = getConexion();
+    $conexionNBA = getConexionPDO();
     $resultado = $conexionNBA->query("SELECT nombre FROM equipos");
     while ($registro = $resultado->fetch()) {
         $datos[] = $registro["nombre"];
@@ -12,7 +12,7 @@ function getEquipos() {
 }   
 
 function getPosicion() {
-    $conexionNBA = getConexion();
+    $conexionNBA = getConexionPDO();
     $resultado = $conexionNBA->query("SELECT DISTINCT posicion FROM jugadores");
     while ($registro = $resultado->fetch()) {
         $datos[] = $registro["posicion"];
@@ -22,7 +22,7 @@ function getPosicion() {
 }
 
 function getJugadoresDeEquipo($equipo) {
-    $conexionNBA = getConexion();
+    $conexionNBA = getConexionPDO();
     $consulta = $conexionNBA->prepare("SELECT nombre, peso FROM jugadores WHERE nombre_equipo=?");
     $consulta->bindParam(1, $equipo);
     if($consulta->execute()) {
@@ -35,7 +35,7 @@ function getJugadoresDeEquipo($equipo) {
 }
 
 function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso, $posicion, $equipo) {
-    $conexionNBA = getConexion();
+    $conexionNBA = getConexionPDO();
     $todoOk = true;
     $conexionNBA->beginTransaction();
     $borrado = $conexionNBA->prepare("DELETE FROM jugadores WHERE nombre=?");
@@ -54,16 +54,16 @@ function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso, $posic
         $todoOk = false;
     }
     if ($todoOk){
-        echo "<p class='font-weight-bold p-3 mb-2 bg-success'>Traspaso realizado con exito</p>";
         $conexionNBA->commit();
+        return true;
     } else {
-        echo "<p class='font-weight-bold p-3 mb-2 bg-danger'>Error al realizar el traspaso</p>";
         $conexionNBA->rollBack();
+        return false;
     }
 }
 
 function updatePeso($nombre, $peso) {
-    $conexionNBA = getConexion();
+    $conexionNBA = getConexionPDO();
     $todoOk = true;
     $update = $conexionNBA->prepare("UPDATE jugadores SET peso = ? WHERE nombre = ?");
     $update->bindParam(1, $peso);
@@ -71,10 +71,7 @@ function updatePeso($nombre, $peso) {
     if ($update->execute() != true) {
         $todoOk = false;
     }
-    /* return $retVal = ($todoOk) ? true : false ; */
-    if (!$todoOk) {
-        echo "<p class='font-weight-bold p-3 mb-2 bg-danger'>Error al actualizar el peso</p>";
-    }
+    return $todoOk;
 }
 
 ?>
