@@ -11,7 +11,7 @@ if (isset($_POST["guardar"])) {
 
     }
 
-    ;
+
 }
 ?>
 
@@ -30,7 +30,7 @@ if (isset($_POST["guardar"])) {
 <body class="container">
     <h1>INSERTE LOS DATOS DEL LIBRO</h1>
 
-    <form method="post" action="libros_guardar.php">
+    <form class="m-2" method="post" action="libros_guardar.php">
         <div class="form-group">
             <label for="">Titulo:*</label>
             <input type="text"
@@ -51,7 +51,8 @@ if (isset($_POST["guardar"])) {
             <input type="text"
                    class="form-control" name="fechaAdquisicion">
         </div>
-        <input type="submit" name="guardar" class="btn btn-primary">Guardar datos del libro</input>
+        <input type="submit" name="guardar" class="btn btn-primary" value="Guardar datos del libro">
     </form>
+    <a href="libros_datos.php"><button class="btn btn-primary">MOSTRAR DATOS DE LIBROS</button></a>
 </body>
 </html>
