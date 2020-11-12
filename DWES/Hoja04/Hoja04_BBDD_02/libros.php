@@ -1,3 +1,20 @@
+<?php
+if (isset($_POST["guardar"])) {
+    $titulo = $_POST["titulo"];
+    $edicion = $_POST["añoEdicion"];
+    $precio = $_POST["precio"];
+    $adquisicion = $_POST["fechaAdquisicion"];
+
+
+    function comprobarFecha($fecha)
+    {
+
+    }
+
+    ;
+}
+?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -13,7 +30,7 @@
 <body class="container">
     <h1>INSERTE LOS DATOS DEL LIBRO</h1>
 
-    <form method="post" action="<?php $_SERVER["PHP_SELF"] ?>">
+    <form method="post" action="libros_guardar.php">
         <div class="form-group">
             <label for="">Titulo:*</label>
             <input type="text"
@@ -31,10 +48,10 @@
         </div>
         <div class="form-group">
             <label for="">Fecha de adquisición:*</label>
-            <input type="date"
-                   class="form-control" name="fechaAdquisicion" step="any">
+            <input type="text"
+                   class="form-control" name="fechaAdquisicion">
         </div>
-        <button type="submit" class="btn btn-primary">Guardar datos del libro</button>
+        <input type="submit" name="guardar" class="btn btn-primary">Guardar datos del libro</input>
     </form>
 </body>
 </html>
