@@ -1,5 +1,5 @@
 <?php
-require_once "../ConexionMySQLi.php";
+require_once "ConexionMySQLi.php";
 
 function getEquipos() {
     $conexion = getConexionSQLi();

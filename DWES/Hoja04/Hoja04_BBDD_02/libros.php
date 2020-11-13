@@ -1,15 +1,6 @@
 <?php
 if (isset($_POST["guardar"])) {
-    $titulo = $_POST["titulo"];
-    $edicion = $_POST["añoEdicion"];
-    $precio = $_POST["precio"];
-    $adquisicion = $_POST["fechaAdquisicion"];
 
-
-    function comprobarFecha($fecha)
-    {
-
-    }
 
 
 }
@@ -27,32 +18,37 @@ if (isset($_POST["guardar"])) {
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
 </head>
-<body class="container">
-    <h1>INSERTE LOS DATOS DEL LIBRO</h1>
+<body>
+<div class="container">
+    <h1 class="text-center">INSERTE LOS DATOS DEL LIBRO</h1>
 
-    <form class="m-2" method="post" action="libros_guardar.php">
+    <form class="row justify-content-center m-2" method="post" action="libros_guardar.php">
         <div class="form-group">
-            <label for="">Titulo:*</label>
-            <input type="text"
-                   class="form-control" name="titulo">
+            <label for="titulo">Titulo:*</label>
+                <input type="text"
+                       class="form-control" name="titulo" id="titulo">
         </div>
         <div class="form-group">
-            <label for="">Año de edicion:*</label>
-            <input type="number"
-                   class="form-control" name="añoEdicion">
+            <label for="añoEdicion">Año de edicion:*</label>
+                <input type="number"
+                       class="form-control" id="añoEdicion" name="añoEdicion">
         </div>
         <div class="form-group">
-            <label for="">Precio:*</label>
-            <input type="number"
-                   class="form-control" name="precio" step="any">
+            <label for="precio">Precio:*</label>
+                <input type="number"
+                       class="form-control" name="precio" id="precio" step="any">
         </div>
         <div class="form-group">
-            <label for="">Fecha de adquisición:*</label>
-            <input type="text"
-                   class="form-control" name="fechaAdquisicion">
+            <label for="fechaAdquisicion">Fecha de adquisición:*</label>
+                <input type="text"
+                       class="form-control" name="fechaAdquisicion" id="fechaAdquisicion"
+                       placeholder="YYYY-MM-DD">
         </div>
         <input type="submit" name="guardar" class="btn btn-primary" value="Guardar datos del libro">
     </form>
-    <a href="libros_datos.php"><button class="btn btn-primary">MOSTRAR DATOS DE LIBROS</button></a>
+    <a href="libros_datos.php">
+        <button class="btn btn-primary ">MOSTRAR DATOS DE LIBROS</button>
+    </a>
+</div>
 </body>
 </html>

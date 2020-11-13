@@ -1,10 +1,10 @@
 <?php
-require_once "../ConexionPDO.php";
+require_once "ConexionPDO.php";
 
 function insertarLibro($titulo, $edicion, $precio, $adquisicion)
 {
     $conexion = getConexionPDO();
-    $sql = "INSERT INTO libros (titulo, añoEdicion, precio, fechaAdquisicion) VALUES (?,?,?,?)";
+    $sql = "INSERT INTO libros (titulo, anio_edicion, precio, fecha_adquisicion) VALUES (?,?,?,?)";
     $insercion = $conexion->prepare($sql);
     $insercion->bindParam(1, $titulo);
     $insercion->bindParam(2, $edicion);

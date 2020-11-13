@@ -1,5 +1,5 @@
 <?php
-require_once "../ConexionPDO.php";
+require_once "ConexionPDO.php";
 
 function getEquipos() {
     $conexionNBA = getConexionPDO();

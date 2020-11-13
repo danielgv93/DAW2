@@ -1,7 +1,12 @@
 <?php
 require_once "funcionesBaseDatosPDO.php";
-if (insertarLibro($_POST["titulo"], $_POST["añoEdicion"], $_POST["precio"], $_POST["fechaAdquisicion"])) {
-    $texto = "Insertado el libro ".$_POST["titulo"]." con exito";
+$titulo = $_POST["titulo"];
+$edicion = $_POST["añoEdicion"];
+$precio = $_POST["precio"];
+$adquisicion = $_POST["fechaAdquisicion"];
+date("Y-m-d", $adquisicion) == $adquisicion;
+if (insertarLibro($titulo, $edicion, $precio, $adquisicion)) {
+    $texto = "Datos guardados correctamente";
 } else {
     $texto = "Error al insertar el libro";
 }
@@ -22,7 +27,7 @@ if (insertarLibro($_POST["titulo"], $_POST["añoEdicion"], $_POST["precio"], $_P
 <body>
 <div class="container">
     <a href="libros.php"><button class="btn btn-primary">VOLVER</button></a>
-    <h2><?= $texto ?></h2>
+    <h3><?= $texto ?></h3>
 
 </div>
 </body>
