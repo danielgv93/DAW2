@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div#body /*define el identificador body asociado a un elemento <div>. Es la posición del
+cuerpo de la página */
+        {
+            margin: auto auto auto auto; /*top right bottom left equivale a poner un sólo auto*/
+            width: 710px;
+
+        }
+
+        div#header /* Define un identificador header asociado a un elemento <div>. Es la posición
+de la cabecera*/
+        {
+            margin: 10px auto 10px auto;
+            width: 710px;
+            border: solid 3px blue;
+            border-radius: 10px;
+        }
+
+        div#sidebar {
+            display: none;
+            border: solid 1px #ccc;
+            padding-left: 15px;
+        }
+
+        body.main-sidebar div#main, body.sidebar-main div#main {
+            width: 490px;
+        }
+
+        body.main-sidebar div#sidebar, body.sidebar-main div#sidebar {
+            display: block;
+            width: 200px;
+            border: solid 1px #ccc;
+        }
+
+        body.main-sidebar div#main, body.main-sidebar div#sidebar /* Coloca el sidebar a la dcha.
+Y el main a la izq.*/
+        {
+            float: right;
+            border: dotted 1px green;
+            margin-bottom: 10px;
+        }
+
+        #footer {
+            border: 3px solid green;
+            border-radius: 10px;
+            clear: right;
+        }
+    </style>
+</head>
+<body class="main-sidebar">
+<div id="header"> Cabecera. RESTAURANTE: El Muslito</div>
+<div id="body">
+    <div id="main"> Este restaurante es una de las referencias gastronómicas de esta zona. [...]
+    </div>
+    <div id="sidebar"> Menú Principal</div>
+    <div id="footer">Pie de pagina</div>
+</div>
+</body>
+</html>

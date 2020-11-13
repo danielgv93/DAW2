@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #660000;
+    background-color: #fdd5d5;
+}
+#menu {
+    float: right;
+    margin-right: 100px;
+}
+
+#menu li ul {
+    display: inline;
+}
+
+#cabecera {
+    color: white;
+    background-image: url("img/img01.gif");
+    width: 900px;
+    height: 100px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#contenido {
+    width: 900px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+}

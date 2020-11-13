@@ -1,0 +1,51 @@
+* {
+    color: blue;
+}
+
+/* ETIQUETAS */
+body {
+    background-color: #ffefb3;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #ffdd5d;
+}
+
+h2 {
+    background-color: #ffe893;
+    font-style: italic;
+}
+
+img {
+    margin: 0 1em;
+}
+/* POSICIONAMIENTO DE IMAGENES */
+p + #foro {
+    clear: left;
+}
+
+#felice1, #foro {
+    float: left;
+}
+
+#felice2, #facchino {
+    float: right;
+}
+
+#quattro {
+    float: right;
+}
+
+hr {
+    width: 50%;
+    height: 4px;
+    background-color: #0000ff;
+}
+
+.contenedor {
+    height: 200px;
+}
+
+
