@@ -6,12 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="dados.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<div class="container">
     <form action="#" method="post">
-        <img>
+        <div class="row">
+            <img class="col">
+            <img class="col">
+            <img class="col">
+            <img class="col">
+            <img class="col">
+        </div>
         <br>
         <input type="button" id="inputBoton" value="Tirar Dado">
+        <input type="button" id="mostrarBoton" value="Mostrar Clasificacion">
+        <input type="button" id="comenzarBoton" value="Empezar a Jugar">
+        <br>
+        Tirada: <input type="text" id="tirada" value="0" readonly><br>
+        Suma de Unos: <input type="text" name="sumaCara" id="sumaUno" value="0" readonly><br>
+        Suma de Doses: <input type="text" name="sumaCara" id="sumaDos" value="0" readonly><br>
+        Suma de Treses: <input type="text" name="sumaCara" id="sumaTres" value="0" readonly><br>
+        Suma de Cuatros: <input type="text" name="sumaCara" id="sumaCuatro" value="0" readonly><br>
+        Suma de Cincos: <input type="text" name="sumaCara" id="sumaCinco" value="0" readonly><br>
+        Poker: <input type="text" name="sumaCara" id="poker" value="0" readonly><br>
+        Repoker: <input type="text" name="sumaCara" id="repoker" value="0" readonly><br>
+        <textarea id="textArea" cols="30" rows="10" readonly></textarea>
     </form>
+</div>
 </body>
 </html>
