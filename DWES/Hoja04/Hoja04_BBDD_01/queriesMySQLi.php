@@ -39,6 +39,7 @@ function getJugadoresDeEquipo($equipo) {
     return $datos;
 }
 
+/* Modificado el comportamiento de claves ajenas de la BD (ON DELETE CASCADE ON UPDATE CASCADE) */
 function setTraspaso($jugadorBaja, $nombre, $procedencia, $altura, $peso, $posicion, $equipo) {
     $conexion = getConexionSQLi();
     $todoOk = true;
