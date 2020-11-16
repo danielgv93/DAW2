@@ -1,11 +1,3 @@
-<?php
-if (isset($_POST["guardar"])) {
-
-
-
-}
-?>
-
 <!doctype html>
 <html lang="es">
 <head>

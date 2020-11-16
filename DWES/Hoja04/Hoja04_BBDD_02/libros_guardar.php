@@ -1,15 +1,33 @@
 <?php
 require_once "funcionesBaseDatosPDO.php";
-$titulo = $_POST["titulo"];
-$edicion = $_POST["añoEdicion"];
-$precio = $_POST["precio"];
-$adquisicion = $_POST["fechaAdquisicion"];
-date("Y-m-d", $adquisicion) == $adquisicion;
-if (insertarLibro($titulo, $edicion, $precio, $adquisicion)) {
-    $texto = "Datos guardados correctamente";
-} else {
-    $texto = "Error al insertar el libro";
+
+if (isset($_POST["guardar"])) {
+    $titulo = $_POST["titulo"];
+    $edicion = $_POST["añoEdicion"];
+    $precio = $_POST["precio"];
+    $adquisicion = $_POST["fechaAdquisicion"];
+    if (comprobarFecha($adquisicion)) {
+        if (insertarLibro($titulo, $edicion, $precio, $adquisicion)) {
+            $texto = "Datos guardados correctamente";
+        } else {
+            $texto = "Error al insertar el libro";
+        }
+    } else {
+        $texto = "Fecha introducida incorrecta";
+    }
+
 }
+function comprobarFecha($fecha)
+{
+    $auxDate = explode('-', $fecha);
+    if (count($auxDate) === 3) {
+        return checkdate($auxDate[1], $auxDate[2], $auxDate[0]);
+    }
+    return false;
+}
+
+
+
 ?>
 
 <!doctype html>
@@ -27,7 +45,7 @@ if (insertarLibro($titulo, $edicion, $precio, $adquisicion)) {
 <body>
 <div class="container">
     <a href="libros.php"><button class="btn btn-primary">VOLVER</button></a>
-    <h3><?= $texto ?></h3>
+    <h3><?= (isset($_POST["guardar"])) ? $texto : "" ?></h3>
 
 </div>
 </body>
