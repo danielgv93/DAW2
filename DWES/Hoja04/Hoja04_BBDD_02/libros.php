@@ -41,6 +41,9 @@
     <a href="libros_datos.php">
         <button class="btn btn-primary ">MOSTRAR DATOS DE LIBROS</button>
     </a>
+    <a href="libros_borrar.php">
+        <button class="btn btn-primary ">Borrar Libros</button>
+    </a>
 </div>
 </body>
 </html>
