@@ -1,4 +1,18 @@
 <?php
+require_once "funcionesMySQLi.php";
+
+$texto = "";
+if (isset($_POST["nombre"]) && isset($_POST["dni"])) {
+    $nombre = $_POST["nombre"];
+    $dni = $_POST["dni"];
+    $asiento = $_POST["asiento"];
+
+    if (reservarAsiento($nombre, $dni, $asiento)) {
+        $texto = "Plaza reservada con exito";
+    } else {
+        $texto = "Error";
+    }
+}
 
 ?>
 <!doctype html>
@@ -16,21 +30,20 @@
 <form action="#" method="post">
     <label for="nombre">
         Nombre: <input type="text" name="nombre" id="nombre" placeholder="Su nombre">
-    </label><br>
+    </label><hr>
     <label for="dni">
         DNI: <input type="text" name="dni" id="dni" placeholder="Su DNI">
-    </label>
+    </label><hr>
     <label for="asiento">
-        DNI: </label>
+        Asiento: </label>
     <select name="asiento">
-
-        <?php foreach ($pasajeros as $persona) : ?>
-            <option value="<?= $equipo ?>" <?= $selectedProp = (isset($equipoSeleccionado) &&
-                $equipoSeleccionado == $equipo) ? "selected" : ""; ?>><?= $equipo ?></option>
+        <?php foreach (getPlazasNoReservadas() as $plaza) : ?>
+            <option value="<?= $plaza["numero"] ?>"><?= $plaza["numero"]." (".$plaza["precio"]."€)" ?></option>
         <?php endforeach ?>
-
-    </select>
-
+    </select><hr>
+    <input type="submit" name="reservar" value="Reservar">
 </form>
+<a href="inicio.html"><input type="button" value="Atrás"></a>
+<?= $texto ?>
 </body>
 </html>
