@@ -19,8 +19,14 @@ function inicio() {
     let elegirFraseInput = document.getElementById("elegirFrase");
     let deletrearInput = document.getElementById("deletrearInput");
     deletrearInput.addEventListener("click", function () {
-        let fraseElegida = arrayFrases[elegirFraseInput];
-        let palabraElegida = prompt(``);
+        let fraseElegida = arrayFrases[parseInt(elegirFraseInput.value)];
+        let palabraElegida = prompt(`Elija una palabra:\n${fraseElegida}`);
+        let palabraArray = Array();
+        for (let i = 0; i < palabraElegida.length; i++) {
+            palabraArray.push(palabraElegida[i]);
+        }
+        palabraArray.reverse();
+        alert(palabraArray.join("-"));
     })
 }
 
