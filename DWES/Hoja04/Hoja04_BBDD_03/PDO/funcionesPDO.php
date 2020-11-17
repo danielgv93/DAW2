@@ -3,23 +3,46 @@ require_once "../ConexionPDO.php";
 
 function llegarADestino()
 {
-    $todoOk = true;
-    $conexion = getConexionPDO();
-    $conexion->beginTransaction();
-    $sql = "DELETE FROM pasajeros;";
-    if ($conexion->query($sql) != true) {
-        $todoOk = false;
-    }
-    $sql = "UPDATE plazas SET reservada = 0;";
-    if ($conexion->query($sql) != true) {
-        $todoOk = false;
-    }
-    if ($todoOk) {
+    try {
+        $conexion = getConexionPDO();
+        $conexion->beginTransaction();
+        $sql = "DELETE FROM pasajeros;";
+        if ($conexion->query($sql) != true) {
+            throw new Exception("Error al borrar los pasajeros");
+        }
+
+        $sql = "UPDATE plazas SET reservada = 0;";
+        if ($conexion->query($sql) != true) {
+            throw new Exception("Error al actualizar las plazas");
+        }
+
         $conexion->commit();
         unset($conexion);
         return true;
-    } else {
+    } catch (Exception $e) {
         $conexion->rollback();
+        echo $e->getMessage();
+        unset($conexion);
+        return false;
+    }
+}
+
+function getPlazas()
+{
+    try {
+        $conexion = getConexionPDO();
+        $sql = "SELECT numero, precio FROM plazas";
+        if ($resultado = $conexion->query($sql)) {
+            while ($fila = $resultado->fetch()) {
+                $datos[] = array("numero" => $fila["numero"], "precio" => $fila["precio"]);
+            }
+            unset($conexion);
+            return $datos;
+        } else {
+            throw new Exception("Error al seleccionar las plazas");
+        }
+    } catch (Exception $e) {
+        echo $e->getMessage();
         unset($conexion);
         return false;
     }
@@ -27,10 +50,10 @@ function llegarADestino()
 
 function getPlazasNoReservadas()
 {
+    //TODO: TERMINAR LOS TRY CATCH
     $conexion = getConexionPDO();
     $sql = "SELECT numero, precio FROM plazas WHERE reservada = 0;";
-    $resultado = $conexion->query($sql);
-    ;
+    $resultado = $conexion->query($sql);;
     while ($fila = $resultado->fetch()) {
         $datos[] = array("numero" => $fila["numero"], "precio" => $fila["precio"]);
     }
@@ -65,3 +88,32 @@ function reservarAsiento($nombre, $dni, $asiento)
         return false;
     }
 }
+
+function setPrecios($arrayPlazas, $arrayPrecios)
+{
+    $nPlazas = count($arrayPlazas);
+    $todoOk = true;
+    $conexion = getConexionPDO();
+    $conexion->beginTransaction();
+    $sql = "UPDATE plazas SET precio = ? WHERE numero = ?;";
+    for ($i = 0; $i < $nPlazas; $i++) {
+        $consulta = $conexion->prepare($sql);
+        $consulta->bindParam(1, $arrayPrecios[$i]);
+        $consulta->bindParam(2, $arrayPlazas[$i]);
+        if ($consulta->execute() != true) {
+            $todoOk = false;
+            break;
+        }
+    }
+    if ($todoOk) {
+        $conexion->commit();
+        unset($conexion);
+        return true;
+    } else {
+        $conexion->rollBack();
+        unset($conexion);
+        return false;
+    }
+}
+
+;
