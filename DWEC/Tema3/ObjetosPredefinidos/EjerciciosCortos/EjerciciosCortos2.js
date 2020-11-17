@@ -11,6 +11,7 @@ function inicio() {
             textArea.value += `La primera posicion es : ${primeraPos(textoInput.value, caracter)+1}\n`;
             textArea.value += `La ultima posicion es : ${ultimaPos(textoInput.value, caracter)+1}\n`;
             textArea.value += `El string entre medias es : ${entrePosiciones(textoInput.value, caracter)}\n`;
+            textArea.value += `El substring transformado es: ${mayusMinus(entrePosiciones(textoInput.value, caracter))}`;
         }
     }, false);
 }
@@ -34,4 +35,16 @@ function entrePosiciones(texto, caracter) {
     let inicio = primeraPos(texto, caracter);
     let final = ultimaPos(texto, caracter);
     return texto.substring(inicio, final);
+}
+
+function mayusMinus(cadena) {
+    let cadenaFinal = "";
+    for (let i = 0; i < cadena.length; i++) {
+        if (i % 2 === 0) {
+            cadenaFinal += cadena[i].toUpperCase();
+        } else {
+            cadenaFinal += cadena[i].toLowerCase();
+        }
+    }
+    return cadenaFinal;
 }
