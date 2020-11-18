@@ -3,14 +3,46 @@ body {
     font-size: 13px;
     color: #660000;
     background-color: #fdd5d5;
+    position: absolute;
+    left: 20%;
+}
+
+h1 {
+    margin-bottom: 0px;
 }
 #menu {
     float: right;
-    margin-right: 100px;
+    margin-top: 50px;
+}
+#cabecera li a:link {
+    color: white;
+    text-decoration: none;
 }
 
-#menu li ul {
+#izquierda a:link {
+    color: #660000;
+}
+
+#menu li {
     display: inline;
+    margin: 3px 20px;
+}
+
+#izquierda .item {
+    list-style:none;
+}
+
+.links a:link {
+    color: #660000;
+}
+
+#logo {
+    float: left;
+}
+
+.post .title {
+    border-bottom: 1px solid #660000;
+    width: 80%;
 }
 
 #cabecera {
@@ -28,4 +60,30 @@ body {
     padding-bottom: 30px;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+#izquierda {
+    margin-top: 10px;
+    float: left;
+    background-color: white;
+    border: 1px solid #a32626;
+}
+
+#cuerpo {
+    float: right;
+    width: 570px;
+}
+
+#pie a {
+    color: white;
+}
+
+#pie {
+    width: 900px;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+    background-image: url("img/img06.gif");
+    color: white;
+    clear: both;
 }
