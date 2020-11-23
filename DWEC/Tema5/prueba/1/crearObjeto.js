@@ -17,15 +17,17 @@ function inicio() {
         texto += (`Nombre:  ${this.nombre}\n`);
         texto += (`Curso: ${this.curso} \n`);
         texto += (`Precio del curso: ${this.precioCurso()}€\n`);
-        texto += (`Precio de becario: ${this.precioBecario(20)} €\n`);
-        textArea.value = texto;
+        texto += (`Precio de becario: ${this.precioBecario(20)} €\n\n`);
+        return texto;
     };
 
     let visualizarBoton = document.getElementById("botonVisualizar");
     visualizarBoton.addEventListener("click", function () {
+        let texto = "";
         for (const alumno of arrayAlumnos) {
-            alumno.visualizar();
+            texto += alumno.visualizar();
         }
+        textArea.value = texto;
     })
 
 
