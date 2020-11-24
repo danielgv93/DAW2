@@ -1,4 +1,4 @@
-function datosPersonales(nombre, dni, direccion, telefono) {
+function DatosPersonales(nombre, dni, direccion, telefono) {
     this.nombre = nombre;
     this.dni = dni;
     this.direccion = direccion;
