@@ -2,7 +2,7 @@
 define("HOST", "localhost");
 define("USERNAME", "root");
 define("PASSWORD", "");
-define("DATABASE", "");
+define("DATABASE", "dwes_examen_202011");
 function getConexionSQLi() {
     $conexion = new mysqli(HOST, USERNAME, PASSWORD, DATABASE, 3306);
     $conexion->set_charset("utf8");
