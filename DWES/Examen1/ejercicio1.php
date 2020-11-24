@@ -4,8 +4,8 @@ $historico = array(
     "Sevilla" => array("Enero" => 76, "Febrero" => 73, "Marzo" => 66, "Abril" => 53, "Mayo" => 34, "Junio" => 14, "Julio" => 1, "Agosto" => 3, "Septiembre" => 18, "Octubre" => 69, "Noviembre" => 87, "Diciembre" => 82),
     "Madrid" => array("Enero" => 43, "Febrero" => 44, "Marzo" => 35, "Abril" => 45, "Mayo" => 44, "Junio" => 28, "Julio" => 11, "Agosto" => 11, "Septiembre" => 30, "Octubre" => 51, "Noviembre" => 58, "Diciembre" => 50)
 );
-
-if (isset($_POST["comprobar"])) {
+$texto = "";
+if (isset($_POST["comprobar"]) && isset($_POST["ciudad"]) && !empty($_POST["precipitacion"])) {
     $ciudadSeleccionada = $_POST["ciudad"];
     $precipitacion = $_POST["precipitacion"];
     $totalCiudad = 0;
