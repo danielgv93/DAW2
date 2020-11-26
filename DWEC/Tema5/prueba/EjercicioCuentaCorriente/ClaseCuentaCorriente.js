@@ -13,7 +13,7 @@ function visualizarDatosCliente() {
 }
 
 function visualizarSaldo() {
-    return `Saldo: ${this.saldo}€\n`;
+    return `Saldo: ${this.saldo.toFixed(2)}€\n`;
 }
 
 function abono(abono) {
