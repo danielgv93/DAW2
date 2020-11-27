@@ -1,5 +1,7 @@
 <?php
 require_once "queriesPDO.php";
+require_once "queriesMySQLi.php";
+
 $texto = "";
 if (isset($_POST["consultar"])) {
     $comercioSelected = $_POST["comercio"];
@@ -24,7 +26,7 @@ if (isset($_POST["consultar"])) {
     </select><br>
     <input type="submit" name="consultar" value="Consultar">
 </form>
-<img src="imagenes/comercios/<?php if(isset($_POST["consultar"])) echo getComercios()[$comercioSelected]["imagen"] ?>" alt="">
+<img src="imagenes/comercios/<?php if(isset($_POST["consultar"])) echo getImagenComercio($comercioSelected) ?>" alt="">
 <?php if (isset($_POST["consultar"])) :
     $ventas = getVentasComercios($_POST["comercio"]) ?>
     <?php if ($ventas == false) : ?>
@@ -38,7 +40,7 @@ if (isset($_POST["consultar"])) {
             </tr>
             <?php foreach ($ventas as $ventaComercio) : ?>
                 <tr>
-                    <td><?= $ventaComercio["cliente"] ?></td>
+                    <td><?= $ventaComercio["cliente"]. " ". $ventaComercio["apellido"] ?></td>
                     <td><?= $ventaComercio["importe"] ?></td>
                     <td><?= $ventaComercio["fecha"] ?></td>
                 </tr>

@@ -4,13 +4,13 @@ require_once "ConexionPDO.php";
 function getVentasComercios($comercio)
 {
     $conexion = getConexionPDO();
-    $sql = "SELECT c.id as id, c2.nombre as cliente, importe, fecha, c.imagen as imagen from comercios c left join registros_ventas rv on c.id = rv.id_comercio 
-        inner join clientes c2 on rv.id_cliente = c2.id where c.id = ? order by importe desc";
+    $sql = "SELECT  c.nombre as cliente, c.apellidos as apellido, importe, fecha, c.imagen as imagen from registros_ventas rv 
+        inner join clientes c on rv.id_cliente = c.id where id_comercio = ? order by importe desc";
     $consulta = $conexion->prepare($sql);
     $consulta->bindParam(1, $comercio);
     if($consulta->execute()) {
         while ($fila = $consulta->fetch()) {
-            $datos[] = array("comercio" => $fila["id"], "cliente"=>$fila["cliente"], "importe" => $fila["importe"], "fecha" => $fila["fecha"], "imagen" => $fila["imagen"]);
+            $datos[] = array("cliente"=>$fila["cliente"], "apellido"=>$fila["apellido"], "importe" => $fila["importe"], "fecha" => $fila["fecha"], "imagen" => $fila["imagen"]);
         }
     }
     unset($conexion);
@@ -18,6 +18,20 @@ function getVentasComercios($comercio)
         return false;
     }
     return $datos;
+}
+
+function getComercioMayorVenta()
+{
+    $conexion = getConexionPDO();
+    $sql = "SELECT nombre, count(nombre) as ventas, imagen from comercios c inner join registros_ventas rv on c.id = rv.id_cliente group by id_comercio order by ventas desc limit 1";
+    if ($resultado = $conexion->query($sql)) {
+        $fila = $resultado->fetch();
+        $datos = array("nombre" => $fila["nombre"], "ventas" => $fila["ventas"], "imagen" => $fila["imagen"]);
+        unset($conexion);
+        return $datos;
+    }
+    unset($conexion);
+    return null;
 }
 
 function getComercios()
@@ -36,10 +50,10 @@ function getComercios()
 function getClientes()
 {
     $conexion = getConexionPDO();
-    $sql = "SELECT id, nombre from clientes";
+    $sql = "SELECT id, nombre, apellidos from clientes";
     if($consulta = $conexion->query($sql)) {
         while ($fila = $consulta->fetch()) {
-            $datos[] = array("id" => $fila["id"], "nombre" => $fila["nombre"]);
+            $datos[] = array("id" => $fila["id"], "nombre" => $fila["nombre"], "apellido" => $fila["apellidos"]);
         }
     }
     unset($conexion);

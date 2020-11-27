@@ -1,5 +1,7 @@
 <?php
 require_once "queriesMySQLi.php";
+require_once "queriesPDO.php";
+
 $cliente = getClienteMayorVenta();
 $comercio = getComercioMayorVenta();
 ?>
@@ -14,12 +16,12 @@ $comercio = getComercioMayorVenta();
 </head>
 <body>
 <h1>Asociacion de comercios</h1>
-<img src="imagenes/clientes/<?= $cliente[0]["imagen"]?>"><br>
-<p>El cliente que mas ha gastado es <?= $cliente[0]["nombre"]?></p>
-<p><?= $cliente[0]["importe"]?>€</p>
-<img src="imagenes/comercios/<?= $comercio[0]["imagen"] ?>"><br>
-<p>El comercio que mas ventas ha realizado es <?= $comercio[0]["nombre"] ?></p>
-<p>Ha realizado <?= $comercio[0]["ventas"] ?> ventas</p>
+<img src="imagenes/clientes/<?= $cliente["imagen"]?>"><br>
+<p>El cliente que mas ha gastado es <?= $cliente["nombre"]?></p>
+<p><?= $cliente["importe"]?>€</p>
+<img src="imagenes/comercios/<?= $comercio["imagen"] ?>"><br>
+<p>El comercio que mas ventas ha realizado es <?= $comercio["nombre"] ?></p>
+<p>Ha realizado <?= $comercio["ventas"] ?> ventas</p>
 <hr>
 <a href="index.php"><input type="button" value="Pagina inicial"></a>
 <a href="comercios.php"><input type="button" value="Ver todas las compras de los comercios"></a>

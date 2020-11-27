@@ -30,7 +30,7 @@ if (isset($_POST["insertar"])) {
     </select><br>
     CLIENTE:<select name="cliente">
         <?php foreach (getClientes() as $cliente) : ?>
-            <option value="<?= $cliente["id"] ?>"><?= $cliente["nombre"] ?></option>
+            <option value="<?= $cliente["id"] ?>"><?= $cliente["nombre"] . " " . $cliente["apellido"] ?></option>
         <?php endforeach; ?>
     </select><br>
     FECHA: <input type="date" name="fecha"><br>
