@@ -6,8 +6,10 @@ function getFechaPersonalizada(fecha) {
     let mes = fecha.getMonth() + 1;
     let año = fecha.getFullYear();
     let formatoBarra = `${diaDelMes}/${mes}/${año}`;
+    //////////////////////////////////////////////////////////////////////////
     const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
     let fechaEspañolCompleta = fecha.toLocaleDateString("es-Es", options);
+    //////////////////////////////////////////////////////////////////////////
     let semana = Array("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo");
     let fechaEspañol = `${semana[fecha.getDay() - 1]} ${formatoBarra}`;
 

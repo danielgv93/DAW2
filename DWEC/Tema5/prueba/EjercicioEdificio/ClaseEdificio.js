@@ -3,33 +3,34 @@ function Edificio(calle, numero, cp, plantas) {
     this.numero = numero;
     this.cp = cp;
     this.plantas = plantas;
-    this.edificio = Array();
     this.addPlantasPuertas = addPlantasPuertas;
     this.addPropietario = addPropietario;
     this.imprimePlantas = imprimePlantas;
+    this.imprimirInfo = imprimirInfo;
 }
 
 function addPlantasPuertas(nPuertas) {
-    let edificio = Array(this.plantas.length);
-    for (let i = 0; i < edificio.length; i++) {
-        edificio.push(Array(nPuertas).fill("vacío"));
+    for (let i = 0; i < this.plantas.length; i++) {
+        this.plantas[i] = Array(nPuertas).fill(0);
     }
-    return edificio;
 }
 
 function addPropietario(nombre, planta, puerta) {
-    this.edificio[planta][puerta-1] = nombre;
+    this.plantas[planta][puerta-1] = nombre;
 }
 
 function imprimePlantas() {
     let string = "";
-    for (let i = 0; i < this.edificio.length; i++) {
+    for (let i = 0; i < this.plantas.length; i++) {
         string += `Planta ${i}: `;
-        for (let j = 0; j < this.edificio[i].length; j++) {
-            string += `puerta ${j+1} -> ${this.edificio[i][j]}`;
+        for (let j = 0; j < this.plantas[i].length; j++) {
+            string += `puerta ${j+1} -> ${this.plantas[i][j]}, `;
         }
         string += `\n`;
     }
+    return string;
 }
 
-/* TODO: METODOS PARA VISUALIZAR OTROS DATOS */
+function imprimirInfo() {
+    return `Calle: ${this.calle}, Nº: ${this.numero}, CP: ${this.cp}`;
+}
