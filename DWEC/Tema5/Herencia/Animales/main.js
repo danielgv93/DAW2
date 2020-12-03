@@ -1,7 +1,7 @@
 addEventListener("click", inicio, false);
 
 function inicio() {
-    Vaca.prototype = new Animal(); //????
+    Vaca.prototype = new Animal();
     Tigre.prototype = new Animal();
     let arrayVaca = Array();
     let arrayTigre = Array();
@@ -13,16 +13,20 @@ function inicio() {
     let resultado = document.getElementById("resultado");
     crearBtn.addEventListener("click", function () {
         if (especie.value === "vaca") {
-            let vaca = new Vaca();//????
-            vaca.prototype.nombre = nombre.value;
-            vaca.prototype.especie = especie.value;
-            vaca.prototype.nPatas = nPatas.value;
-            vaca.prototype.tieneCola = tieneCola.value;
+            let vaca = new Vaca();
+            vaca.nombre = nombre.value;
+            vaca.especie = especie.value;
+            vaca.nPatas = nPatas.value;
+            vaca.tieneCola = tieneCola.value;
             arrayVaca.push(vaca);
             resultado.value = mostrarArray(arrayVaca, arrayTigre);
         } else {
             let tigre = new Tigre();
-            arrayTigre.push(tigre.slice());
+            tigre.nombre = nombre.value;
+            tigre.especie = especie.value;
+            tigre.nPatas = nPatas.value;
+            tigre.tieneCola = tieneCola.value;
+            arrayTigre.push(tigre);
             resultado.value = mostrarArray(arrayVaca, arrayTigre);
         }
     }, false);

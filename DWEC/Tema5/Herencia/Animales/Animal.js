@@ -6,12 +6,15 @@ function Animal(nombre, especie, nPatas, cola) {
     this.visualizar = visualizar;
 }
 
-function Vaca() {
+function Vaca(nombre, especie, nPatas, cola) {
+    Animal.call(this, nombre, especie, nPatas, cola);
     this.litrosLeche = 50;
     this.ordeñar = ordeñar;
+
 }
 
-function Tigre() {
+function Tigre(nombre, especie, nPatas, cola) {
+    Animal.call(this, nombre, especie, nPatas, cola);
     this.nVictimas = 0;
     this.otraVictima = otraVictima;
 }
