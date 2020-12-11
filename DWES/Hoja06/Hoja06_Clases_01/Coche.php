@@ -19,7 +19,9 @@ class Coche
 
     public function acelerar($incremento)
     {
-        $this->velocidad += $incremento;
+        if ($this->velocidad <= 120 && $incremento <= $this->velocidad) {
+            $this->velocidad += $incremento;
+        }
     }
 
     public function frenar($decremento)
