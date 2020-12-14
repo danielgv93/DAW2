@@ -1,5 +1,5 @@
 <?php
-
+require_once "Cuenta.php";
 
 class CuentaCorriente extends Cuenta
 {
@@ -20,7 +20,7 @@ class CuentaCorriente extends Cuenta
 
     public function reintegro($cantidad)
     {
-        if ($this->saldo < 20 && $this->saldo > $cantidad) {
+        if ($this->saldo > 20 && $this->saldo > $cantidad) {
             $this->saldo -= $cantidad;
         }
     }
@@ -28,6 +28,6 @@ class CuentaCorriente extends Cuenta
     public function mostrar()
     {
         parent::mostrar();
-        echo " Cuota de Mantenimiento: $this->cuota_mantenimiento";
+        echo " Cuota de Mantenimiento: $this->cuota_mantenimiento<br>";
     }
 }

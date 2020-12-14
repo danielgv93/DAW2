@@ -11,7 +11,7 @@ $nombreEquipos = getEquipos();
 if (isset($_POST["actualizarPeso"])) {
     $peso = $_POST["peso"];
     foreach ($jugadoresEquipoSelected as $fila => $jugador) {
-        /* TODO: HACER ESTE BUCLE DENTRO DE updatePeso(). Es decir, no llamar varias veces a la funcion, sino 1 sola vez. */
+        /* HACER ESTE BUCLE DENTRO DE updatePeso(). Es decir, no llamar varias veces a la funcion, sino 1 sola vez. */
         if (updatePeso($jugador["nombre"], $peso[$fila])) {
             echo "<p class='font-weight-bold p-3 mb-2 bg-danger'>Error al actualizar el peso</p>";
         } else {

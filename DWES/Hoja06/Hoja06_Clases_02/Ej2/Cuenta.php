@@ -42,6 +42,6 @@ class Cuenta
 
     public function mostrar()
     {
-        echo "N: $this->numero. Titular: $this->titular<br>Saldo: $this->saldo";
+        echo "N: $this->numero. Titular: $this->titular<br>Saldo: $this->saldo<br>";
     }
 }

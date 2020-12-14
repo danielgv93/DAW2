@@ -50,7 +50,7 @@ function getPlazas()
 
 function getPlazasNoReservadas()
 {
-    //TODO: TERMINAR LOS TRY CATCH
+    //TERMINAR LOS TRY CATCH
     $conexion = getConexionPDO();
     $sql = "SELECT numero, precio FROM plazas WHERE reservada = 0;";
     $resultado = $conexion->query($sql);;
