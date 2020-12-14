@@ -5,7 +5,7 @@ function inicio() {
     let cerrar = document.getElementById("cerrarVentana");
     let ventanaRandom = document.getElementById("ventanaRnd");
     let ventanaPosicionada = document.getElementById("ventanaPosicionada");
-    let ventanaMover = document.getElementById("ventanaPosicionada");
+    let ventanaMover = document.getElementById("moverDerecha");
     let ventanaNormal;
 
     abrir.addEventListener("click", function () {
@@ -28,6 +28,9 @@ function inicio() {
         let ventana = window.open("", "_blank", "width=400,height=400");
         ventana.moveTo(left, top);
         ventana.document.write(`Top: ${top}, Left: ${left}`)
+    }, false);
+    ventanaMover.addEventListener("click", function () {
+        ventanaNormal.moveBy(100, 0);
     }, false);
 
 }
