@@ -15,16 +15,18 @@ function inicio() {
     let hacer = document.getElementById("hacer");
 
     mostrar.addEventListener("click", function () {
-        let ventana = window.open("", "Popup", "width=400, height=400");
-        ventana.moveTo(screen.width/2-200, screen.height/2-200);
-        ventana.document.write(
-            `<h1>Resumen del viaje</h1>
+        setTimeout(function(){
+            let ventana = window.open("", "Popup", "width=400, height=400");
+            ventana.moveTo(screen.width / 2 - 200, screen.height / 2 - 200);
+            ventana.document.write(
+                `<h1>Resumen del viaje</h1>
             <img src="${document.images[llegada.value].src}"><br>
             Lugar de salida: ${salida.options[salida.selectedIndex].text}<br>
             Lugar de llegada: ${llegada.options[salida.selectedIndex].text}<br>
             Método de transporte: ${getMedioTransporte(transporte)}<br>
             <input type="button" onclick="window.close()" value="Cerrar">`
-        );
+            );
+        }, 2000);
     }, false);
 
     hacer.addEventListener("click", function () {
