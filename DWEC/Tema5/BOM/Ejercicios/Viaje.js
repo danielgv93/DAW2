@@ -7,28 +7,30 @@ function inicio() {
         Array("Madrid", 0, 0, 0),
         Array("Santander", 0, 0, 0),
         Array("Bilbao", 0, 0, 0));
-    let imagenes = document.images;
     let salida = document.getElementById("salida");
     let llegada = document.getElementById("llegada");
+    let resultado = document.getElementById("resultado");
     let transporte = document.getElementsByName("transporte");
     let mostrar = document.getElementById("ver");
+    let hacer = document.getElementById("hacer");
 
     mostrar.addEventListener("click", function () {
         let ventana = window.open("", "Popup", "width=400, height=400");
         ventana.moveTo(screen.width/2-200, screen.height/2-200);
-        registrarViaje(salida, llegada, matriz);
         ventana.document.write(
-            `<img src="${document.images[llegada.value].src}"><br>
-            Lugar de salida: ${getSalida(salida)}<br>
-            Lugar de llegada: ${getLlegada(llegada)}<br>
-            Metodo de transporte: ${getMedioTransporte(transporte)}<br>
-            ${imprimirTabla(matriz)}`
+            `<h1>Resumen del viaje</h1>
+            <img src="${document.images[llegada.value].src}"><br>
+            Lugar de salida: ${salida.options[salida.selectedIndex].text}<br>
+            Lugar de llegada: ${llegada.options[salida.selectedIndex].text}<br>
+            Método de transporte: ${getMedioTransporte(transporte)}<br>
+            <input type="button" onclick="window.close()" value="Cerrar">`
         );
     }, false);
-}
 
-function registrarViaje(salida, llegada, array) {
-    array[salida.value][llegada.value]++;
+    hacer.addEventListener("click", function () {
+        matriz[parseInt(salida.value)+1][parseInt(llegada.value)+1]++;
+        resultado.innerHTML = imprimirTabla(matriz);
+    }, false);
 }
 
 function imprimirTabla(array) {
@@ -52,27 +54,5 @@ function getMedioTransporte(transporte) {
         if (transporte[i].checked) {
             return transporte[i].value;
         }
-    }
-}
-
-function getLlegada(llegada) {
-    if (llegada.value == 0) {
-        return "Roma";
-    } else if(llegada.value == 1) {
-        return "Paris";
-    } else {
-        return "Londres";
-    }
-}
-
-function getSalida(salida) {
-    if (salida.value == 0) {
-        return "Oviedo";
-    } else if(salida.value == 1) {
-        return "Madrid";
-    } else if(salida.value == 2) {
-        return "Santander";
-    } else {
-        return "Bilbao";
     }
 }

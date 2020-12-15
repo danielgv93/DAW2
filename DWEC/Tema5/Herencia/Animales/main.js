@@ -1,4 +1,4 @@
-addEventListener("click", inicio, false);
+addEventListener("main", inicio, false);
 
 function inicio() {
     Vaca.prototype = new Animal();
