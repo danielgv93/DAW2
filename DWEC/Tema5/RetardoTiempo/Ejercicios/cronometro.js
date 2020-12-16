@@ -1,26 +1,57 @@
 addEventListener("load", inicio, false);
 
 function inicio() {
-    let [segundos, minutos, horas, dias] = [0, 0, 0, 0];
+    let [horas, minutos, segundos, milesimas] = [0, 0, 0, 0];
     let start = document.getElementById("start");
     let stop = document.getElementById("stop");
     let resume = document.getElementById("resume");
     let reset = document.getElementById("reset");
     let cronometro = document.getElementById("cronometro");
-    let reloj = `${dias}:${horas}:${minutos}:${segundos}`;
-    let temporizador;
-
+    let reloj = `${horas}:${minutos}:${segundos}:${milesimas}`;
+    let temporizador ;
+    let control = null;
     start.addEventListener("click", function () {
-        temporizador = setInterval(function () {
-            segundos++;
-            [dias, horas, minutos, segundos] = transformTiempo(dias, horas, minutos, segundos);
-            cronometro.innerText = `${dias}:${horas}:${minutos}:${segundos}`;
-        }, 1000);
+        if (control === null) {
+            temporizador = setInterval(function () {
+                milesimas += 2;
+                [horas, minutos, segundos, milesimas] = transformTiempo(horas, minutos, segundos, milesimas);
+                cronometro.innerText = `${horas}:${minutos}:${segundos}:${milesimas}`;
+            }, 10);
+            control = 1;
+        }
+    }, false);
+
+    stop.addEventListener("click", function () {
+        clearInterval(temporizador);
+        control = 0;
+    }, false);
+
+    resume.addEventListener("click", function () {
+        if (control === 0) {
+            temporizador = setInterval(function () {
+                milesimas += 2;
+                [horas, minutos, segundos, milesimas] = transformTiempo(horas, minutos, segundos, milesimas);
+                cronometro.innerText = `${horas}:${minutos}:${segundos}:${milesimas}`;
+            }, 10);
+            control = 2;
+        }
+    }, false);
+
+    reset.addEventListener("click", function () {
+        if (control === 0) {
+            [horas, minutos, segundos, milesimas] = [0, 0, 0, 0];
+            cronometro.innerText = `${horas}:${minutos}:${segundos}:${milesimas}`;
+            control = null;
+        }
     }, false);
 
 }
 
-function transformTiempo(dias, horas, minutos, segundos) {
+function transformTiempo(horas, minutos, segundos, milesimas) {
+    if (milesimas >= 100) {
+        segundos++;
+        milesimas = 0;
+    }
     if (segundos >= 60) {
         minutos++;
         segundos = 0;
@@ -29,9 +60,5 @@ function transformTiempo(dias, horas, minutos, segundos) {
         horas++;
         minutos = 0;
     }
-    if (horas >= 24) {
-        dias++;
-        horas = 0;
-    }
-    return [dias, horas, minutos, segundos];
+    return [horas, minutos, segundos, milesimas];
 }
