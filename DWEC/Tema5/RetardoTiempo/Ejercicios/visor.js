@@ -1,8 +1,8 @@
 addEventListener("load", inicio, false);
 
 function inicio() {
-    let imagenes = Array("../../../ExamenT3/Ej3/img/1.jpg", "../../../ExamenT3/Ej3/img/2.jpg",
-        "../../../ExamenT3/Ej3/img/3.jpg", "../../../ExamenT3/Ej3/img/4.jpg", "../../../ExamenT3/Ej3/img/5.jpg");
+    let imagenes = Array("../../../ExamenT3/Ej4/img/1.jpg", "../../../ExamenT3/Ej4/img/2.jpg",
+        "../../../ExamenT3/Ej4/img/3.jpg", "../../../ExamenT3/Ej4/img/4.jpg", "../../../ExamenT3/Ej4/img/5.jpg");
     let onOff = document.getElementById("tipoVisionado");
     let contador = 0;
     let intervalo;
