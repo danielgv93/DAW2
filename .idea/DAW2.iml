@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja02" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja03" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja04" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja05" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06/Hoja06_Clases_01" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06/Hoja06_Clases_02" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06/Hoja06_Clases_03" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/ExamenT2" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/ExamenT3" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/ExamenT4" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema1" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema2" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema3" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema4" />
+      <excludeFolder url="file://$MODULE_DIR$/.vscode" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/CasiExamen" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Examen1" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Examen2" />
+      <excludeFolder url="file://$MODULE_DIR$/DIW" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

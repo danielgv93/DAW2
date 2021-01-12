@@ -83,7 +83,7 @@ class Producto
 
     public function __toString(): String
     {
-        return "Codigo: $this->codigo, Precio: $this->precio, Nombre: $this->nombre, Categoria: ". $this->getCategoria()->toString();
+        return "Codigo: $this->codigo, Precio: $this->precio, Nombre: $this->nombre, Categoria: ". $this->getCategoria();
     }
 
 

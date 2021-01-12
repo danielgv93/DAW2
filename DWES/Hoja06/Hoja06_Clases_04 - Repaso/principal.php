@@ -18,16 +18,12 @@ $productos = Database::getInstance()->getProductos();
 <table>
     <tr>
         <th>Codigo</th>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Categoria</th>
+
     </tr>
     <?php foreach ($productos as $producto) : ?>
     <tr>
-        <td><?= $producto->getCodigo() ?></td>
-        <td><?= $producto->getNombre() ?></td>
-        <td><?= $producto->getPrecio() ?></td>
-        <td><?= $producto->getCategoria() ?></td>
+        <td><?= $producto?></td>
+
     </tr>
     <?php endforeach;?>
 </table>
