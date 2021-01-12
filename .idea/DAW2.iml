@@ -18,9 +18,12 @@
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema4" />
       <excludeFolder url="file://$MODULE_DIR$/.vscode" />
       <excludeFolder url="file://$MODULE_DIR$/DWES/CasiExamen" />
-      <excludeFolder url="file://$MODULE_DIR$/DWES/Examen1" />
-      <excludeFolder url="file://$MODULE_DIR$/DWES/Examen2" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Examen 1Ev - 1" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Examen 1Ev - 2" />
       <excludeFolder url="file://$MODULE_DIR$/DIW" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Tienda" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema5" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
