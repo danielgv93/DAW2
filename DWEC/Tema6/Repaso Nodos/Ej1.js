@@ -23,7 +23,7 @@ function inicio() {
     let nodoBody = document.body;
 
     // Acceso a hijos del nodo body
-    /*let hijosBody = "";
+    let hijosBody = "";
     for (const hijo of nodoBody.childNodes) {
         if (hijo.nodeName !== "#text") {
             hijosBody += hijo.nodeName + "-" + hijo.nodeType + "-" + hijo.nodeValue + "\n";
@@ -61,7 +61,7 @@ function inicio() {
 
     // Seleccion de nodos con querys
     alert(nodoAside.querySelectorAll(".hola")[0].tagName + "\n" +
-        nodoAside.querySelectorAll(".hola")[1].tagName);*/
+        nodoAside.querySelectorAll(".hola")[1].tagName);
 
     // Tiene atributos el primer p de Article?
     let nodoParrafo = nodoBody.children[2].children[0].children[1]
