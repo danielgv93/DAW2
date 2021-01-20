@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("p").bind("click mouseenter mouseleave", function () {
+                if ($("p").css("color") != "red") {
+                    $("p").css("color", "red");
+                } else {
+                    $("p").css("color", "blue");
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+<p style="color: blue">El texto cambia de color al entrar o salir con el raton o hacer click</p>
+</body>
+</html>

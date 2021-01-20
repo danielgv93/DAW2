@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("div").bind("mouseenter mouseleave", function (e) {
+                $("div").prepend("<p>Texto Generado</p>");
+            })
+        })
+    </script>
+    <style media="screen">
+        div{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+<div><p>Mi div 1</p></div>
+<div><p>Mi div 2</p></div>
+</body>
+</html>

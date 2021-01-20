@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#ocultar").click(function () {
+                $("label").hide(5000, function () {
+                    alert("Animacion finalizada")
+                });
+                alert("Esperando")
+            });
+            $("#mostrar").click(function () {
+                $("label").show(1000);
+            });
+        })
+    </script>
+    <style media="screen">
+        label {
+            background-color: darkolivegreen;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="ocultar" value="Ocultar">
+<input type="button" id="mostrar" value="Mostrar">
+<br>
+<label>Habia una vez un desarrollador web...</label>
+</body>
+</html>

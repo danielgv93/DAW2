@@ -30,6 +30,7 @@
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema4" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema5" />
     </content>
+    <content url="file://$MODULE_DIR$/DIW/T4-jQuery" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
