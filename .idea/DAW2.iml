@@ -9,6 +9,18 @@
       <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06/Hoja06_Clases_01" />
       <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06/Hoja06_Clases_02" />
       <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06/Hoja06_Clases_03" />
+      <excludeFolder url="file://$MODULE_DIR$/.vscode" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/CasiExamen" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Examen 1Ev - 1" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Examen 1Ev - 2" />
+      <excludeFolder url="file://$MODULE_DIR$/DIW" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Tienda" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Ejemplo1_HTML5" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Prubeas" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Repaso Nodos" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Creacion Nodos" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/ahorcado" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/ExamenT2" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/ExamenT3" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/ExamenT4" />
@@ -16,17 +28,7 @@
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema2" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema3" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema4" />
-      <excludeFolder url="file://$MODULE_DIR$/.vscode" />
-      <excludeFolder url="file://$MODULE_DIR$/DWES/CasiExamen" />
-      <excludeFolder url="file://$MODULE_DIR$/DWES/Examen 1Ev - 1" />
-      <excludeFolder url="file://$MODULE_DIR$/DWES/Examen 1Ev - 2" />
-      <excludeFolder url="file://$MODULE_DIR$/DIW" />
-      <excludeFolder url="file://$MODULE_DIR$/DWES/Tienda" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema5" />
-      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Ejemplo1_HTML5" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Prubeas" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Repaso Nodos" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
