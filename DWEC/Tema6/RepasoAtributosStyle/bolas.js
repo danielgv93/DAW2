@@ -4,6 +4,7 @@ function inicio() {
     let intervalo = null;
     let nBolas = 0;
     let segundos = 0;
+    borradas = 0;
     let botonEmpezar = document.getElementById("botonEmpezar");
     let botonParar = document.getElementById("botonParar");
 
@@ -23,7 +24,7 @@ function inicio() {
         let boolean = confirm("¿Quieres terminar el programa?");
         if (boolean) {
             clearInterval(intervalo);
-            alert(`Nº Bolas: ${nBolas}\n Segundos de ejecucion: ${segundos}`);
+            alert(`Nº Bolas: ${nBolas}\n Segundos de ejecucion: ${segundos}\nBorradas: ${borradas}`);
             borrarCirculos(document.querySelectorAll("div"));
             intervalo = null;
         }
@@ -57,6 +58,10 @@ function crearCirculo() {
     elemento.style.top = `${rnd0_100()}%`;
     elemento.style.left = `${rnd0_100()}%`;
     elemento.style.borderRadius = "50%";
+    elemento.addEventListener("click", function () {
+        document.body.removeChild(this);
+        borradas++;
+    })
     return elemento;
 }
 

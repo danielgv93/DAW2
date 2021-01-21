@@ -6,41 +6,62 @@ function inicio() {
     let palabrasCorrectas = Array("palabra", "aparecer", "pizarra");
     let spans = document.querySelectorAll("span");
     let ul = document.querySelector("ul");
-    let corregir = document.getElementById("corregir");
+    let corregirBoton = document.getElementById("corregir");
 
     // LISTA
-    for (const li of ul.children) {
-        li.addEventListener("click", function () {
-            liSelected.push(li);
-            spans[nPalabra].innerHTML = liSelected[nPalabra].innerHTML;
-            ul.removeChild(liSelected[nPalabra]);
-            increasenPalabra();
+    for (let i = 0; i < ul.children.length; i++) {
+        ul.children[i].addEventListener("click", function () {
+            for (let j = 0; j < spans.length; j++) {
+                if (spans[j].innerHTML === "....") {
+                    liSelected.push(this);
+                    spans[j].innerHTML = this.innerHTML;
+                    ul.removeChild(liSelected[j]);
+                    increasenPalabra();
+                    break;
+                }
+            }
         }, false);
     }
 
     // SPANS
-    for (const span of spans) {
-        span.addEventListener("click", function () {
+    for (let i = 0; i < spans.length; i++) {
+        spans[i].addEventListener("click", function () {
+            ul = document.querySelector("ul");
             decreasenPalabra();
             ul.appendChild(liSelected.pop());
-            spans[nPalabra].innerHTML = "....";
+            this.innerHTML = "....";
         }, false);
     }
 
-    corregir.addEventListener("click", function () {
-        corregirFrase(spans, palabrasCorrectas);
-        
+    corregirBoton.addEventListener("click", function () {
+        if (!corregirFrase(spans, palabrasCorrectas, ul)) {
+            if (corregirBoton.value === "Segunda oportunidad") {
+                corregirBoton.disabled = true;
+                alert("Se acabaron las opciones");
+            } else {
+                corregirBoton.value = "Segunda oportunidad";
+            }
+        } else {
+            corregirBoton.disabled = true;
+            alert("Correcto!")
+        }
+
     }, false);
 }
 
-function corregirFrase(arraySpan, palabrasCorrectas) {
+function corregirFrase(arraySpan, palabrasCorrectas, ul) {
     let aux = true;
     for (let i = 0; i < arraySpan.length; i++) {
         if (arraySpan[i].innerHTML !== palabrasCorrectas[i]) {
+            ul.append(arraySpan[i]);
             arraySpan[i].innerHTML = "....";
+            arraySpan[i].style.color = "red";
             aux = false;
+        } else {
+            arraySpan[i].style.color = "green";
         }
     }
+    nPalabra = 0;
     return aux;
 }
 
