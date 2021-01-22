@@ -7,25 +7,50 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#ocultar").click(function () {
-                $("label").hide(5000, function () {
-                    alert("Animacion finalizada")
-                });
-                alert("Esperando")
+                $("label").hide(1000);
             });
             $("#mostrar").click(function () {
                 $("label").show(1000);
             });
-        })
+            $("#fadeIn").click(function () {
+                $("label").fadeIn(1000);
+            });
+            $("#fadeOut").click(function () {
+                $("label").fadeOut(1000);
+            });
+            $("#fadeToggle").click(function () {
+                $("label").fadeToggle(1000);
+            });
+            $("#fadeTo").click(function () {
+                $("label").fadeTo(1000, 0.5);
+            });
+            $("#slideUp").click(function () {
+                $("label").slideUp(1000);
+            });
+            $("#slideDown").click(function () {
+                $("label").slideDown(1000);
+            });
+            $("#slideToggle").click(function () {
+                $("label").slideToggle();
+            });
+        });
     </script>
     <style media="screen">
         label {
-            background-color: darkolivegreen;
+            background-color: #556b2f;
         }
     </style>
 </head>
 <body>
-<input type="button" id="ocultar" value="Ocultar">
-<input type="button" id="mostrar" value="Mostrar">
+<input type="button" id="ocultar" value="Ocultar Hide">
+<input type="button" id="mostrar" value="Mostrar Show">
+<input type="button" id="fadeIn" value="Mostrar FadeIn">
+<input type="button" id="fadeOut" value="Ocultar FadeOut">
+<input type="button" id="fadeToggle" value="FadeToggle">
+<input type="button" id="fadeTo" value="FadeTo">
+<input type="button" id="slideUp" value="SlideUp">
+<input type="button" id="slideDown" value="SlideDown">
+<input type="button" id="slideToggle" value="SlideToggle">
 <br>
 <label>Habia una vez un desarrollador web...</label>
 </body>

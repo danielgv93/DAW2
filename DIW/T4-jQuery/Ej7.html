@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $("document").ready(function () {
+            $("span").mouseenter(function () {
+                $(this).css("background", "yellow");
+            });
+            $("span").mouseleave(function () {
+                $(this).css("background", "white");
+            });
+            $("span").click(function () {
+                $(this).fadeOut(1000, function () {
+                    $("div").text($(this).text() + " se ha desvanecido!")
+                    $(this).remove();
+                })
+            });
+        })
+    </script>
+    <style>
+        span:hover {
+            cursor: pointer;
+        }
+        div {
+            display: inline;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Encuentra los adjetivos <div></div></h1>
+<p>La chaqueta <span>roja</span> es lo mejor cuando hace un tiempo <span>calido</span>
+ ¿verdad?
+</p>
+</body>
+</html>

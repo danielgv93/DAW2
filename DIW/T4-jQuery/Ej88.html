@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $("document").ready(function () {
+            $("div").fadeOut(2000, function () {
+                $("#dos").css("background", "red");
+                $("#tres").css("background", "green");
+                $(this).fadeIn(2000);
+            });
+
+        });
+    </script>
+    <style>
+        body{
+            background-color: #474747;
+        }
+        h1{
+            color: green;
+        }
+        #uno {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<h1>Titulo</h1>
+<div id="uno">Mis divs</div>
+<div id="dos">Mis divs</div>
+<div id="tres">Mis divs</div>
+</body>
+</html>

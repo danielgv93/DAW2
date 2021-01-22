@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $("document").ready(function () {
+            $("span").click(function () {
+                $("div").show(1000);
+            });
+            $("#boton").click(function () {
+                $("div").hide(1000);
+            });
+        });
+    </script>
+    <style>
+        div {
+            background: #de9a44;
+            margin: 3px;
+            width: 80px;
+            height: 140px;
+            display: none;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div>Los efectos no son solo para divs o span</div>
+<div>Tambien son para cualquier elemento</div>
+<div><input type="button" id="boton" value="Botones tambien"></div>
+<div>aunque no esten incluidos en un div</div>
+<span>¡Pincha aquí!</span>
+</body>
+</html>
