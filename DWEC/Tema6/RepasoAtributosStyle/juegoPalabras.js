@@ -53,7 +53,10 @@ function corregirFrase(arraySpan, palabrasCorrectas, ul) {
     let aux = true;
     for (let i = 0; i < arraySpan.length; i++) {
         if (arraySpan[i].innerHTML !== palabrasCorrectas[i]) {
-            ul.append(arraySpan[i]);
+            let texto = arraySpan[i].innerHTML;
+            let li = document.createElement("li");
+            li.innerHTML = texto;
+            ul.append(li);
             arraySpan[i].innerHTML = "....";
             arraySpan[i].style.color = "red";
             aux = false;
