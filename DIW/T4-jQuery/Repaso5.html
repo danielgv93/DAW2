@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $("document").ready(function () {
+
+            $("div").click(function () {
+                $("div").removeClass("blanco");
+                $(this).addClass("blanco");
+            });
+        })
+    </script>
+    <style media="screen">
+        div{
+            margin: 10px;
+            float: left;
+            width: 200px;
+            height: 100px;
+            outline: 10px solid grey;
+        }
+        .uno {
+            background-color: darkgreen;
+        }
+        .dos {
+            background-color: blue;
+        }
+        .tres {
+            background-color: red;
+        }
+        .blanco{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="uno"></div>
+<div class="dos"></div>
+<div class="tres"></div>
+</body>
+</html>

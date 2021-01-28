@@ -17,7 +17,6 @@
       <excludeFolder url="file://$MODULE_DIR$/DWES/Tienda" />
       <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Ejemplo1_HTML5" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Prubeas" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Repaso Nodos" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Creacion Nodos" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/ahorcado" />
@@ -29,8 +28,13 @@
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema3" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema4" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema5" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Gestion Eventos" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/RepasoAtributosStyle" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/PizarraEntregar" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Prubeas" />
     </content>
     <content url="file://$MODULE_DIR$/DIW/T4-jQuery" />
+    <content url="file://$MODULE_DIR$/DIW/T4-jQuery/Ejercicios Repaso" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

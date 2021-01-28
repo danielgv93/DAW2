@@ -12,20 +12,21 @@
 
 
             for (const input of inputs) {
-                input.addEventListener("focus", function () {
+                input.addEventListener("focus", function (e) {
                     this.style.backgroundColor = "yellow";
                 }, false);
             }
 
 
             for (const input of inputs) {
-                input.addEventListener("blur", function () {
+                input.addEventListener("blur", function (e) {
                     this.style.backgroundColor = "white";
                 }, false);
             }
 
             for (const label of labels) {
-                label.addEventListener("mouseover", function () {
+                label.addEventListener("mouseover", function (e) {
+                    alert(e.target.nodeName);
                     this.style.fontSize = "120%";
                 }, false);
             }

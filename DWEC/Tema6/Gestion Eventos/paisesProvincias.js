@@ -13,6 +13,9 @@ function inicio() {
     selectPais.addEventListener("change", function () {
         for (let j = 0; j < array[parseInt(this.value)].length; j++) {
 
+            /*TODO: document.body.removeChild(selectProvincia);
+            let selectProvincia = document.createElement("option");
+            selectProvincia.setAttribute("id", "provincia");*/
             let optionProv = document.createElement("option");
             optionProv.innerText = array[parseInt(this.value)][j];
             selectProvincia.appendChild(optionProv);

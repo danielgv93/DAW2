@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        addEventListener("load", inicio, false);
+        function inicio() {
+            document.querySelector("div").addEventListener("click", function (e) {
+                e.preventDefault();
+                alert("Div pulsado")
+            }, false);
+            document.querySelector("span").addEventListener("click", function (e) {
+                alert("Span pulsado")
+
+            }, false);
+        }
+    </script>
+</head>
+<body>
+<div>
+    <span>texto</span>
+</div>
+</body>
+</html>
