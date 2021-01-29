@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("li").hover(function () {
+                $(this).children(".subUl").css("display", "block");
+            }, function () {
+                $(this).children(".subUl").css("display", "none");
+            });
+
+            $("p").hover(function () {
+                $(this).css("backgroundColor", "red");
+            }, function () {
+                $(this).css("backgroundColor", "cadetblue");
+            })
+        });
+    </script>
+    <style media="screen">
+        .subUl {
+            display: none;
+        }
+        li:hover {
+            cursor: pointer;
+        }
+        li {
+            color: blue;
+        }
+        p {
+            background-color: cadetblue;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>Localizacion
+        <ul class="subUl localizacion">
+            <li>Cantabria</li>
+            <li>Malaga</li>
+        </ul>
+    </li>
+    <li>Recetas
+        <ul class="subUl">
+            <li>Ensaladas</li>
+            <li>Primeros</li>
+            <li>Segundos</li>
+            <li>Postres</li>
+        </ul>
+    </li>
+</ul>
+<p>Voy a cambiar de color con la accion del raton</p>
+</body>
+</html>

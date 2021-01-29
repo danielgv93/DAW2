@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        let contadorG = 0;
+        let contadorP = 0;
+        $(document).ready(function () {
+            $("#grande").mouseenter(function () {
+                $(this).children("p").text("con_MouseEnter " + contadorG);
+                contadorG++;
+            });
+            $("#pequeño").mouseleave(function () {
+                $(this).children("p").text("con_MouseLeave " + contadorP);
+                contadorP++;
+            });
+        });
+    </script>
+    <style media="screen">
+        #grande {
+            background-color: green;
+            height: 800px;
+            width: 800px;
+        }
+        #pequeño {
+            position: absolute;
+            background-color: purple;
+            height: 400px;
+            width: 400px;
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="grande"><p>Primer Cuadrado</p>
+    <div id="pequeño"><p>Segundo Cuadrado</p></div>
+</div>
+</body>
+</html>

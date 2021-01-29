@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function () {
+           $("p").click(function () {
+               $("p").slideUp(300);
+               $(".antes").fadeIn(1000);
+               $(".despues").delay(1000);
+               $(".despues").fadeIn(1000);
+           })
+        });
+    </script>
+    <style>
+        .antes{
+            background-color: dodgerblue;
+        }
+        .despues{
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+<h1>Pincha en cualquiera de los textos</h1>
+<p class="antes">Antes</p>
+<p class="despues">Después</p>
+<p class="antes">Antes</p>
+<p class="despues">Después</p>
+</body>
+</html>
