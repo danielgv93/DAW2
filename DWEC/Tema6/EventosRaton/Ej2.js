@@ -18,8 +18,16 @@ function inicio() {
 }
 
 function mover(e) {
-    let x = e.pageX;
-    let y = e.pageY;
+    let x, y;
+    if (e.pageX >= 1820) {
+        x = 1820;
+    } else if (e.pageX <= 100) {
+        x = 100;
+    } else {
+        x = e.pageX;
+    }
+
+    y = e.pageY;
     cuadrado.setAttribute("style", `left:${x - 100}px; top:${y - 100}px; position: absolute`);
     p.innerText = "Moviendo"
 }
