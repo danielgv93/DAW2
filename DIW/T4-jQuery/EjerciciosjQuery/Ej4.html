@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("li>ul>li").click(function () {
+                $(this).hide();
+            })
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>Lista1:
+        <ul>
+            <li>Tortilla</li>
+            <li>Jamon</li>
+            <li>Queso</li>
+        </ul>
+    </li>
+    <li>Lista2:
+        <ul>
+            <li>Coca Cola</li>
+            <li>Leche</li>
+            <li>Te</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

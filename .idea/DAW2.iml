@@ -37,6 +37,8 @@
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema8 - AJAX/pruebasAjax/Ej1" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema8 - AJAX/pruebasAjax/Ej3" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema8 - AJAX/pruebasAjax/EjXML" />
+      <excludeFolder url="file://$MODULE_DIR$/DIW/T4-jQuery/RepasojQuery" />
+      <excludeFolder url="file://$MODULE_DIR$/DIW/T4-jQuery/Tema" />
     </content>
     <content url="file://$MODULE_DIR$/DIW/T4-jQuery" />
     <content url="file://$MODULE_DIR$/DIW/T4-jQuery/Ejercicios Repaso" />
