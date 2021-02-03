@@ -6118,7 +6118,7 @@ function domManip( collection, args, callback, ignored ) {
 
 						if ( node.src && ( node.type || "" ).toLowerCase()  !== "module" ) {
 
-							// Optional AJAX dependency, but won't run scripts if not present
+							// Optional Tema8 - AJAX dependency, but won't run scripts if not present
 							if ( jQuery._evalUrl && !node.noModule ) {
 								jQuery._evalUrl( node.src, {
 									nonce: node.nonce || node.getAttribute( "nonce" )
@@ -9803,7 +9803,7 @@ jQuery.extend( {
 			if ( fireGlobals ) {
 				globalEventContext.trigger( "ajaxComplete", [ jqXHR, s ] );
 
-				// Handle the global AJAX counter
+				// Handle the global Tema8 - AJAX counter
 				if ( !( --jQuery.active ) ) {
 					jQuery.event.trigger( "ajaxStop" );
 				}
@@ -10171,7 +10171,7 @@ jQuery.ajaxTransport( "script", function( s ) {
 						}
 					} );
 
-				// Use native DOM manipulation to avoid our domManip AJAX trickery
+				// Use native DOM manipulation to avoid our domManip Tema8 - AJAX trickery
 				document.head.appendChild( script[ 0 ] );
 			},
 			abort: function() {

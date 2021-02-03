@@ -16,10 +16,10 @@
       <excludeFolder url="file://$MODULE_DIR$/DIW" />
       <excludeFolder url="file://$MODULE_DIR$/DWES/Tienda" />
       <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Ejemplo1_HTML5" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Repaso Nodos" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Creacion Nodos" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/ahorcado" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6 - Nodos DOM/Ejemplo1_HTML5" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6 - Nodos DOM/Repaso Nodos" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6 - Nodos DOM/Creacion Nodos" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6 - Nodos DOM/ahorcado" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/ExamenT2" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/ExamenT3" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/ExamenT4" />
@@ -28,10 +28,15 @@
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema3" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema4" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema5" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Gestion Eventos" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/RepasoAtributosStyle" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/PizarraEntregar" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6/Prubeas" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema7 - Eventos/Gestion Eventos" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6 - Nodos DOM/RepasoAtributosStyle" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema7 - Eventos/PizarraEntregar" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6 - Nodos DOM/Prubeas" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6 - Nodos DOM" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema7 - Eventos" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema8 - AJAX/pruebasAjax/Ej1" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema8 - AJAX/pruebasAjax/Ej3" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema8 - AJAX/pruebasAjax/EjXML" />
     </content>
     <content url="file://$MODULE_DIR$/DIW/T4-jQuery" />
     <content url="file://$MODULE_DIR$/DIW/T4-jQuery/Ejercicios Repaso" />
