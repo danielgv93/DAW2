@@ -6,16 +6,25 @@
     <script src="jquery-3.5.1.js"></script>
     <script>
         $(document).ready(function () {
-
+            $("input").click(function () {
+                $(this).parent().hide();
+            })
         });
     </script>
+    <style>
+        div {
+            background-color: cadetblue;
+        }
+    </style>
 </head>
 <body>
 <div>
-    <input type="button">
+    <input type="button" value="Escondeme">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 </div>
 <div>
-    <input type="button">
+    <input type="button" value="Escondeme">
+    <p>Lorem ipsum dolor sit amet.</p>
 </div>
 </body>
 </html>

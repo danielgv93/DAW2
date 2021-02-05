@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#in").click(function () {
+                $("#uno").fadeIn();
+                $("#dos").fadeIn("slow");
+                $("#tres").fadeIn(3000);
+            });
+            $("#out").click(function () {
+                $("#uno").fadeOut();
+                $("#dos").fadeOut("slow");
+                $("#tres").fadeOut(3000);
+            });
+            $("#toggle").click(function () {
+                $("#uno").fadeToggle();
+                $("#dos").fadeToggle("slow");
+                $("#tres").fadeToggle(3000);
+            });
+            $("#to").click(function () {
+                $("#uno").fadeTo("slow", 0.15);
+                $("#dos").fadeTo("slow", 0.4);
+                $("#tres").fadeTo("slow", 0.7);
+            });
+        });
+    </script>
+</head>
+<body>
+<input id="in" type="button" value="FadeIn">
+<input id="out" type="button" value="FadeOut">
+<input id="toggle" type="button" value="Toggle">
+<input id="to" type="button" value="FadeTo">
+<div id="uno">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda eius incidunt minus quas vel. A atque dolore ducimus eum explicabo, laborum mollitia nemo optio sit totam? Deserunt facere iusto quasi?</div>
+<div id="dos">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda eius incidunt minus quas vel. A atque dolore ducimus eum explicabo, laborum mollitia nemo optio sit totam? Deserunt facere iusto quasi?</div>
+<div id="tres">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda eius incidunt minus quas vel. A atque dolore ducimus eum explicabo, laborum mollitia nemo optio sit totam? Deserunt facere iusto quasi?</div>
+</body>
+</html>

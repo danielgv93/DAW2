@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#dos").hide();
+            $("#uno").click(function () {
+                $("#dos").slideDown();
+            })
+        });
+    </script>
+</head>
+<body>
+<div id="uno">Hola</div>
+<div id="dos">Que tal</div>
+</body>
+</html>
