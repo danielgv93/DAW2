@@ -18,6 +18,7 @@ function inicio() {
         }
     }
 
+
     function crearTitulos(videoclub) {
         let div = document.getElementById("titulos");
         let titulos = Array();
@@ -26,11 +27,23 @@ function inicio() {
         }
         for (let i = 0; i < titulos.length; i++) {
             let h2 = document.createElement("h2");
-            h2.setAttribute("id", `${i}.jpg`);
+            h2.setAttribute("id", `${i+1}.jpg`);
             h2.innerHTML = titulos[i];
             h2.addEventListener("click", function () {
-                clickarTitulo(videoclub);
+                clickarTitulo(this);
+
             }, false)
+            h2.addEventListener("mouseenter", function (event) {
+                this.className = "tituloSelected";
+                crearDivFlotante(videoclub, i, event);
+            });
+            h2.addEventListener("mouseleave", function () {
+                this.className = null;
+                try {
+                    document.body.removeChild(document.querySelector("#divFlotante"));
+                } catch (e) {
+                }
+            })
             div.appendChild(h2);
         }
         for (const titulo of titulos) {
@@ -38,24 +51,28 @@ function inicio() {
         }
     }
 
-    function clickarTitulo(videoclub) {
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", "caratulas.txt", true);
-        xhr.send(null);
-        xhr.onreadystatechange = function () {
-            if (xhr.status === 200) {
-                if (xhr.status === 4) {
-                    let caratulas = xhr.responseText;
-                    for (let i = 0; i < videoclub.children.length; i++) {
-                        //TODO: CONTINUAR
-                        if (videoclub.children[i].get) {
-                        }
-                    }
-                } else {
-                    alert("ERROR: " + xhr.status);
-                }
-            }
-        }
+    function crearDivFlotante(videoclub, i, event) {
+        // Introducir el evento de mouse para que el div se mueva con el raton
+        let divFlotante = document.createElement("div");
+        divFlotante.setAttribute("id", "divFlotante");
+        divFlotante.innerHTML = "<p>Titulo: " + videoclub.children[i].children[0].innerHTML + "</p>" +
+            "<p>Duracion: " + videoclub.children[i].children[1].innerHTML + "</p>" +
+            "<p>Genero: " + videoclub.children[i].children[2].innerHTML + "</p>";
+        divFlotante.className = "divFlotante";
+        document.body.appendChild(divFlotante);
+    }
+
+    function clickarTitulo(h2) {
+        //Eliminar el contenedor de la imagen anterior y crear uno nuevo
+        let caratulaDiv = document.querySelector("#caratulas");
+        document.body.removeChild(caratulaDiv);
+        caratulaDiv = document.createElement("div");
+        caratulaDiv.setAttribute("id", "caratulas");
+        document.body.appendChild(caratulaDiv);
+        //Crear imagen
+        let imagen = document.createElement("img");
+        imagen.src = h2.getAttribute("id");
+        document.querySelector("#caratulas").appendChild(imagen);
 
     }
 
