@@ -2,9 +2,9 @@
 header("Content-Type: text/plain; charset=iso-8859-1");
 $compEmail=0; //valor inicial para combrobación email.
 $compContra=0;  //valor inicial para comprobacion contraseña
-$email=$_GET["envioEmail"];//recoger datos de email
-$contra1=$_GET["envioContra1"]; //recoger datos de contraseña 1ª
-$contra2=$_GET["envioContra2"]; //recoger datos de contraseña 2ª
+$email=$_POST["envioEmail"];//recoger datos de email
+$contra1=$_POST["envioContra1"]; //recoger datos de contraseña 1ª
+$contra2=$_POST["envioContra2"]; //recoger datos de contraseña 2ª
 if (strlen($email)>0) { //si hay algo escrito en email ....
     $num1=substr_count($email,"@"); //número de signos @ escritos en el email;
     if ($num1==1) { //correcto si ha una @ en el email

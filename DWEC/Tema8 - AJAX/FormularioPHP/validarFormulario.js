@@ -8,11 +8,16 @@ function inicio() {
 
     boton.addEventListener("click", function () {
         let xhr = new XMLHttpRequest();
-        let par1 = "envioEmail=" + email.value;
+        /*let par1 = "envioEmail=" + email.value;
         let par2 = "envioContra1=" + contra1.value;
-        let par3 = "envioContra2=" + contra2.value;
-        xhr.open("GET", "php1.php?" + par1 + "&" + par2 + "&" + par3, true);
-        xhr.send(null);
+        let par3 = "envioContra2=" + contra2.value;*/
+        let datos = new FormData();
+        datos.append("envioEmail", email.value);
+        datos.append("envioContra1", contra1.value);
+        datos.append("envioContra2", contra2.value);
+        xhr.open("POST", "php1.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+        xhr.send(datos);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {

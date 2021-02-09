@@ -36,6 +36,7 @@ function inicio() {
             h2.addEventListener("mouseenter", function (event) {
                 this.className = "tituloSelected";
                 crearDivFlotante(videoclub, i, event);
+
             });
             h2.addEventListener("mouseleave", function () {
                 this.className = null;
@@ -46,13 +47,9 @@ function inicio() {
             })
             div.appendChild(h2);
         }
-        for (const titulo of titulos) {
-
-        }
     }
 
     function crearDivFlotante(videoclub, i, event) {
-        // Introducir el evento de mouse para que el div se mueva con el raton
         let divFlotante = document.createElement("div");
         divFlotante.setAttribute("id", "divFlotante");
         divFlotante.innerHTML = "<p>Titulo: " + videoclub.children[i].children[0].innerHTML + "</p>" +
@@ -63,7 +60,6 @@ function inicio() {
     }
 
     function clickarTitulo(h2) {
-        //Eliminar el contenedor de la imagen anterior y crear uno nuevo
         let caratulaDiv = document.querySelector("#caratulas");
         document.body.removeChild(caratulaDiv);
         caratulaDiv = document.createElement("div");
