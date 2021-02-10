@@ -2,6 +2,7 @@ addEventListener("load", inicio, false);
 cuadrado = null;
 menu = null;
 p = null;
+
 function inicio() {
     cuadrado = document.getElementById("cuadrado");
     menu = document.getElementById("menu");
@@ -26,8 +27,13 @@ function mover(e) {
     } else {
         x = e.pageX;
     }
-
-    y = e.pageY;
+    if (e.pageY <= 100) {
+        y = 100;
+    } else if (e.pageY >= 840) {
+        y = 840;
+    } else {
+        y = e.pageY;
+    }
     cuadrado.setAttribute("style", `left:${x - 100}px; top:${y - 100}px; position: absolute`);
-    p.innerText = "Moviendo"
+    p.innerText = "Moviendo";
 }
