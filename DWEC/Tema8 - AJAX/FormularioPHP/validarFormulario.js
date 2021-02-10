@@ -16,7 +16,7 @@ function inicio() {
         datos.append("envioContra1", contra1.value);
         datos.append("envioContra2", contra2.value);
         xhr.open("POST", "php1.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+        /*xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")*/
         xhr.send(datos);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
