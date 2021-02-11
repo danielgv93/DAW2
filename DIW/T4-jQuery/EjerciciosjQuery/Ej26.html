@@ -6,11 +6,24 @@
     <script src="jquery-3.5.1.js"></script>
     <script>
         $(document).ready(function () {
-
+            $("#text").click(function () {
+                $("#uno").text("Hola mundo");
+            })
+            $("#html").click(function () {
+                $("#dos").html("<strong>Hola mundo</strong>")
+            });
+            $("#value").click(function () {
+                $("#tres").val("Hola mundo")
+            });
         });
     </script>
 </head>
 <body>
-
+<input type="button" id="text" value="SetText">
+<input type="button" id="html" value="SetHTML">
+<input type="button" id="value" value="SetValue">
+<p id="uno"></p>
+<p id="dos"></p>
+<p id="tres"></p>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("input").click(function () {
+                $("div").remove();
+            });
+        });
+    </script>
+    <style>
+        div{
+            background-color: yellow;
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="Borrar">
+<div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+</div>
+</body>
+</html>
