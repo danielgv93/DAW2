@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#uno").fadeOut("slow")
+            $("#dos").fadeOut("fast")
+            $("#tres").fadeOut(800)
+            $("#cuatro").fadeOut(2000)
+            $("#cinco").fadeOut(4000)
+        });
+    </script>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            outline: 1px solid black;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+<div id="uno"></div>
+<div id="dos"></div>
+<div id="tres"></div>
+<div id="cuatro"></div>
+<div id="cinco"></div>
+</body>
+</html>

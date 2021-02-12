@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("input").click(function () {
+                $("p").css("backgroundColor", "yellow");
+                $("p").css("fontSize", "120%");
+            });
+        });
+    </script>
+    <style>
+        p {
+            background-color: dodgerblue;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="Cambiar color">
+<p>Lorem ipsum dolor sit amet, consectetur.</p>
+<p>Lorem ipsum dolor sit amet, consectetur.</p>
+<p>Lorem ipsum dolor sit amet, consectetur.</p>
+<p>Lorem ipsum dolor sit amet, consectetur.</p>
+</body>
+</html>
