@@ -12,8 +12,8 @@ function inicio() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 crearPersonas(xhr, arrayPersonas);
-                mostrarInfoTotal(infoBoton, resultado, arrayPersonas);
                 crearSelect(arrayPersonas);
+                mostrarInfoTotal(infoBoton, resultado, arrayPersonas);
 
             } else {
                 alert("ERROR" + xhr.status);
@@ -50,15 +50,13 @@ function crearPersonas(xhr, arrayPersonas) {
 }
 
 function mostrarInfoTotal(infoBoton, resultado, arrayPersonas) {
+    let id = document.querySelector("select").selectedIndex;
     infoBoton.addEventListener("click", function () {
         let texto = "";
         resultado.innerHTML = texto;
-        for (const persona of arrayPersonas) {
-            texto += "<p>" + persona.informacion() + "<\p>";
-            texto += "<p>" + interpretarIMC(persona.calcularIMC()) + "<\p>";
-            texto += "<p>" + interpretarEdad(persona.mayorEdad()) + "<\p>";
-            texto += "<hr>";
-        }
+        texto += "<p>" + arrayPersonas[id].informacion() + "<\p>";
+        texto += "<p>" + interpretarIMC(arrayPersonas[id].calcularIMC()) + "<\p>";
+        texto += "<p>" + interpretarEdad(arrayPersonas[id].mayorEdad()) + "<\p>";
         resultado.innerHTML = texto;
     })
 }

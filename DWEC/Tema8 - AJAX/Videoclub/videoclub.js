@@ -86,6 +86,9 @@ function inicio() {
             option.innerText = genero;
             select.appendChild(option);
         }
+        select.addEventListener("change", function () {
+
+        })
     }
 
     const unique = (value, index, self) => {
