@@ -1,9 +1,11 @@
 <?php
 
 $location = "http://zoologico.laravel/api/wsdl";
+
 try {
     $objeto = new SoapClient($location);
-    echo $objeto->getAnimal(2);
+    var_dump($objeto->getAnimalesAlimentacion("herbívoro"));
 } catch (SoapFault $e) {
-    echo $e->getMessage();
+    $e->getMessage();
 }
+
