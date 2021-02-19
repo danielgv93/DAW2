@@ -3,7 +3,11 @@
 
 class Funciones
 {
-    function getLetra($dni)
+    /**
+     * @param string $dni
+     * @return string
+     */
+    function getLetra($dni): string
     {
         if ($dni > 0 && strlen($dni) == 8) {
             $letras = array(
@@ -17,5 +21,19 @@ class Funciones
                 }
             }
         }
+    }
+
+    /**
+     * @param string $dni
+     * @param string $letra
+     * @return bool
+     */
+    function compruebaDNI($dni, $letra): bool
+    {
+        $letraCorrecta = $this->getLetra($dni);
+        if ($letraCorrecta == strtoupper($letra)) {
+            return true;
+        }
+        return false;
     }
 }
