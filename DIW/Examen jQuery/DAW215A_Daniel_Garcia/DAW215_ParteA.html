@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0059)file:///C:/Users/pgonzalez/Downloads/DAW215_ParteA.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head>
+
+<head>
+<script type="text/javascript" src="jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#cabe-cera").click(function () {
+				$("#header").slideToggle(1000)
+			});
+			$("#me-nu").click(function () {
+				$("#main").slideToggle(1000)
+			});
+			$("#cuer-po").click(function () {
+				$("#sidebar").slideToggle(1000)
+			});
+			$("#foo-ter").click(function () {
+				$("#cabe-cera").hide(800, function () {
+					$("#me-nu").hide(800, function () {
+						$("#cuer-po").hide(800, function () {
+							$("#foo-ter").hide(800, function () {
+								$("#texto-pie").show(500)
+							})
+						})
+					})
+				})
+			});
+
+			$("#header").hover(function () {
+				$(this).css("backgroundColor", "yellow")
+				$(this).css("fontSize", "35px")
+			}, function () {
+				$(this).css("backgroundColor", "pink")
+				$(this).css("fontSize", "15px")
+			})
+
+			$("#sidebar").hover(function () {
+				$(this).css("backgroundColor", "yellow")
+				$(this).css("fontSize", "35px")
+			}, function () {
+				$(this).css("backgroundColor", "pink")
+				$(this).css("fontSize", "15px")
+			})
+
+			$("#main").mouseenter(function () {
+				$(this).fadeTo(800,0.5)
+			})
+		})
+	</script>
+<style>
+div#body  
+{
+margin:auto auto auto auto;  
+width:710px; 
+clear:left; 
+
+}
+div#header 
+{
+margin:auto auto auto auto;
+width:710px;
+border:solid 3px #815608;
+border-radius: 15px; 
+display:none;
+}
+div#sidebar
+{
+display:none; 
+border:solid 1px #CFC;
+padding-left:15px;
+ 
+}
+
+body.sidebar-main div#footer  
+{
+margin:25px auto 25px auto;
+width:710px;
+border:solid 3px #815608;
+border-radius: 15px; 
+clear:right;
+
+}
+body.main-sidebar div#footer 
+{
+margin:100px 100px 100px auto;
+padding-left:200px;
+width:710px;
+border:solid 3px #815608;
+border-radius: 15px; 
+clear:left;
+
+}
+		/*DEFINIMOS LOS ESTILOS PARA CADA UNO DE LOS 4 <DIV> LOS NOMBRES DE CADA UNO DE ELLOS SON ESTOS NO LOS CAMBIÉS*/
+		
+div#cabe-cera {background-color:#aac; margin:auto 5px 5px 5px;  height:50px; width:23%; left:100px;display:inline-table;}
+div#me-nu {background-color:#acc;	margin:auto 5px 5px 5px; height:50px; width:23%; left:150px; display:inline-table;}
+div#foo-ter {background-color:#cbc;	 margin:auto 5px 5px 5px; height:50px; width:23%;  left:250px; display:inline-table;}
+div#cuer-po {background-color:#ccc;	 margin:auto 5px 5px 5px; height:50px; width:23%;  left:350px;display:inline-table;}
+div#texto-pie{font-family: Arial, Helvetica, sans-serif;color: #888888; display:none;}
+
+body.main-sidebar div#main, body.sidebar-main div#main
+{
+width:490px;
+border:solid 4px green;
+
+}
+body.main-sidebar div#body, body.sidebar-main div#body
+{
+margin:auto auto auto auto;
+width:710px;
+border:solid 4px #FFF;
+}
+body.main-sidebar div#sidebar, body.sidebar-main div#sidebar
+{
+padding-top:10px;
+display:block;
+width:200px;
+border:solid 1px #CCC;
+
+}
+body.main-sidebar div#main, body.main-sidebar div#sidebar  /*Main-sidebar. Este estilo coloca el sidebar a la derecha y el main a la izquierda */
+{
+float:left;
+border:dotted 1px green;
+
+}
+body.sidebar-main div#main, body.sidebar-main div#sidebar /*Sidebar-main. Este estilo coloca el sidebar a la izquierda y el main a la derecha*/
+{
+float:right;
+border:dotted 1px green;
+display:none;
+}
+div#header div#logo /*Se define el logo flotante a la izquierda*/
+{
+margin-bottom:inherit;
+border:dotted 1px green;
+float:left; /*Hago estas caja flotante, y las siguientes cajas que estén en la misma posición también serám flotantes a la izquierda. No hace falta ponerle a div#header div#main-title también eta propiedad*/
+
+}
+div#header div#main-title /*Es el título del encabezado. Al ser el logo flotante este también lo será */
+{
+width:600px;
+margin-bottom:inherit;
+border:dotted 1px blue;
+padding-bottom:10px;
+
+
+/* DEFINE LOS ENLACES DE MEnU*/
+}
+a.menus:link 
+{text-decoration:none; 
+color:#000000;
+background-color:#815608;
+border:#FFFFFF 1px solid;
+} /* Link no visitado*/
+
+a.menus:visited {
+text-decoration:none; 
+color:#cccccc;
+} /*Link visitado*/
+
+a.menus:active {
+text-decoration:none; 
+color: #003399; 
+background: green; 
+border:#FFFFFF 1px solid;
+} /*Link activo*/
+
+a.menus:hover {
+text-decoration:underline; 
+color: #003399; 
+background: red; 
+border:#FFFFFF 1px solid;} 
+/*Ratón sobre el link*/
+
+
+</style>
+</head>
+
+<body class="sidebar-main">
+<div id="header">
+<div id="logo"> <img src="logo.jpg" width="100px" height="90px"> </div>
+<div id="main-title"><h1> El muslito </h1></div>
+<p>&nbsp;</p>
+</div>
+
+<div id="body">
+	<div id="main"><img src="portada.png"> </div>
+	<div id="sidebar">
+		<div><a href="#" class="menus">Inicio</a></div>
+		<div><a href="#" class="menus">¿Dónde Estamos?</a></div>
+		<div><a href="#" class="menus">Nuestra Carta</a></div>
+		<div><a href="#" class="menus">Horarios</a></div>
+	</div>
+</div>
+<div id="footer">
+	<div id="cabe-cera">Cabecera</div>
+	<div id="me-nu">Menú</div>
+	<div id="cuer-po">Cuerpo</div>
+	<div id="foo-ter">FINALIZA</div>
+	<div id="texto-pie">Aqui va el identificador DAW215</div>
+</div>
+</body>
+</html>

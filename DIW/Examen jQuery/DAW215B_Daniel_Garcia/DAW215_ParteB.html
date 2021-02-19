@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("input").click(function () {
+                $("p").fadeToggle(800).css("backgroundColor", "yellow");
+                $("div").fadeIn(800);
+            });
+            $("div").click(function () {
+                $(this).fadeTo(500, 0.5);
+                $(this).animate({width: "500px", marginLeft: "200px", fontSize: "50px"}, 800);
+            });
+
+        })
+    </script>
+    <style>
+        p:nth-child(2) {
+            display:inline;
+        }
+        div {
+            background-color: red;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 600px;
+            width: 100px;
+            height: 200px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<p>ALGO TENDRÁS QUE ESTUDIAR...</p>
+<p>Si el refrán quieres conocer</p><input type="button" value="Pulsa para continuar">
+<div>Si DIW quieres aprobar</div>
+</body>
+</html>
