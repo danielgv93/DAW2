@@ -2,10 +2,6 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja02" />
-      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja03" />
-      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja04" />
-      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja05" />
       <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06/Hoja06_Clases_01" />
       <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06/Hoja06_Clases_02" />
       <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06/Hoja06_Clases_03" />
@@ -15,7 +11,6 @@
       <excludeFolder url="file://$MODULE_DIR$/DWES/Examen 1Ev - 2" />
       <excludeFolder url="file://$MODULE_DIR$/DIW" />
       <excludeFolder url="file://$MODULE_DIR$/DWES/Tienda" />
-      <excludeFolder url="file://$MODULE_DIR$/DWES/Hoja06" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6 - Nodos DOM/Ejemplo1_HTML5" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6 - Nodos DOM/Repaso Nodos" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema6 - Nodos DOM/Creacion Nodos" />
@@ -39,9 +34,16 @@
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema8 - AJAX/pruebasAjax/EjXML" />
       <excludeFolder url="file://$MODULE_DIR$/DIW/T4-jQuery/RepasojQuery" />
       <excludeFolder url="file://$MODULE_DIR$/DIW/T4-jQuery/Tema" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema8 - AJAX" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Examen 2Ev - 1" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Examen 2Ev - 2" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Examen 2Ev - 1" />
     </content>
+    <content url="file://$MODULE_DIR$/DIW/Examen jQuery" />
     <content url="file://$MODULE_DIR$/DIW/T4-jQuery" />
     <content url="file://$MODULE_DIR$/DIW/T4-jQuery/Ejercicios Repaso" />
+    <content url="file://$MODULE_DIR$/DWEC/Tema8 - AJAX/IMC" />
+    <content url="file://$MODULE_DIR$/DWEC/Tema8 - AJAX/Videoclub" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
