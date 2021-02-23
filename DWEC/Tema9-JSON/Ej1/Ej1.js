@@ -31,7 +31,7 @@ function crearSelectPaises(paises, arrayCiudades) {
             document.body.removeChild(document.querySelector("#ciudades"));
         } catch (e) {
         }
-        for (let i = 0; i < paises.pais.length; i++) {
+        for (let i = 0; i < paises.pais[this.selectedIndex].ciudadImportante.length; i++) {
             arrayCiudades.push(paises.pais[this.selectedIndex].ciudadImportante[i]);
         }
         let selectCiudad = document.createElement("select");
@@ -54,6 +54,7 @@ function crearSelectCiudades(arrayCiudades, selectCiudad) {
     }
     selectCiudad.addEventListener("change", function () {
         let ventanaNormal = window.open("", "_blank", "height=600,width=600");
+        ventanaNormal.moveTo(500, 200);
         ventanaNormal.document.write(`<img src="imagenes/${(this.value).toLowerCase()}.jpg">`);
     })
 }

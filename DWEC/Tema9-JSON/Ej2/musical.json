@@ -8,7 +8,8 @@
                 "country":"USA",
                 "company":"Columbia",
                 "price":10.9,
-                "year":1985
+                "year":1985,
+                "img": "imagen1.jpg"
             },
             {
 				"id":2,
@@ -17,7 +18,8 @@
                 "country":"UK",
                 "company":"CBS Records",
                 "price":9.9,
-                "year":1988
+                "year":1988,
+                "img": "imagen2.jpg"
             },
             {
 				"id":3,
@@ -26,7 +28,8 @@
                 "country":"USA",
                 "company":"RCA",
                 "price":9.9,
-                "year":1982
+                "year":1982,
+                "img": "imagen3.jpg"
             },
             {
 				"id":4,
@@ -35,7 +38,8 @@
                 "country":"UK",
                 "company":"Virgin records",
                 "price":10.2,
-                "year":1990
+                "year":1990,
+                "img": "imagen4.jpg"
             },
             {
 				"id":5,
@@ -44,7 +48,8 @@
                 "country":"EU",
                 "company":"BMG",
                 "price":9.9,
-                "year":1997
+                "year":1997,
+                "img": "imagen5.jpg"
             },
             {
 				"id":6,
@@ -53,7 +58,8 @@
                 "country":"UK",
                 "company":"Polydor",
                 "price":10.9,
-                "year":1998
+                "year":1998,
+                "img": "imagen6.jpg"
             },
             {
 				"id":7,
@@ -62,7 +68,8 @@
                 "country":"UK",
                 "company":"CBS",
                 "price":8.1,
-                "year":1973
+                "year":1973,
+                "img": "imagen7.jpg"
             },
             {
 				"id":8,
@@ -71,7 +78,8 @@
                 "country":"UK",
                 "company":"Pickwick",
                 "price":8.5,
-                "year":1990
+                "year":1990,
+                "img": "imagen8.jpg"
             },
             {
 				"id":9,
@@ -80,7 +88,8 @@
                 "country":"EU",
                 "company":"Polydor",
                 "price":10.8,
-                "year":1996
+                "year":1996,
+                "img": "imagen9.jpg"
             },
             {
 				"id":10,
@@ -89,7 +98,8 @@
                 "country":"USA",
                 "company":"Atlantic",
                 "price":8.7,
-                "year":1987
+                "year":1987,
+                "img": "imagen10.jpg"
             },
             {
 				"id":11,
@@ -98,7 +108,8 @@
                 "country":"EU",
                 "company":"Mega",
                 "price":10.9,
-                "year":1995
+                "year":1995,
+                "img": "imagen11.jpg"
             },
             {
 				"id":12,
@@ -107,7 +118,8 @@
                 "country":"USA",
                 "company":"Grammy",
                 "price":10.2,
-                "year":1999
+                "year":1999,
+                "img": "imagen12.jpg"
             },
             {
 				"id":13,
@@ -116,7 +128,8 @@
                 "country":"UK",
                 "company":"Mucik Master",
                 "price":8.7,
-                "year":1995
+                "year":1995,
+                "img": "imagen13.jpg"
             },
             {
 				"id":14,
@@ -125,7 +138,8 @@
                 "country":"USA",
                 "company":"Columbia",
                 "price":9.9,
-                "year":1997
+                "year":1997,
+                "img": "imagen14.jpg"
             },
             {
 				"id":15,
@@ -134,7 +148,8 @@
                 "country":"UK",
                 "company":"Polydor",
                 "price":8.2,
-                "year":1971
+                "year":1971,
+                "img": "imagen15.jpg"
             },
             {
 				"id":16,
@@ -143,7 +158,8 @@
                 "country":"Norway",
                 "company":"WEA",
                 "price":7.9,
-                "year":1996
+                "year":1996,
+                "img": "imagen16.jpg"
             },
             {
 				"id":17,
@@ -152,7 +168,8 @@
                 "country":"UK",
                 "company":"Island",
                 "price":8.9,
-                "year":1990
+                "year":1990,
+                "img": "imagen17.jpg"
             },
             {
 				"id":18,
@@ -161,7 +178,8 @@
                 "country":"UK",
                 "company":"A and M",
                 "price":8.9,
-                "year":1988
+                "year":1988,
+                "img": "imagen18.jpg"
             },
             {
 				"id":19,
@@ -170,7 +188,8 @@
                 "country":"UK",
                 "company":"Siren",
                 "price":7.9,
-                "year":1987
+                "year":1987,
+                "img": "imagen19.jpg"
             },
             {
 				"id":20,
@@ -179,7 +198,8 @@
                 "country":"UK",
                 "company":"Capitol",
                 "price":8.9,
-                "year":1983
+                "year":1983,
+                "img": "imagen20.jpg"
             },
             {
 				"id":21,
@@ -188,7 +208,8 @@
                 "country":"EU",
                 "company":"Medley",
                 "price":7.8,
-                "year":1983
+                "year":1983,
+                "img": "imagen21.jpg"
             },
             {
 				"id":22,
@@ -197,7 +218,8 @@
                 "country":"UK",
                 "company":"DECCA",
                 "price":9.9,
-                "year":1991
+                "year":1991,
+                "img": "imagen22.jpg"
             },
             {
 				"id":23,
@@ -206,7 +228,8 @@
                 "country":"USA",
                 "company":"Atlantic",
                 "price":7.9,
-                "year":1987
+                "year":1987,
+                "img": "imagen23.jpg"
             },
             {
 				"id":24,
@@ -215,7 +238,8 @@
                 "country":"EU",
                 "company":"Elektra",
                 "price":7.2,
-                "year":1985
+                "year":1985,
+                "img": "imagen24.jpg"
             },
             {
 				"id":25,
@@ -224,7 +248,8 @@
                 "country":"UK",
                 "company":"London",
                 "price":7.8,
-                "year":1987
+                "year":1987,
+                "img": "imagen25.jpg"
             },
             {
 				"id":26,
@@ -233,7 +258,8 @@
                 "country":"USA",
                 "company":"EMI",
                 "price":8.2,
-                "year":1987
+                "year":1987,
+                "img": "imagen26.jpg"
             }
         ]
     }
