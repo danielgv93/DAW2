@@ -1,5 +1,5 @@
 <?php
-$url_servicio = "zoologico.laravel/rest/elefante/borrar";
+$url_servicio = "zoologico.laravel/rest/oso/borrar";
 $curl = curl_init($url_servicio);
 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
