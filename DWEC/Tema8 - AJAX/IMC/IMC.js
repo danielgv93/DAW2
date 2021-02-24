@@ -50,13 +50,13 @@ function crearPersonas(xhr, arrayPersonas) {
 }
 
 function mostrarInfoTotal(infoBoton, resultado, arrayPersonas) {
-    let id = document.querySelector("select").selectedIndex;
+    let id = document.querySelector("select");
     infoBoton.addEventListener("click", function () {
         let texto = "";
         resultado.innerHTML = texto;
-        texto += "<p>" + arrayPersonas[id].informacion() + "<\p>";
-        texto += "<p>" + interpretarIMC(arrayPersonas[id].calcularIMC()) + "<\p>";
-        texto += "<p>" + interpretarEdad(arrayPersonas[id].mayorEdad()) + "<\p>";
+        texto += "<p>" + arrayPersonas[id.selectedIndex].informacion() + "<\p>";
+        texto += "<p>" + interpretarIMC(arrayPersonas[id.selectedIndex].calcularIMC()) + "<\p>";
+        texto += "<p>" + interpretarEdad(arrayPersonas[id.selectedIndex].mayorEdad()) + "<\p>";
         resultado.innerHTML = texto;
     })
 }
