@@ -49,6 +49,13 @@
       <excludeFolder url="file://$MODULE_DIR$/DWES/Tema08" />
       <excludeFolder url="file://$MODULE_DIR$/DWES/Tema09/Hoja09_Ajax_01" />
       <excludeFolder url="file://$MODULE_DIR$/DIW/Examen jQuery" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema8 - AJAX/IMC" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema8 - AJAX/Videoclub" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES/Tema09/Hoja09_Ajax_02" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema9-JSON/Ej1" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema9-JSON/Ej2" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema9-JSON/Ej3" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema9-JSON/Ej4" />
     </content>
     <content url="file://$MODULE_DIR$/DIW/Examen jQuery" />
     <content url="file://$MODULE_DIR$/DIW/T4-jQuery" />

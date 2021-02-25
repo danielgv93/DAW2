@@ -76,7 +76,9 @@ function crearBotones(arrayObjetos, pedido) {
                     aux = false;
                 }
             } while (aux)
-            pedido[arrayObjetos[i].nombre] = cantidad;
+            if (cantidad != null) {
+                pedido[arrayObjetos[i].nombre] = cantidad;
+            }
         })
         div.appendChild(button);
     }
