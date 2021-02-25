@@ -1,8 +1,5 @@
 <?php
-require_once "validar.php";
-if (isset($_POST["enviar"])) {
     var_dump($_POST);
-}
 ?>
 <!doctype html>
 <html lang="es">
@@ -23,11 +20,13 @@ if (isset($_POST["enviar"])) {
 </head>
 <body>
 <form action="#" method="post" id="datos">
-    <label for="nombre">Nombre: </label><input type="text" name="nombre" id="nombre"><br><span id='errorNombre' for='nombre' class='<?php if(!isset($_POST['enviar']) || validarNombre($_POST['nombre'])) echo "oculto "; ?>error'>El nombre debe tener más de 3 caracteres.</span><br>
-    <label for="dni">DNI: </label><input type="text" name="dni" id="dni"><br><span id='errorDni' for='dni' class='<?php if(!isset($_POST['enviar']) || validarDni($_POST['dni'])) echo "oculto "; ?>error'>El DNI introducido no es correcto.</span><br>
-    <label for="pass1">Password: </label><input type="password" name="pass1" id="pass1"><br><span id='errorPass' for='pass1' class='<?php if(!isset($_POST['enviar']) || validarPasswords($_POST['pass1'], $_POST["pass2"])) echo "oculto "; ?>error'>Las contraseñas no coinciden o no cumplen los requisitos.</span><br>
+    <label for="nombre">Nombre: </label><input type="text" name="nombre" id="nombre"><br>
+    <label for="dni">DNI: </label><input type="text" name="dni" id="dni"><br>
+    <label for="pass1">Password: </label><input type="password" name="pass1" id="pass1"><br>
     <label for="pass2">Repite la password: </label><input type="password" name="pass2" id="pass2">
     <input type="submit" name="enviar" id="enviar" value="Enviar">
+    <br>
+    <div id="errores"></div>
 </form>
 <script src="jquery-3.5.1.js"></script>
 <script src="validar.js"></script>
@@ -51,6 +50,13 @@ if (isset($_POST["enviar"])) {
                 },
                 success : function (json) {
                     console.log(json);
+                    for (let i = 0; i < json.length; i++) {
+                        $("#errores").append(`<p>${json[i]}</p>`)
+                    }
+                    if (json.length == 0) {
+                        $("#datos").submit(); //TODO: HACER QUE SE ENVIE EL FORMULARIO
+                    }
+
                 },
                 error : function () {
 
