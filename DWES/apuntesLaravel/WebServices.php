@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * Class SOAP
+ * @property string $texto
+ */
 class SOAP {
 
     private $class = SoapServicesFunciones::class;
