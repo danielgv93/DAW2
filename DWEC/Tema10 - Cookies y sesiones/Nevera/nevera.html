@@ -16,49 +16,50 @@
 <div class="container">
     <div class="row justify-content-center">
 
-        <div class="col">
+        <section class="col">
             <img class="img-fluid" src="img/cerrada.jpg">
-        </div>
+        </section>
 
-        <div class="col">
+        <section class="col">
+            <div class="oculto" id="sectionNevera">
+                <h2 class="text-center">Nevera</h2>
+            </div>
+
+        </section>
+
+        <section class="col">
             <h2 class="text-center">Comida para comprar</h2>
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Leche</span>
                 </div>
-                <input type="number" class="form-control" name="productosTienda" min="0" value="0" >
+                <input type="number" class="form-control" name="productosTienda" id="leche" min="0" value="0" >
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Agua</span>
                 </div>
-                <input type="number" class="form-control" name="productosTienda" min="0" value="0" >
+                <input type="number" class="form-control" name="productosTienda" id="agua" min="0" value="0" >
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Zumo</span>
                 </div>
-                <input type="number" class="form-control" name="productosTienda" min="0" value="0" >
+                <input type="number" class="form-control" name="productosTienda" id="zumo" min="0" value="0" >
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Yogur</span>
                 </div>
-                <input type="number" class="form-control" name="productosTienda" min="0" value="0" >
+                <input type="number" class="form-control" name="productosTienda" id="yogur" min="0" value="0" >
             </div>
-
 
             <div class="form-check">
                 <input type="button" class="btn btn-primary" id="comprar" value="Comprar">
             </div>
-        </div>
+        </section>
 
-
-        <div class="col oculto" id="productosNevera">
-            <h2 class="text-center">Comida de la nevera para retirar</h2>
-
-        </div>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
