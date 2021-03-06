@@ -5,7 +5,8 @@ var estadoNevera = true;
 function inicio() {
     let nevera = document.querySelector("img");
     let comprarBoton = document.getElementById("comprar");
-    let productosHtml = document.getElementsByName("productosTienda");
+
+    generarProductosNevera()
     getInfoNeveraSection()
 
     nevera.addEventListener("click", function () {
@@ -15,7 +16,7 @@ function inicio() {
     })
     comprarBoton.addEventListener("click", function () {
         if (!estadoNevera) {
-            guardarProductosLocal(productosHtml);
+            guardarProductosLocal();
             generarProductosNevera()
             getInfoNeveraSection()
         } else {
@@ -25,9 +26,19 @@ function inicio() {
     })
 }
 
-function guardarProductosLocal(productosHtml) {
+function guardarProductosLocal() {
+    let productosHtml = document.getElementsByName("productosTienda");
     for (let i = 0; i < productosHtml.length; i++) {
-        localStorage.setItem(productosHtml[i].getAttribute("id"), productosHtml[i].value);
+        if (productosHtml[i].value !== 0) {
+            if (localStorage.getItem(productosHtml[i].getAttribute("id")) == null) {
+                localStorage.setItem(productosHtml[i].getAttribute("id"), productosHtml[i].value);
+            } else {
+                localStorage.setItem(productosHtml[i].getAttribute("id"), parseInt(localStorage.getItem(productosHtml[i].id)) + parseInt(productosHtml[i].value));
+            }
+        }
+    }
+    for (const input of productosHtml) {
+        input.value = 0;
     }
 }
 
@@ -40,31 +51,25 @@ function generarProductosNevera() {
     div.setAttribute("id", "productosNevera");
     for (let i = 0; i < localStorage.length; i++) {
         let clave = Object.keys(localStorage)[i];
-        let producto = document.createElement("div");
-        producto.className = "row align-items-center";
-        let boton = document.createElement("input");
-        boton.setAttribute("style", "button");
-        boton.className = "btn btn-primary boton";
-        boton.setAttribute("id", clave)
-        boton.setAttribute("type", "button")
-        boton.style.width = "100px"
-        boton.value = "Consumir";
-        boton.addEventListener("click", function (){
-            localStorage.setItem(clave, localStorage.getItem(Object.keys(localStorage)[i])-1);
-            getInfoNeveraSection()
-            if (parseInt(localStorage.getItem(Object.keys(localStorage)[i])) === 0) {
-                this.remove();
-                producto.remove();
-                alert("Sin " + span.innerHTML + " en la nevera");
-            }
-        }, false);
         let img = document.createElement("img");
         img.src = "img/" + clave + ".png";
         img.style.height = "70px";
+        img.className = "imagenProducto col-3 img-fluid";
+        img.setAttribute("id", clave);
+        img.addEventListener("click", function (){
+            let valor = localStorage.getItem(Object.keys(localStorage)[i]);
+            localStorage.setItem(clave, valor-1);
+            getInfoNeveraSection()
+            if (parseInt(valor) === 1) {
+                this.remove();
+                alert("Sin " + this.id + " en la nevera");
+            }
+            if (parseInt(valor) === 3) {
+                alert(`Ya solo queda 2 unidades de ${clave} en la nevera. Compra más!`)
+            }
+        }, false);
         if (parseInt(localStorage.getItem(Object.keys(localStorage)[i])) > 0) {
-            producto.appendChild(img);
-            producto.appendChild(boton);
-            div.appendChild(producto);
+            div.appendChild(img);
         }
     }
     document.querySelector("#sectionNevera").appendChild(div);
