@@ -9,7 +9,7 @@ function inicio() {
     generarProductosNevera()
     getInfoNeveraSection()
 
-    nevera.addEventListener("click", function () {
+    nevera.addEventListener("dblclick", function () {
         nevera.src = estadoNevera ? "img/abierta.jpg" : "img/cerrada.jpg";
         estadoNevera = !estadoNevera;
         document.querySelector("#sectionNevera").className = estadoNevera ? "oculto" : "";
