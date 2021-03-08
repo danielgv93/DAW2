@@ -4,15 +4,16 @@ function Plantilla(nPedido, descripcion, pago, total) {
     this.total = total;
     this.calcular = calcular;
     this.pago = pago;
+    this.ver = ver;
 }
 
 function ver() {
-    let info = "NºPedido: " + this.nPedido + "\n";
+    let texto = "NºPedido: " + this.nPedido + "\n";
     for (let i = 0; i < this.descripcion.length; i++) {
-        info += this.descripcion[i] + "\n";
+        texto += this.descripcion[i] + "\n";
     }
-    info += this.total + "\n" + this.pago;
-    return info;
+    texto += this.total + "\n" + this.pago;
+    return texto;
 }
 
 function calcular() {

@@ -4,12 +4,15 @@ let arrayPedidos = Array();
 let idPedido = localStorage.length;
 
 function inicio() {
+    crearSelect();
     validarCajas();
     borrarCajas();
     calcularSubtotales();
     registrarPedidoArray();
     almacenarEnLocal();
-    document.getElementById("mostrarInfo").addEventListener("click", mostrarInfo)
+    document.getElementById("mostrarInfo").addEventListener("click", mostrarInfo);
+    document.getElementById("mostrarTotal").addEventListener("click", mostrarTotal);
+
 }
 
 function validarCajas() {
@@ -87,6 +90,7 @@ function almacenarEnLocal() {
             localStorage.setItem(`pedido${arrayPedidos[i].nPedido}`, JSON.stringify(arrayPedidos[i]));
         }
         console.log(localStorage);
+        crearSelect();
     })
 
 }
@@ -96,7 +100,46 @@ function mostrarInfo() {
     info.innerHTML = "";
     arrayPedidos = Array();
     for (let i = 0; i < localStorage.length; i++) {
-        arrayPedidos.push(JSON.parse(localStorage[i].getItem(Object.keys(localStorage)[i])));
+        arrayPedidos.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
     }
+    let texto = "";
+    for (let i = 0; i < arrayPedidos.length; i++) {
+        texto += "Pedido " + arrayPedidos[i].nPedido + "<br>" + arrayPedidos[i].descripcion.join("-") + "<br>" +
+            "Pago: " + arrayPedidos[i].pago + "<br>" + arrayPedidos[i].total + "€<hr>";
+    }
+    info.innerHTML = texto;
     console.log(arrayPedidos);
+}
+
+function mostrarTotal() {
+    arrayPedidos = Array();
+    for (let i = 0; i < localStorage.length; i++) {
+        arrayPedidos.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+    }
+    let total = 0;
+    for (let i = 0; i < arrayPedidos.length; i++) {
+        total += parseFloat(arrayPedidos[i].total);
+    }
+    alert("TOTAL: " + total + "€")
+}
+
+function crearSelect() {
+    let select = document.getElementById("pedido");
+    select.innerHTML = "";
+    arrayPedidos = Array();
+    for (let i = 0; i < localStorage.length; i++) {
+        arrayPedidos.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+    }
+    for (let i = 0; i < localStorage.length; i++) {
+        let option = document.createElement("option");
+        option.value = JSON.parse(localStorage.getItem(localStorage.key(i))).nPedido;
+        option.innerHTML = "Pedido: " + JSON.parse(localStorage.getItem(localStorage.key(i))).nPedido;
+        select.appendChild(option);
+    }
+    select.addEventListener("change", function () {
+        let ventana = window.open("", "_blank", "width=400px, height=200px, top=400px");
+        let info = "Pedido: " + arrayPedidos[this.selectedIndex].nPedido + "<br>" + arrayPedidos[this.selectedIndex].descripcion.join("-") + "<br>" +
+            "Pago: " + arrayPedidos[this.selectedIndex].pago + "<br>" + arrayPedidos[this.selectedIndex].total + "€<hr>";
+        ventana.document.write(info);
+    })
 }
