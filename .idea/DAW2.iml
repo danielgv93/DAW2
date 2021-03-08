@@ -58,8 +58,8 @@
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema9 - JSON/Ej4" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema9 - JSON" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema10 - Cookies y sesiones/Cookies" />
-      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema10 - Cookies y sesiones/Sesiones" />
       <excludeFolder url="file://$MODULE_DIR$/DWES/apuntesLaravel" />
+      <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema10 - Cookies y sesiones/Sesiones" />
     </content>
     <content url="file://$MODULE_DIR$/DIW/Examen jQuery" />
     <content url="file://$MODULE_DIR$/DIW/T4-jQuery" />

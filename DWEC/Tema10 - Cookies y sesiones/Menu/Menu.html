@@ -19,19 +19,19 @@
                 <th>Subtotal</th>
             </tr>
             <tr>
-                <td>Pizza Cuatro Estaciones</td>
+                <td name="producto">Pizza Cuatro Estaciones</td>
                 <td><input type="text" name="cantidad" id="pizzaCtd" value="0"></td>
                 <td><input type="text" name="precio" id="pizzaPrecio" readonly value="6.5"></td>
                 <td><input type="text" name="subtotal" id="pizzaSub" readonly value="0"></td>
             </tr>
             <tr>
-                <td>Tortellini</td>
+                <td name="producto">Tortellini</td>
                 <td><input type="text" name="cantidad" id="tortelliniCtd" value="0"></td>
                 <td><input type="text" name="precio" id="tortelliniPrecio" readonly value="16.5"></td>
                 <td><input type="text" name="subtotal" id="tortelliniSub" readonly value="0"></td>
             </tr>
             <tr>
-                <td>Lasagna</td>
+                <td name="producto">Lasagna</td>
                 <td><input type="text" name="cantidad" id="lasagnaCtd" value="0"></td>
                 <td><input type="text" name="precio" id="lasagnaPrecio" readonly value="12.5"></td>
                 <td><input type="text" name="subtotal" id="lasagnaSub" readonly value="0"></td>
@@ -52,10 +52,18 @@
                 <td colspan="4" class="text-center">
                     <input class="btn btn-info" type="button" id="registrar" value="Registrar">
                     <input class="btn btn-info" type="button" id="borrar" value="Borrar datos">
+                    <input class="btn btn-info" type="button" id="almacenar" value="Almacenar en local">
+                    <input class="btn btn-info" type="button" id="mostrarTotal" value="Mostrar € de todos los pedidos">
+                    <input class="btn btn-info" type="button" id="mostrarInfo" value="Mostrar info pedidos">
                 </td>
             </tr>
         </table>
     </fieldset>
+    <div class="row">
+        <div id="info">
+
+        </div>
+    </div>
 </div>
 
 

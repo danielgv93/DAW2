@@ -1,7 +1,8 @@
-function plantilla(nPedido, descripcion, pago) {
+function Plantilla(nPedido, descripcion, pago, total) {
     this.nPedido = nPedido;
     this.descripcion = descripcion;
-    this.total = Calcular;
+    this.total = total;
+    this.calcular = calcular;
     this.pago = pago;
 }
 
@@ -14,11 +15,11 @@ function ver() {
     return info;
 }
 
-function Calcular() {
+function calcular() {
     let subtotales = document.getElementsByName("subtotal");
     let total = 0;
     for (let i = 0; i < subtotales.length; i++) {
         total += subtotales[i].value;
     }
-    return total;
+    this.total = total;
 }
