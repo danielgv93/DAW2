@@ -29,10 +29,14 @@ function validarCajas() {
 function borrarCajas() {
     let cantidadCajas = document.getElementsByName("cantidad");
     let botonBorrar = document.getElementById("borrar");
+    let subtotales = document.getElementsByName("subtotal");
+    let total = document.getElementById("total");
     botonBorrar.addEventListener("click", function () {
         for (let i = 0; i < cantidadCajas.length; i++) {
             cantidadCajas[i].value = 0;
+            subtotales[i].value = 0;
         }
+        total.value = 0;
     })
 }
 
