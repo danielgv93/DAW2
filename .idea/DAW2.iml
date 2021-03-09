@@ -61,6 +61,7 @@
       <excludeFolder url="file://$MODULE_DIR$/DWES/apuntesLaravel" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema10 - Cookies y sesiones/Sesiones" />
       <excludeFolder url="file://$MODULE_DIR$/DWEC/Tema3/ArraysYFunciones/Ej5" />
+      <excludeFolder url="file://$MODULE_DIR$/DWES" />
     </content>
     <content url="file://$MODULE_DIR$/DIW/Examen jQuery" />
     <content url="file://$MODULE_DIR$/DIW/T4-jQuery" />

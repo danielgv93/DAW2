@@ -1,11 +1,11 @@
 //SELECT
 function Selects() {
     // Get value from select
-    <select id="ddlViewBy">
+   /* <select id="ddlViewBy">
         <option value="1">test1</option>
         <option value="2" selected="selected">test2</option>
         <option value="3">test3</option>
-    </select>
+    </select>*/
 
     var e = document.getElementById("ddlViewBy");
     var strUser = e.value;
